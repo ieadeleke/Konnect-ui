@@ -7,8 +7,10 @@
    a cylinder. Cards step down in height toward the centre and dim at
    the edges (brightness) for depth. The viewport's clip-path ellipse
    curves the bottom edge. (Nav lives in the DisplayLayout.)
-   Static layout. Plain grey rounded rectangles (images later).
+   Static layout. Image slots come from the central images config.
    ============================================================ */
+
+import { IMAGES } from "../../assets/images";
 
 // `scale`  = width factor (drives the gaps — leave these alone).
 // `scaleY` = height factor, stepping down from card 1 → 4 (mirrored 5-7).
@@ -61,10 +63,10 @@ export default function Hero() {
         </div>
 
         {/* headline — big, tightly stacked, poster-weight */}
-        <h1 className="mt-7 font-display uppercase leading-[1.15] tracking-[-0.01em] text-wolf-cream text-[clamp(3rem,9.5vw,6.5rem)]">
-          Fresh, Delicious &amp;
+        <h1 className="mt-7 font-display font-extrabold leading-[1.05] tracking-[-0.02em] text-wolf-cream text-[clamp(2.7rem,8vw,5.5rem)]">
+          Fresh, delicious &amp;
           <br />
-          Delivered To Your Door!
+          delivered to your door!
         </h1>
 
         {/* CTAs */}
@@ -107,7 +109,7 @@ export default function Hero() {
               key={i}
               className="relative flex-none overflow-hidden rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.3)]"
               style={{
-                width: "max(160px, 15.8vw)",
+                width: "max(108px, 15.8vw)",
                 aspectRatio: "180 / 340",
                 background: SHADES[i],
                 transformOrigin: card.origin,
@@ -116,7 +118,14 @@ export default function Hero() {
                 marginLeft: card.ml ? `${card.ml}px` : undefined,
               }}
               aria-hidden="true"
-            />
+            >
+              <img
+                src={IMAGES.heroCards[i % IMAGES.heroCards.length]}
+                alt=""
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </div>
           ))}
         </div>
       </div>

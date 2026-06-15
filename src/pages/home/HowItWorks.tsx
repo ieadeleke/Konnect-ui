@@ -181,7 +181,7 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section className="relative bg-[#111111] py-24 text-wolf-cream md:py-28">
+    <section className="relative bg-[#111111] pt-24 pb-8 text-wolf-cream md:pt-28 md:pb-10">
       {/* soft glow */}
       <div
         className="pointer-events-none absolute inset-0 opacity-70"
@@ -194,7 +194,7 @@ export default function HowItWorks() {
 
       <div className="relative mx-auto max-w-7xl px-6">
         {/* ---------- heading ---------- */}
-        <h2 className="text-center font-display text-4xl uppercase leading-[1.05] tracking-tight text-wolf-cream md:text-5xl">
+        <h2 className="text-center font-display text-4xl leading-[1.05] tracking-tight text-wolf-cream md:text-5xl">
           How to order on <span className="text-wolf-orange">Wolfood</span>
         </h2>
 
@@ -226,7 +226,7 @@ export default function HowItWorks() {
                 className="flex flex-col justify-center py-6 md:min-h-[58vh] md:py-0"
               >
                 <div
-                  className={`grid h-12 w-12 place-items-center rounded-2xl font-display text-xl ring-1 transition-all duration-500 ${
+                  className={`grid h-12 w-12 place-items-center rounded-2xl font-display text-xl font-bold ring-1 transition-all duration-500 ${
                     active === i
                       ? "bg-wolf-orange text-wolf-green-dark ring-transparent shadow-[0_0_28px_rgba(245,60,8,0.45)]"
                       : "bg-[#262626] text-wolf-cream/70 ring-white/15"
@@ -235,7 +235,7 @@ export default function HowItWorks() {
                   {step.n}
                 </div>
                 <h3
-                  className={`mt-5 font-display text-2xl uppercase tracking-tight transition-colors duration-500 md:text-3xl ${
+                  className={`mt-5 font-display text-2xl tracking-tight transition-colors duration-500 md:text-3xl ${
                     active === i ? "text-wolf-cream" : "text-wolf-cream/45"
                   }`}
                 >
@@ -297,7 +297,7 @@ export default function HowItWorks() {
 
         {/* trailing space so the last step can glide up to the middle (desktop),
             letting the progress ball roll to the end instead of snapping */}
-        <div aria-hidden="true" className="hidden h-[28vh] md:block" />
+        <div aria-hidden="true" className="hidden h-[10vh] md:block" />
       </div>
     </section>
   );

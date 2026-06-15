@@ -1,11 +1,11 @@
 /* ============================================================
    WOLFOOD — Partner section (under "How to order on Wolfood")
-   Alternating rows (text card ↔ image), one for restaurants and
-   one for riders. Layout inspired by v.png; copy/art original.
-   Image areas use a soft gradient + faint icon watermark.
+   Alternating rows (text ↔ image), one for restaurants and one
+   for riders. Clean, flat layout inspired by v.png: airy light
+   cards, simple dot bullets, small pill buttons, no heavy shadows.
    ============================================================ */
 
-import type { ReactNode } from "react";
+import { IMAGES } from "../../assets/images";
 
 type Row = {
   title: string;
@@ -13,25 +13,9 @@ type Row = {
   points: string[];
   cta: string;
   variant: "green" | "orange";
-  art: ReactNode;
+  img: string;
+  imgAlt: string;
 };
-
-const Storefront = (
-  <svg viewBox="0 0 24 24" className="h-24 w-24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M3.5 9 5 4h14l1.5 5" />
-    <path d="M4 9v11h16V9" />
-    <path d="M3.5 9h17" />
-    <path d="M9.5 20v-6h5v6" />
-  </svg>
-);
-
-const Scooter = (
-  <svg viewBox="0 0 24 24" className="h-24 w-24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <circle cx="5.5" cy="17.5" r="2.5" />
-    <circle cx="18.5" cy="17.5" r="2.5" />
-    <path d="M8 17.5h8l2-6h-4l-1.5-4H10" />
-  </svg>
-);
 
 const ROWS: Row[] = [
   {
@@ -44,7 +28,8 @@ const ROWS: Row[] = [
     ],
     cta: "Become a partner",
     variant: "green",
-    art: Storefront,
+    img: IMAGES.partnerRestaurant,
+    imgAlt: "A busy restaurant kitchen",
   },
   {
     title: "Become a Rider",
@@ -56,17 +41,10 @@ const ROWS: Row[] = [
     ],
     cta: "Start riding",
     variant: "orange",
-    art: Scooter,
+    img: IMAGES.partnerRider,
+    imgAlt: "A delivery rider on a motorbike",
   },
 ];
-
-function Check() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="m20 6-11 11-5-5" />
-    </svg>
-  );
-}
 
 function Arrow() {
   return (
@@ -85,7 +63,7 @@ export default function Partners() {
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
             Partner with Wolfood
           </span>
-          <h2 className="mt-3 font-display text-4xl uppercase leading-[1.05] tracking-tight text-wolf-green md:text-5xl">
+          <h2 className="mt-3 font-display text-4xl leading-[1.05] tracking-tight text-wolf-green md:text-5xl">
             Grow with us, <span className="text-wolf-orange">ride with us</span>
           </h2>
           <p className="mt-4 text-base text-wolf-green/70">
@@ -94,36 +72,41 @@ export default function Partners() {
         </div>
 
         {/* ---------- alternating rows ---------- */}
-        <div className="mt-14 space-y-8">
+        <div className="mt-14 space-y-6 md:mt-16 md:space-y-8">
           {ROWS.map((row, i) => {
             const flipped = i % 2 === 1; // odd rows put the image on the left
             return (
-              <div key={row.title} className="grid gap-6 md:grid-cols-3">
-                {/* text card (2 of 3 cols) — background lives here only */}
+              <div
+                key={row.title}
+                className={`grid items-stretch gap-6 md:gap-8 ${
+                  flipped
+                    ? "md:grid-cols-[1fr_1.5fr]"
+                    : "md:grid-cols-[1.5fr_1fr]"
+                }`}
+              >
+                {/* text — background lives here only */}
                 <div
-                  className={`flex flex-col justify-center rounded-[2rem] bg-wolf-cream p-8 shadow-sm ring-1 ring-black/5 md:col-span-2 md:p-14 ${
+                  className={`rounded-[1.75rem] bg-wolf-cream/50 px-7 py-8 md:px-12 md:py-12 ${
                     flipped ? "md:order-2" : ""
                   }`}
                 >
-                  <h3 className="font-display text-3xl uppercase leading-none tracking-tight text-wolf-green md:text-4xl">
+                  <h3 className="font-display text-2xl leading-tight tracking-tight text-wolf-green md:text-3xl">
                     {row.title}
                   </h3>
-                  <p className="mt-4 max-w-md text-base leading-relaxed text-wolf-green/70">
+                  <p className="mt-3 max-w-md text-sm leading-relaxed text-wolf-green/60">
                     {row.desc}
                   </p>
-                  <ul className="mt-7 space-y-3.5">
+                  <ul className="mt-6 space-y-3">
                     {row.points.map((p) => (
                       <li key={p} className="flex items-start gap-3">
-                        <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-wolf-orange/15 text-wolf-orange">
-                          <Check />
-                        </span>
-                        <span className="text-[0.95rem] text-wolf-green/80">{p}</span>
+                        <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-wolf-orange" />
+                        <span className="text-sm text-wolf-green/70">{p}</span>
                       </li>
                     ))}
                   </ul>
                   <a
                     href="#"
-                    className={`mt-9 inline-flex w-fit items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-wide transition-transform hover:-translate-y-0.5 ${
+                    className={`mt-7 inline-flex w-fit items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:-translate-y-0.5 ${
                       row.variant === "orange"
                         ? "bg-wolf-orange text-wolf-green-dark"
                         : "bg-wolf-green text-wolf-cream"
@@ -134,17 +117,18 @@ export default function Partners() {
                   </a>
                 </div>
 
-                {/* image panel (1 of 3 cols) — separate, beside the text */}
+                {/* image */}
                 <div
-                  className={`relative min-h-[260px] overflow-hidden rounded-[2rem] shadow-sm md:col-span-1 md:min-h-[380px] ${
+                  className={`relative min-h-[220px] overflow-hidden rounded-[1.75rem] bg-neutral-200 md:min-h-[320px] ${
                     flipped ? "md:order-1" : ""
                   }`}
-                  aria-hidden="true"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300" />
-                  <div className="absolute inset-0 grid place-items-center text-neutral-400/70">
-                    {row.art}
-                  </div>
+                  <img
+                    src={row.img}
+                    alt={row.imgAlt}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
                 </div>
               </div>
             );

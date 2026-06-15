@@ -2,8 +2,10 @@
    WOLFOOD — Bento category section (under the hero)
    A featured "Food Delivery" card (2×2) with "Groceries" and
    "Pharmacy" coming-soon tiles stacked beside it. Collapses to a
-   single column on mobile. Grey boxes stand in for illustrations.
+   single column on mobile. Image slots come from the central config.
    ============================================================ */
+
+import { IMAGES } from "../../assets/images";
 
 export default function Bento() {
   return (
@@ -14,7 +16,7 @@ export default function Bento() {
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
             What&apos;s on Wolfood
           </span>
-          <h2 className="mt-3 font-display text-4xl uppercase leading-[1.05] tracking-tight text-wolf-green md:text-5xl">
+          <h2 className="mt-3 font-display text-4xl leading-[1.05] tracking-tight text-wolf-green md:text-5xl">
             Everything you crave,{" "}
             <span className="text-wolf-orange">delivered.</span>
           </h2>
@@ -32,7 +34,7 @@ export default function Bento() {
               <span className="inline-block rounded-full bg-wolf-orange px-3 py-1 text-xs font-semibold text-wolf-green-dark">
                 Available now
               </span>
-              <h3 className="mt-4 font-display text-3xl uppercase leading-none tracking-tight md:text-4xl">
+              <h3 className="mt-4 font-display text-3xl leading-none tracking-tight md:text-4xl">
                 Food Delivery
               </h3>
               <p className="mt-3 max-w-sm text-sm text-wolf-cream/80">
@@ -47,17 +49,21 @@ export default function Bento() {
                 <span aria-hidden="true">→</span>
               </a>
             </div>
-            {/* illustration placeholder */}
-            <div
-              className="relative mt-7 min-h-[170px] flex-1 rounded-2xl bg-neutral-300 transition-transform duration-300 group-hover:scale-[1.01]"
-              aria-hidden="true"
-            />
+            {/* featured image */}
+            <div className="relative mt-7 min-h-[170px] flex-1 overflow-hidden rounded-2xl bg-neutral-300 transition-transform duration-300 group-hover:scale-[1.01]">
+              <img
+                src={IMAGES.bentoFood}
+                alt="A hot plate of Nigerian jollof rice"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
           </article>
 
           {/* Groceries (coming soon) */}
           <article className="group flex flex-col rounded-3xl bg-white p-6 ring-1 ring-black/5">
             <div className="flex items-start justify-between gap-3">
-              <h3 className="font-display text-2xl uppercase leading-none tracking-tight text-wolf-green">
+              <h3 className="font-display text-2xl leading-none tracking-tight text-wolf-green">
                 Groceries
               </h3>
               <span className="shrink-0 rounded-full bg-wolf-cream px-3 py-1 text-xs font-semibold text-wolf-green/60">
@@ -76,7 +82,7 @@ export default function Bento() {
           {/* Pharmacy (coming soon) */}
           <article className="group flex flex-col rounded-3xl bg-white p-6 ring-1 ring-black/5">
             <div className="flex items-start justify-between gap-3">
-              <h3 className="font-display text-2xl uppercase leading-none tracking-tight text-wolf-green">
+              <h3 className="font-display text-2xl leading-none tracking-tight text-wolf-green">
                 Pharmacy
               </h3>
               <span className="shrink-0 rounded-full bg-wolf-cream px-3 py-1 text-xs font-semibold text-wolf-green/60">

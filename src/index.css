@@ -2,7 +2,7 @@
 
 /* WOLFOOD brand tokens (Tailwind v4 CSS-first theme) */
 @theme {
-  --font-display: "Anton", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
   /* Black / grey / orange-red rebrand.
      Token names kept for now (wolf-green = ink, wolf-cream = light surface). */
@@ -22,6 +22,11 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
+}
+
+/* Sora renders light by default at heading sizes — make headings bold */
+h1, h2, h3, h4 {
+  font-weight: 700;
 }
 
 /* Cinematic fan-in for the hero cards: rise + fade as they settle */

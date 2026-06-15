@@ -8,16 +8,18 @@
    legible) — swap when the real copy lands.
    ============================================================ */
 
-type Pick = { name: string; meta: string; shade: string };
+import { IMAGES } from "../../assets/images";
+
+type Pick = { name: string; meta: string; img: string };
 
 const PICKS: Pick[] = [
-  { name: "Mama Nkechi Kitchen", meta: "Jollof · ★ 4.8 · 25 min", shade: "#d8d8d8" },
-  { name: "Suya Republic", meta: "Barbecue · ★ 4.9 · 30 min", shade: "#cfcfcf" },
-  { name: "Wrap & Roll", meta: "Shawarma · ★ 4.7 · 18 min", shade: "#dadada" },
-  { name: "The Pepper Pot", meta: "Soups · ★ 4.6 · 35 min", shade: "#d2d2d2" },
-  { name: "Crust & Co.", meta: "Pizza · ★ 4.8 · 28 min", shade: "#d6d6d6" },
-  { name: "Ofada Republic", meta: "Ofada · ★ 4.7 · 32 min", shade: "#d4d4d4" },
-  { name: "Sweet Tooth", meta: "Desserts · ★ 4.9 · 20 min", shade: "#cacaca" },
+  { name: "Mama Nkechi Kitchen", meta: "Jollof · ★ 4.8 · 25 min", img: IMAGES.picks[0] },
+  { name: "Suya Republic", meta: "Barbecue · ★ 4.9 · 30 min", img: IMAGES.picks[1] },
+  { name: "Wrap & Roll", meta: "Shawarma · ★ 4.7 · 18 min", img: IMAGES.picks[2] },
+  { name: "The Pepper Pot", meta: "Soups · ★ 4.6 · 35 min", img: IMAGES.picks[3] },
+  { name: "Crust & Co.", meta: "Pizza · ★ 4.8 · 28 min", img: IMAGES.picks[4] },
+  { name: "Ofada Republic", meta: "Ofada · ★ 4.7 · 32 min", img: IMAGES.picks[5] },
+  { name: "Sweet Tooth", meta: "Desserts · ★ 4.9 · 20 min", img: IMAGES.picks[6] },
 ];
 
 function Pill({ p }: { p: Pick }) {
@@ -27,10 +29,11 @@ function Pill({ p }: { p: Pick }) {
       className="group flex w-full items-center gap-4 rounded-full bg-white p-2 pr-5 shadow-sm ring-1 ring-black/5 transition duration-300 hover:-translate-y-0.5 hover:shadow-md sm:w-[280px]"
     >
       {/* round thumbnail */}
-      <span
-        className="h-14 w-14 shrink-0 rounded-full ring-1 ring-black/5 transition-transform duration-300 group-hover:scale-105"
-        style={{ background: p.shade }}
-        aria-hidden="true"
+      <img
+        src={p.img}
+        alt={p.name}
+        loading="lazy"
+        className="h-14 w-14 shrink-0 rounded-full object-cover ring-1 ring-black/5 transition-transform duration-300 group-hover:scale-105"
       />
       <span className="min-w-0">
         <span className="block truncate font-bold text-wolf-green">{p.name}</span>
@@ -49,7 +52,7 @@ export default function TopPicks() {
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
             Featured kitchens
           </span>
-          <h2 className="mt-3 font-display text-4xl uppercase leading-[1.05] tracking-tight text-wolf-green md:text-5xl">
+          <h2 className="mt-3 font-display text-4xl leading-[1.05] tracking-tight text-wolf-green md:text-5xl">
             Top picks for you
           </h2>
           <p className="mt-4 text-base text-wolf-green/70">

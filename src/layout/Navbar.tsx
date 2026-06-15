@@ -1,9 +1,11 @@
 /* ============================================================
    WOLFOOD — top navigation
-   Shared chrome rendered by DisplayLayout. Sits as a transparent
-   overlay pinned to the top of the page (cream text reads on the
-   green hero behind it).
+   Shared chrome rendered by DisplayLayout. Fixed to the top:
+   transparent over the dark hero, fades to a solid bar on scroll.
+   Below lg it collapses to a hamburger + dropdown menu.
    ============================================================ */
+
+import { useEffect, useState } from "react";
 
 const NAV_LINKS = ["Home", "Key Features", "About Us", "Service", "Testimonial", "FAQ"];
 
@@ -22,14 +24,37 @@ function WolfMark() {
 }
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const solid = scrolled || open;
+
   return (
-    <header className="absolute inset-x-0 top-0 z-30">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
+    <header
+      className={`fixed inset-x-0 top-0 z-30 transition-colors duration-300 ${
+        solid ? "bg-wolf-green/95 shadow-sm ring-1 ring-black/5 backdrop-blur" : "bg-transparent"
+      }`}
+    >
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-300 ${
+          scrolled ? "py-4" : "py-6"
+        }`}
+      >
         <a href="#" className="flex items-center gap-2">
           <WolfMark />
-          <span className="font-display text-2xl tracking-wide text-wolf-cream">WOLFOOD</span>
+          <span className="font-display text-2xl font-extrabold tracking-wide text-wolf-cream">
+            WOLFOOD
+          </span>
         </a>
 
+        {/* desktop links */}
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => (
             <a
@@ -42,24 +67,55 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <button className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-wolf-green-dark transition-transform hover:-translate-y-0.5">
-          <svg
-            viewBox="0 0 24 24"
-            className="h-4 w-4"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
+        <div className="flex items-center gap-3">
+          <button className="hidden items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:flex">
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="9" cy="20" r="1.4" />
+              <circle cx="18" cy="20" r="1.4" />
+              <path d="M2 3h3l2.5 13h11L21 7H6" />
+            </svg>
+            CART
+          </button>
+
+          {/* hamburger (mobile) */}
+          <button
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="grid h-10 w-10 place-items-center rounded-full text-wolf-cream ring-1 ring-white/20 lg:hidden"
           >
-            <circle cx="9" cy="20" r="1.4" />
-            <circle cx="18" cy="20" r="1.4" />
-            <path d="M2 3h3l2.5 13h11L21 7H6" />
-          </svg>
-          CART
-        </button>
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
+        </div>
       </div>
+
+      {/* mobile dropdown */}
+      {open && (
+        <div className="border-t border-white/10 bg-wolf-green px-6 pb-6 pt-2 lg:hidden">
+          <nav className="flex flex-col" aria-label="Mobile">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link}
+                href="#"
+                onClick={() => setOpen(false)}
+                className="border-b border-white/5 py-3 text-sm font-medium uppercase tracking-wide text-wolf-cream/85 transition-colors hover:text-wolf-orange"
+              >
+                {link}
+              </a>
+            ))}
+            <button className="mt-5 flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-wolf-green-dark">
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="9" cy="20" r="1.4" />
+                <circle cx="18" cy="20" r="1.4" />
+                <path d="M2 3h3l2.5 13h11L21 7H6" />
+              </svg>
+              Order now
+            </button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
