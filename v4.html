@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Foodtrap — Fresh, Delicious & Delivered To Your Door</title>
+
+<!-- ============================================================
+     V4 — rebuilt from v4.webp screenshot, layout-faithful.
+     One self-contained file. All images = grey solid boxes.
+
+     LEGIBILITY NOTE: headings are transcribed exactly from the
+     screenshot. Smaller text (marked  [[CHECK]]  in comments) was
+     too low-res to read precisely — placeholder copy used; confirm
+     or send a higher-res export and I'll set every word exact.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  /* ===================== TOKENS ===================== */
+  :root{
+    --green:#15402a;          /* deep forest green (header/hero/footer) */
+    --green-2:#1d5236;
+    --leaf:#3a9d52;           /* brand green accent */
+    --orange:#f6911e;         /* primary CTA orange */
+    --yellow:#ffc529;         /* yellow button */
+    --cream:#f7f3ea;          /* page background */
+    --pink:#fbe9e3;           /* testimonials band */
+    --ink:#1d2a22;            /* body text */
+    --ink-soft:#5e6b62;
+    --img:#d4d4d4;            /* GREY IMAGE BOX */
+    --white:#fff;
+    --line:#e7e2d6;
+    --maxw:1200px;
+    --font-head:"Poppins",system-ui,sans-serif;
+    --font-body:"Inter",system-ui,sans-serif;
+    --shadow:0 14px 34px rgba(21,64,42,.10);
+    --shadow-sm:0 4px 14px rgba(21,64,42,.07);
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; font-family:var(--font-body); color:var(--ink); background:var(--cream); line-height:1.6; }
+  h1,h2,h3,h4{ font-family:var(--font-head); margin:0; line-height:1.15; }
+  p{ margin:0; } a{ color:inherit; text-decoration:none; } ul{ margin:0; padding:0; list-style:none; }
+  button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+  img,svg{ display:block; max-width:100%; }
+  :focus-visible{ outline:3px solid var(--orange); outline-offset:2px; }
+  .wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:22px; }
+  .section{ padding-block:74px; }
+  .eyebrow{ color:var(--orange); font-family:var(--font-head); font-weight:600; font-size:.85rem; letter-spacing:.12em; text-transform:uppercase; display:inline-block; margin-bottom:10px; }
+  .stitle{ font-size:clamp(1.7rem,3.6vw,2.5rem); font-weight:700; color:var(--green); }
+
+  /* grey image box helper */
+  .img{ background:var(--img); border-radius:14px; }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--font-head); font-weight:600; font-size:.96rem; padding:13px 26px; border-radius:999px; transition:transform .15s ease, background .2s ease, color .2s ease; }
+  .btn-orange{ background:var(--orange); color:#fff; } .btn-orange:hover{ transform:translateY(-2px); background:#e07f10; }
+  .btn-yellow{ background:var(--yellow); color:var(--green); } .btn-yellow:hover{ transform:translateY(-2px); }
+  .btn-outline-w{ background:transparent; border:1.5px solid rgba(255,255,255,.6); color:#fff; } .btn-outline-w:hover{ background:#fff; color:var(--green); }
+  .btn-green{ background:var(--green); color:#fff; } .btn-green:hover{ transform:translateY(-2px); background:var(--green-2); }
+
+  /* ===================== TOP BAR ===================== */
+  .topbar{ background:#0f2e1d; color:rgba(255,255,255,.8); font-size:.8rem; }
+  .topbar .wrap{ display:flex; align-items:center; justify-content:space-between; height:40px; }
+  .topbar .tb-r{ display:flex; gap:18px; align-items:center; }
+  .topbar a{ color:rgba(255,255,255,.8); } .topbar a:hover{ color:#fff; }
+
+  /* ===================== NAV ===================== */
+  .nav{ background:var(--green); position:sticky; top:0; z-index:50; }
+  .nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:74px; gap:18px; }
+  .logo{ display:inline-flex; align-items:center; gap:9px; color:#fff; font-family:var(--font-head); font-weight:700; font-size:1.4rem; }
+  .logo .lm{ width:34px; height:34px; border-radius:50%; background:var(--leaf); display:grid; place-items:center; }
+  .nav-links{ display:flex; align-items:center; gap:30px; }
+  .nav-links a{ color:rgba(255,255,255,.9); font-family:var(--font-head); font-weight:500; font-size:.95rem; }
+  .nav-links a:hover{ color:var(--orange); }
+  .nav-r{ display:flex; align-items:center; gap:14px; }
+  .hamburger{ display:none; width:44px; height:44px; border-radius:10px; background:rgba(255,255,255,.12); }
+  .hamburger span{ display:block; width:20px; height:2px; background:#fff; margin:4px auto; border-radius:2px; }
+  .mobile-menu{ display:none; background:var(--green-2); padding:10px 22px 22px; }
+  .mobile-menu.open{ display:block; }
+  .mobile-menu a{ display:block; color:#fff; font-family:var(--font-head); padding:12px 4px; border-bottom:1px solid rgba(255,255,255,.1); }
+
+  /* ===================== HERO ===================== */
+  .hero{ background:var(--green); color:#fff; padding-top:30px; padding-bottom:0; text-align:center; position:relative; }
+  .hero .eyebrow{ color:var(--yellow); }
+  .hero h1{ font-size:clamp(2rem,5.2vw,3.6rem); font-weight:800; letter-spacing:-.01em; max-width:820px; margin:8px auto 0; }
+  .hero-btns{ display:flex; gap:14px; justify-content:center; margin-top:26px; }
+  .hero-strip{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:42px; }
+  .hero-strip .img{ aspect-ratio:1/1.05; border-radius:14px 14px 0 0; }
+
+  /* ===================== WHY CHOOSE US ===================== */
+  .why-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+  .why-cards{ display:flex; flex-direction:column; gap:18px; }
+  .why-card{ display:flex; gap:16px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; box-shadow:var(--shadow-sm); }
+  .why-card .ic{ width:52px; height:52px; border-radius:13px; flex:none; display:grid; place-items:center; background:#eef6ee; color:var(--leaf); }
+  .why-card h3{ font-size:1.12rem; font-weight:600; color:var(--green); }
+  .why-card p{ color:var(--ink-soft); font-size:.92rem; margin-top:4px; }
+  .flash{ position:relative; border-radius:20px; overflow:hidden; background:var(--img); min-height:380px; display:flex; align-items:flex-start; padding:26px; }
+  .flash .badge{ background:var(--orange); color:#fff; font-family:var(--font-head); font-weight:700; padding:8px 18px; border-radius:999px; font-size:.9rem; }
+  .why-head{ margin-bottom:26px; }
+
+  /* ===================== OUR PRODUCTS ===================== */
+  .prod-head{ text-align:center; }
+  .tabs{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:24px 0 38px; }
+  .tab{ padding:9px 20px; border-radius:999px; font-family:var(--font-head); font-weight:500; font-size:.9rem; background:#fff; border:1px solid var(--line); color:var(--ink); }
+  .tab.active{ background:var(--green); color:#fff; border-color:var(--green); }
+  .prod-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .pcard{ background:#fff; border:1px solid var(--line); border-radius:18px; padding:18px; box-shadow:var(--shadow-sm); transition:transform .2s ease, box-shadow .2s ease; }
+  .pcard:hover{ transform:translateY(-5px); box-shadow:var(--shadow); }
+  .pcard .img{ aspect-ratio:4/3; }
+  .pcard h3{ font-size:1.1rem; font-weight:600; color:var(--green); margin-top:16px; }
+  .pcard .meta{ color:var(--ink-soft); font-size:.86rem; margin-top:3px; }
+  .pcard .prow{ display:flex; align-items:center; justify-content:space-between; margin-top:14px; }
+  .pcard .price{ font-family:var(--font-head); font-weight:700; font-size:1.2rem; color:var(--green); }
+  .pcard .add{ width:42px; height:42px; border-radius:12px; background:var(--orange); color:#fff; display:grid; place-items:center; }
+  .prod-foot{ text-align:center; margin-top:40px; }
+
+  /* ===================== CLIENTS SAYING ===================== */
+  .clients{ background:var(--pink); }
+  .clients-head{ text-align:center; }
+  .tgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:38px; }
+  .tcard{ background:#fff; border-radius:18px; padding:28px; box-shadow:var(--shadow-sm); }
+  .tcard .stars{ color:var(--orange); letter-spacing:2px; }
+  .tcard p{ color:var(--ink-soft); margin-top:14px; font-size:.95rem; }
+  .tcard .who{ display:flex; align-items:center; gap:12px; margin-top:20px; }
+  .tcard .who .av{ width:46px; height:46px; border-radius:50%; background:var(--img); flex:none; }
+  .tcard .who .nm{ font-family:var(--font-head); font-weight:600; color:var(--green); }
+  .tcard .who .rl{ font-size:.82rem; color:var(--ink-soft); }
+
+  /* ===================== FAQ ===================== */
+  .faq-head{ text-align:center; margin-bottom:36px; }
+  .faq-list{ max-width:820px; margin-inline:auto; display:flex; flex-direction:column; gap:14px; }
+  .faq-item{ background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .faq-item.open{ box-shadow:var(--shadow-sm); }
+  .faq-q{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 24px; text-align:left; font-family:var(--font-head); font-weight:600; color:var(--green); font-size:1.02rem; }
+  .faq-q .pm{ flex:none; width:30px; height:30px; border-radius:50%; background:var(--green); color:#fff; display:grid; place-items:center; font-size:1.2rem; transition:transform .25s ease, background .2s ease; }
+  .faq-item.open .pm{ transform:rotate(45deg); background:var(--orange); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
+  .faq-a-inner{ padding:0 24px 22px; color:var(--ink-soft); }
+
+  /* ===================== HOURS + IMAGE ===================== */
+  .hours-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+  .hours-box{ }
+  .hours-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 0; border-bottom:1px dashed var(--line); }
+  .hours-row .lbl{ font-family:var(--font-head); font-weight:600; color:var(--green); }
+  .hours-row .lbl span{ display:block; font-family:var(--font-body); font-weight:400; font-size:.84rem; color:var(--ink-soft); }
+  .hours-row .time{ font-family:var(--font-head); font-weight:700; color:var(--orange); font-size:1.15rem; }
+  .hours-img{ aspect-ratio:4/3; border-radius:20px; }
+
+  /* ===================== 20% OFF BAND ===================== */
+  .promo{ background:var(--green); border-radius:24px; overflow:hidden; display:grid; grid-template-columns:1.1fr .9fr; align-items:center; color:#fff; position:relative; }
+  .promo-copy{ padding:clamp(30px,4vw,52px); }
+  .promo-copy h2{ font-size:clamp(1.6rem,3.4vw,2.4rem); font-weight:800; }
+  .promo-form{ display:flex; gap:10px; background:#fff; padding:8px; border-radius:999px; max-width:420px; margin-top:22px; }
+  .promo-form input{ flex:1; border:none; outline:none; padding:0 16px; font-family:inherit; min-width:0; }
+  .promo-img{ background:var(--img); min-height:280px; height:100%; }
+
+  /* ===================== READY CTA ===================== */
+  .ready{ text-align:center; position:relative; }
+  .ready h2{ font-size:clamp(1.8rem,4vw,2.8rem); font-weight:800; color:var(--green); max-width:680px; margin:0 auto; }
+  .ready .btn{ margin-top:26px; }
+  .ready-imgs{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:520px; margin:36px auto 0; }
+  .ready-imgs .img{ aspect-ratio:16/9; }
+
+  /* ===================== FOOTER ===================== */
+  .footer{ background:var(--green); color:rgba(255,255,255,.72); padding-top:64px; }
+  .footer-top{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1.2fr; gap:34px; padding-bottom:46px; }
+  .footer .logo{ margin-bottom:16px; }
+  .footer-brand p{ font-size:.92rem; max-width:280px; }
+  .footer .socials{ display:flex; gap:10px; margin-top:18px; }
+  .footer .socials a{ width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.1); display:grid; place-items:center; color:#fff; }
+  .footer .socials a:hover{ background:var(--orange); }
+  .footer-col h4{ color:#fff; font-family:var(--font-head); font-weight:600; margin-bottom:16px; }
+  .footer-col a{ display:block; padding:6px 0; font-size:.92rem; }
+  .footer-col a:hover{ color:var(--orange); }
+  .footer-bottom{ border-top:1px solid rgba(255,255,255,.12); padding-block:22px; text-align:center; font-size:.86rem; }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width:920px){
+    .nav-links, .nav-r .btn{ display:none; }
+    .hamburger{ display:block; }
+    .mobile-menu{ display:none; }
+    .why-grid, .prod-grid, .tgrid, .hours-grid, .promo, .footer-top{ grid-template-columns:1fr; }
+    .promo-img{ min-height:220px; }
+    .hero-strip{ grid-template-columns:repeat(3,1fr); }
+    .footer-top{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:560px){
+    .hero-strip{ grid-template-columns:repeat(2,1fr); }
+    .footer-top{ grid-template-columns:1fr; }
+    .ready-imgs{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- ===================== TOP BAR =====================  [[CHECK]] exact text unreadable -->
+<div class="topbar">
+  <div class="wrap">
+    <span>Welcome to Foodtrap — fresh food delivered daily</span>
+    <span class="tb-r"><a href="#">help@foodtrap.com</a><a href="#">+234 800 000 0000</a></span>
+  </div>
+</div>
+
+<!-- ===================== NAV =====================  [[CHECK]] logo name + link labels -->
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="logo"><span class="lm" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2c4 4 6 8 6 12a6 6 0 1 1-12 0c0-4 2-8 6-12Z"/></svg></span>Foodtrap</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#top">Home</a>
+      <a href="#why">About</a>
+      <a href="#products">Products</a>
+      <a href="#clients">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-r">
+      <a href="#products" class="btn btn-orange">Order Now</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#top">Home</a><a href="#why">About</a><a href="#products">Products</a><a href="#clients">Reviews</a><a href="#faq">FAQ</a>
+  <a href="#products" class="btn btn-orange" style="margin-top:14px">Order Now</a>
+</div>
+
+<main>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Fresh • Healthy • Fast</span> <!-- [[CHECK]] eyebrow text -->
+      <h1>FRESH, DELICIOUS &amp; DELIVERED TO YOUR DOOR!</h1>
+      <div class="hero-btns">
+        <a href="#products" class="btn btn-orange">Order Now</a>
+        <a href="#why" class="btn btn-outline-w">Learn More</a> <!-- [[CHECK]] 2nd button label -->
+      </div>
+      <!-- food image row → grey boxes -->
+      <div class="hero-strip" aria-hidden="true">
+        <div class="img"></div><div class="img"></div><div class="img"></div><div class="img"></div><div class="img"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY CHOOSE US ===================== -->
+  <section class="section" id="why">
+    <div class="wrap why-grid">
+      <div>
+        <div class="why-head">
+          <span class="eyebrow">Why Choose Us</span>
+          <h2 class="stitle">WHY CHOOSE US</h2>
+        </div>
+        <div class="why-cards">
+          <article class="why-card">
+            <span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></span>
+            <div><h3>Wide Variety of Food</h3><p>From fresh produce to ready meals — choose from a huge range delivered daily.</p></div> <!-- [[CHECK]] body copy -->
+          </article>
+          <article class="why-card">
+            <span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 17h2l3-3V9a2 2 0 0 0-2-2h-3"/><path d="M14 7H3v10h1"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>
+            <div><h3>Fast &amp; Reliable Delivery</h3><p>Your order arrives quickly and fresh, every single time.</p></div> <!-- [[CHECK]] body copy -->
+          </article>
+          <article class="why-card">
+            <span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7Z"/></svg></span>
+            <div><h3>Exclusive Deals &amp; Discounts</h3><p>Save more with member-only offers and weekly discounts.</p></div> <!-- [[CHECK]] body copy -->
+          </article>
+        </div>
+      </div>
+      <!-- FLASH SALE promo image (grey box) -->
+      <div class="flash" aria-hidden="true">
+        <span class="badge">FLASH SALE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OUR PRODUCTS ===================== -->
+  <section class="section" id="products" style="background:#fff">
+    <div class="wrap">
+      <div class="prod-head">
+        <span class="eyebrow">Our Products</span>
+        <h2 class="stitle">OUR PRODUCTS</h2>
+      </div>
+      <div class="tabs"> <!-- [[CHECK]] tab labels -->
+        <button class="tab active">All</button>
+        <button class="tab">Fruits</button>
+        <button class="tab">Vegetables</button>
+        <button class="tab">Meals</button>
+        <button class="tab">Drinks</button>
+      </div>
+      <div class="prod-grid">
+        <article class="pcard">
+          <div class="img" aria-hidden="true"></div>
+          <h3>Organic Avocado</h3>
+          <div class="meta">Fresh &amp; ripe · per pack</div> <!-- [[CHECK]] -->
+          <div class="prow"><span class="price">₦3,500</span><button class="add" aria-label="Add Organic Avocado"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button></div>
+        </article>
+        <article class="pcard">
+          <div class="img" aria-hidden="true"></div>
+          <h3>Farm Fresh Carrot</h3>
+          <div class="meta">Fresh &amp; ripe · per pack</div> <!-- [[CHECK]] -->
+          <div class="prow"><span class="price">₦1,800</span><button class="add" aria-label="Add Farm Fresh Carrot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button></div>
+        </article>
+        <article class="pcard">
+          <div class="img" aria-hidden="true"></div>
+          <h3>Crisp Red Apple</h3>
+          <div class="meta">Fresh &amp; ripe · per pack</div> <!-- [[CHECK]] -->
+          <div class="prow"><span class="price">₦2,200</span><button class="add" aria-label="Add Crisp Red Apple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button></div>
+        </article>
+      </div>
+      <div class="prod-foot"><a href="#" class="btn btn-yellow">View All Products</a></div> <!-- [[CHECK]] button label -->
+    </div>
+  </section>
+
+  <!-- ===================== OUR CLIENTS SAYING ===================== -->
+  <section class="section clients" id="clients">
+    <div class="wrap">
+      <div class="clients-head">
+        <span class="eyebrow">Testimonials</span>
+        <h2 class="stitle">OUR CLIENTS SAYING</h2>
+      </div>
+      <div class="tgrid"> <!-- [[CHECK]] quotes + names -->
+        <article class="tcard">
+          <div class="stars">★★★★★</div>
+          <p>"The freshest groceries I've had delivered in Lagos. Fast, friendly and always on time."</p>
+          <div class="who"><span class="av" aria-hidden="true"></span><div><div class="nm">Customer Name</div><div class="rl">Verified Customer</div></div></div>
+        </article>
+        <article class="tcard">
+          <div class="stars">★★★★★</div>
+          <p>"Great prices and the quality is excellent every time. Foodtrap is now my go-to."</p>
+          <div class="who"><span class="av" aria-hidden="true"></span><div><div class="nm">Customer Name</div><div class="rl">Verified Customer</div></div></div>
+        </article>
+        <article class="tcard">
+          <div class="stars">★★★★★</div>
+          <p>"Ordering is so easy and delivery is super quick. Highly recommend to everyone."</p>
+          <div class="who"><span class="av" aria-hidden="true"></span><div><div class="nm">Customer Name</div><div class="rl">Verified Customer</div></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section" id="faq" style="background:#fff">
+    <div class="wrap">
+      <div class="faq-head">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="stitle">FREQUENTLY ASKED QUESTIONS</h2>
+      </div>
+      <div class="faq-list"> <!-- [[CHECK]] exact questions + answers -->
+        <div class="faq-item open">
+          <button class="faq-q" aria-expanded="true">How do I place an order?<span class="pm" aria-hidden="true">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Browse our products, add what you need to your cart, and check out in a few taps. You'll get an order confirmation and delivery estimate right away.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How much does delivery cost?<span class="pm" aria-hidden="true">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Delivery fees depend on your location and are always shown before you pay.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What payment methods do you accept?<span class="pm" aria-hidden="true">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">We accept debit cards, bank transfer and cash on delivery in selected areas.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How long does delivery take?<span class="pm" aria-hidden="true">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Most orders arrive within the same day, depending on your area and order time.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How much is delivery fee?<span class="pm" aria-hidden="true">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">It varies by distance and is displayed clearly at checkout before you confirm.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOURS + IMAGE ===================== -->
+  <section class="section">
+    <div class="wrap hours-grid">
+      <div class="hours-box">
+        <span class="eyebrow">Opening Hours</span> <!-- [[CHECK]] heading -->
+        <h2 class="stitle" style="margin-bottom:14px">When we deliver</h2>
+        <div class="hours-row">
+          <span class="lbl">Weekdays/Holiday<span>Monday – Saturday</span></span>
+          <span class="time">09:30 - 22:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="lbl">Weekend (Sunday and Holiday)<span>Sunday &amp; public holidays</span></span>
+          <span class="time">10:30 - 23:00</span>
+        </div>
+      </div>
+      <div class="img hours-img" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 20% OFF BAND ===================== -->
+  <section class="section" style="padding-block:30px">
+    <div class="wrap">
+      <div class="promo">
+        <div class="promo-copy">
+          <h2>Get 20% OFF On Your First Order!</h2>
+          <p style="margin-top:10px;color:rgba(255,255,255,.8)">Sign up with your email and grab your discount.</p> <!-- [[CHECK]] -->
+          <form class="promo-form" onsubmit="return false;">
+            <input type="email" placeholder="Enter your email address" aria-label="Email address" />
+            <button class="btn btn-orange" type="submit">Get Offer</button>
+          </form>
+        </div>
+        <div class="promo-img" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== READY CTA ===================== -->
+  <section class="section ready">
+    <div class="wrap">
+      <h2>Ready To Enjoy Fresh &amp; Delicious Food?</h2>
+      <a href="#products" class="btn btn-green">Order Now</a> <!-- [[CHECK]] button label -->
+      <div class="ready-imgs" aria-hidden="true">
+        <div class="img"></div><div class="img"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER =====================  [[CHECK]] all footer text/links -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="logo"><span class="lm" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2c4 4 6 8 6 12a6 6 0 1 1-12 0c0-4 2-8 6-12Z"/></svg></span>Foodtrap</a>
+        <p>Fresh, delicious food delivered to your door. Order anytime and enjoy the best of local produce and meals.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V7c0-1 .5-1.5 1.5-1.5H17V2h-3c-2.5 0-4 1.5-4 4v3H7v3.5h3V22h4v-9.5h2.8l.7-3.5H14Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h3l-7 8 8 12h-6l-5-7-5 7H3l8-9L3 2h6l4 6 5-6Z"/></svg></a>
+        </div>
+      </div>
+      <nav class="footer-col" aria-label="Quick links"><h4>Quick Links</h4><a href="#top">Home</a><a href="#why">About</a><a href="#products">Products</a><a href="#faq">FAQ</a></nav>
+      <nav class="footer-col" aria-label="Our menu"><h4>Our Menu</h4><a href="#">Fruits</a><a href="#">Vegetables</a><a href="#">Meals</a><a href="#">Drinks</a></nav>
+      <nav class="footer-col" aria-label="Contact"><h4>Contact Info</h4><a href="#">help@foodtrap.com</a><a href="#">+234 800 000 0000</a><a href="#">Lagos, Nigeria</a></nav>
+    </div>
+    <div class="footer-bottom">© 2026 Foodtrap. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    /* Mobile nav */
+    var b=document.getElementById('hamburger'), m=document.getElementById('mobileMenu');
+    b.addEventListener('click',function(){ var o=m.classList.toggle('open'); b.setAttribute('aria-expanded',String(o)); });
+    m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ m.classList.remove('open'); }); });
+
+    /* FAQ accordion */
+    document.querySelectorAll('.faq-item').forEach(function(item){
+      var q=item.querySelector('.faq-q'), a=item.querySelector('.faq-a');
+      if(item.classList.contains('open')){ a.style.maxHeight=a.scrollHeight+'px'; }
+      q.addEventListener('click',function(){
+        var open=item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(o){ o.classList.remove('open'); o.querySelector('.faq-q').setAttribute('aria-expanded','false'); o.querySelector('.faq-a').style.maxHeight=null; });
+        if(!open){ item.classList.add('open'); q.setAttribute('aria-expanded','true'); a.style.maxHeight=a.scrollHeight+'px'; }
+      });
+    });
+  })();
+</script>
+</body>
+</html>

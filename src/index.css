@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* WOLFOOD brand tokens (Tailwind v4 CSS-first theme) */
+@theme {
+  --font-display: "Anton", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  /* Black / grey / orange-red rebrand.
+     Token names kept for now (wolf-green = ink, wolf-cream = light surface). */
+  --color-wolf-green: #111111; /* near-black: dark surfaces + primary text */
+  --color-wolf-green-dark: #111111; /* dark text on the accent */
+  --color-wolf-green-deep: #1c1c1c; /* subtle raised dark (e.g. secondary button) */
+  --color-wolf-cream: #f7f6f9; /* light surface / text on dark */
+  --color-wolf-orange: #f53c08; /* hot orange-red accent */
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+/* Cinematic fan-in for the hero cards: rise + fade as they settle */
+@keyframes wolf-card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(70px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.wolf-card-rise {
+  opacity: 0;
+  animation: wolf-card-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wolf-card-rise {
+    opacity: 1;
+    animation: none;
+  }
+}
