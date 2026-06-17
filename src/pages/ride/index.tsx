@@ -1,5 +1,5 @@
 /* ============================================================
-   WOLFOOD — Ride (rider / courier) page.
+   KONNECT — Ride (rider / courier) page.
    Clean, flat, on-brand — and richly designed. Distinct from
    /business: a route/map hero with social proof, a dark stats
    band, a sticky stacking-cover feature stack, an icon-chip
@@ -8,6 +8,7 @@
    ============================================================ */
 
 import { type CSSProperties, type ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { IMAGES } from "../../assets/images";
 
 /* ---------- shared bits ---------- */
@@ -126,24 +127,24 @@ function Hero() {
         <div>
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange ring-1 ring-white/15">
             <span className="h-1.5 w-1.5 rounded-full bg-wolf-orange" />
-            Ride with Wolfood
+            Ride with Konnect
           </span>
           <h1 className="mt-5 font-display text-[2.75rem] leading-[1.02] tracking-tight text-wolf-cream md:text-6xl">
             Earn on your own <span className="text-wolf-orange">terms</span>
           </h1>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-wolf-cream/75">
-            Deliver with Wolfood and ride when it suits you. Flexible hours, weekly
+            Deliver with Konnect and ride when it suits you. Flexible hours, weekly
             payouts, and bonuses when demand is high — you decide when you ride.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#get-started"
+            <Link
+              to="/signup"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
             >
               Start riding
               <Arrow />
-            </a>
+            </Link>
             <a
               href="#how"
               className="inline-flex items-center justify-center rounded-full bg-white/10 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-cream ring-1 ring-white/20 transition-colors hover:bg-white/15"
@@ -530,13 +531,13 @@ function Features() {
                 ))}
               </div>
 
-              <a
-                href="#get-started"
+              <Link
+                to="/signup"
                 className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-wolf-green px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-cream transition-transform hover:-translate-y-0.5"
               >
                 Start riding
                 <Arrow />
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -606,7 +607,7 @@ function CardFooter({ label, value }: { label: string; value: string }) {
 /* panel 01 — rider ID */
 function IdCard() {
   return (
-    <RiderCard title="Wolfood Rider" badge="ID">
+    <RiderCard title="Konnect Rider" badge="ID">
       <div className="flex items-center gap-4">
         <div className="h-16 w-16 overflow-hidden rounded-2xl ring-2 ring-wolf-orange">
           <img src={IMAGES.partnerRider} alt="" className="h-full w-full object-cover" />
@@ -707,7 +708,7 @@ const STEPS: { icon: ReactNode; title: string; text: string }[] = [
       </Icon>
     ),
     title: "Grab your gear",
-    text: "Pick up your Wolfood bag, go online and set yourself available.",
+    text: "Pick up your Konnect bag, go online and set yourself available.",
   },
   {
     icon: (
@@ -893,7 +894,7 @@ const REVIEWS: Review[] = [
   { name: "Aisha B.", location: "Lagos", quote: "I choose my own hours — it fits around my kids perfectly." },
   { name: "Kola O.", location: "Abuja", quote: "Surge pay on weekends is real money. The app just makes sense." },
   { name: "Ngozi E.", location: "Lagos", quote: "Support actually picks up when you need them. Rare these days." },
-  { name: "Emeka U.", location: "Enugu", quote: "Started on a bicycle, now I run a bike. Wolfood paid for it." },
+  { name: "Emeka U.", location: "Enugu", quote: "Started on a bicycle, now I run a bike. Konnect paid for it." },
   { name: "Fatima S.", location: "Kano", quote: "Smart routes mean less fuel and more drop-offs every shift." },
   { name: "Chidi N.", location: "Port Harcourt", quote: "Sign-up was painless. Verified in two days and earning." },
   { name: "Bisi A.", location: "Ibadan", quote: "Weekly payouts never miss. That trust keeps me riding." },
@@ -1024,7 +1025,7 @@ function Signup() {
           Start earning <span className="text-wolf-orange">this week</span>
         </h2>
         <p className="mx-auto mt-5 max-w-md text-lg leading-relaxed text-wolf-cream/75">
-          Download the Wolfood Rider app, sign up in minutes and hit the road — it&apos;s
+          Download the Konnect Rider app, sign up in minutes and hit the road — it&apos;s
           free to join, with weekly payouts from your very first week.
         </p>
 

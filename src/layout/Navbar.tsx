@@ -1,5 +1,5 @@
 /* ============================================================
-   WOLFOOD — top navigation
+   KONNECT — top navigation
    Shared chrome rendered by DisplayLayout. Fixed to the top:
    transparent over the dark hero, fades to a solid bar on scroll.
    Below lg it collapses to a hamburger + dropdown menu.
@@ -7,27 +7,14 @@
 
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo.svg";
 
 const NAV_LINKS: { label: string; to: string }[] = [
-  { label: "Home", to: "/" },
-  { label: "Businesses", to: "/business" },
-  { label: "Ride", to: "/ride" },
-  { label: "Ambassadors", to: "/ambassadors" },
+  { label: "Business", to: "/business" },
+  { label: "Rider", to: "/ride" },
+  { label: "Ambassador", to: "/ambassadors" },
+  { label: "Contact us", to: "/contact" },
 ];
-
-function WolfMark() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
-      <path
-        d="M3 3l5.5 4L12 3.5 15.5 7 21 3l-1.4 9.2C19.2 16.6 16 20 12 20S4.8 16.6 4.4 12.2L3 3z"
-        fill="#F53C08"
-      />
-      <circle cx="9.3" cy="11" r="1.1" fill="#111111" />
-      <circle cx="14.7" cy="11" r="1.1" fill="#111111" />
-      <path d="M10.5 14.5h3l-1.5 1.6z" fill="#111111" />
-    </svg>
-  );
-}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -45,7 +32,9 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-30 transition-colors duration-300 ${
-        solid ? "bg-wolf-green/95 shadow-sm ring-1 ring-black/5 backdrop-blur" : "bg-transparent"
+        solid
+          ? "bg-wolf-green/95 shadow-sm ring-1 ring-black/5 backdrop-blur"
+          : "bg-transparent"
       }`}
     >
       <div
@@ -54,14 +43,17 @@ export default function Navbar() {
         }`}
       >
         <Link to="/" className="flex items-center gap-2">
-          <WolfMark />
+          <img src={logo} alt="Konnect" className="h-8 w-8 rounded-lg" />
           <span className="font-display text-2xl font-extrabold tracking-wide text-wolf-cream">
-            WOLFOOD
+            KONNECT
           </span>
         </Link>
 
         {/* desktop links */}
-        <nav className="hidden items-center gap-14 8 lg:flex" aria-label="Primary">
+        <nav
+          className="hidden items-center gap-14 8 lg:flex"
+          aria-label="Primary"
+        >
           {NAV_LINKS.map((link) => (
             <NavLink
               key={link.to}
@@ -78,9 +70,12 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <button className="hidden items-center gap-2 rounded-full bg-white px-7 text-sm py-4 font-semibold text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:flex">
+          <Link
+            to="/signup"
+            className="hidden items-center gap-2 rounded-full bg-white px-7 text-sm py-4 font-semibold text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:flex cursor-pointer"
+          >
             Create Account
-          </button>
+          </Link>
 
           {/* hamburger (mobile) */}
           <button
@@ -89,8 +84,20 @@ export default function Navbar() {
             aria-expanded={open}
             className="grid h-10 w-10 place-items-center rounded-full text-wolf-cream ring-1 ring-white/20 lg:hidden"
           >
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-              {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            <svg
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              {open ? (
+                <path d="M6 6l12 12M18 6 6 18" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
             </svg>
           </button>
         </div>
@@ -114,14 +121,13 @@ export default function Navbar() {
                 {link.label}
               </NavLink>
             ))}
-            <button className="mt-5 flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-wolf-green-dark">
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <circle cx="9" cy="20" r="1.4" />
-                <circle cx="18" cy="20" r="1.4" />
-                <path d="M2 3h3l2.5 13h11L21 7H6" />
-              </svg>
-              Order now
-            </button>
+            <Link
+              to="/signup"
+              onClick={() => setOpen(false)}
+              className="mt-5 flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-5 py-3 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark"
+            >
+              Start here
+            </Link>
           </nav>
         </div>
       )}

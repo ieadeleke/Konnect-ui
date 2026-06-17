@@ -26,6 +26,10 @@ export const IMAGES = {
   // bento featured "Food Delivery" (landscape)
   bentoFood: px("https://images.pexels.com/photos/18805640/pexels-photo-18805640.jpeg", 900, 700),
 
+  // bento "Groceries" + "Stores" tiles
+  bentoGroceries: px("https://images.pexels.com/photos/8805170/pexels-photo-8805170.jpeg", 600, 500),
+  bentoStores: px("https://images.pexels.com/photos/5498233/pexels-photo-5498233.jpeg", 600, 500),
+
   // top-picks round thumbnails (square)
   picks: [
     px("https://images.pexels.com/photos/13915043/pexels-photo-13915043.jpeg", 240, 240), // jollof
@@ -40,6 +44,7 @@ export const IMAGES = {
   // partner panels (portrait)
   partnerRestaurant: px("https://images.pexels.com/photos/18756779/pexels-photo-18756779.jpeg", 800, 900), // kitchen
   partnerRider: px("https://images.pexels.com/photos/31332062/pexels-photo-31332062.jpeg", 800, 900), // food courier
+  partnerAmbassador: px("https://images.pexels.com/photos/34822059/pexels-photo-34822059.jpeg", 800, 900), // ambassador
 
   // /business hero (portrait) — busy restaurant kitchen
   businessHero: px("https://images.pexels.com/photos/18756779/pexels-photo-18756779.jpeg", 1100, 1300),

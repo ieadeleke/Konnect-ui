@@ -1,5 +1,5 @@
 /* ============================================================
-   WOLFOOD — generic "coming soon" page
+   KONNECT — generic "coming soon" page
    Used for routes that aren't built yet (/ride, /ambassadors).
    Dark hero so the transparent navbar's cream text stays readable.
    ============================================================ */

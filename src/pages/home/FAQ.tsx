@@ -1,5 +1,5 @@
 /* ============================================================
-   WOLFOOD — FAQ accordion
+   KONNECT — FAQ accordion
    Cream band. Category pill tabs filter the questions; the answers
    live in a single divided white panel (one row per question), with
    the open row gently tinted. Answers animate open with a grid-rows
@@ -43,16 +43,16 @@ const FAQS: { q: string; a: string; cat: Category }[] = [
   },
   {
     q: "What payment methods can I use?",
-    a: "Pay with debit card, bank transfer, USSD, or top up your Wolfood wallet for one-tap checkout. Cash on delivery is available in selected areas.",
+    a: "Pay with debit card, bank transfer, USSD, or top up your Konnect wallet for one-tap checkout. Cash on delivery is available in selected areas.",
     cat: "Payments",
   },
   {
-    q: "Is paying on Wolfood secure?",
+    q: "Is paying on Konnect secure?",
     a: "Every payment is encrypted and processed by trusted, PCI-compliant providers. We never store your full card details on our servers.",
     cat: "Payments",
   },
   {
-    q: "Can I pay with my Wolfood wallet?",
+    q: "Can I pay with my Konnect wallet?",
     a: "Yes. Top up your wallet once and check out in a single tap. Refunds and credits land back in your wallet instantly, ready for your next order.",
     cat: "Payments",
   },

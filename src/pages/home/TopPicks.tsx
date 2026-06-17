@@ -1,5 +1,5 @@
 /* ============================================================
-   WOLFOOD — Top picks for you
+   KONNECT — Top picks for you
    Matches g.png: a compact grid of small "pick" items — a round
    thumbnail beside a short label — under a centred heading, with an
    orange button below. Grey circles stand in for the thumbnails.
@@ -13,13 +13,16 @@ import { IMAGES } from "../../assets/images";
 type Pick = { name: string; meta: string; img: string };
 
 const PICKS: Pick[] = [
-  { name: "Mama Nkechi Kitchen", meta: "Jollof · ★ 4.8 · 25 min", img: IMAGES.picks[0] },
-  { name: "Suya Republic", meta: "Barbecue · ★ 4.9 · 30 min", img: IMAGES.picks[1] },
-  { name: "Wrap & Roll", meta: "Shawarma · ★ 4.7 · 18 min", img: IMAGES.picks[2] },
-  { name: "The Pepper Pot", meta: "Soups · ★ 4.6 · 35 min", img: IMAGES.picks[3] },
-  { name: "Crust & Co.", meta: "Pizza · ★ 4.8 · 28 min", img: IMAGES.picks[4] },
-  { name: "Ofada Republic", meta: "Ofada · ★ 4.7 · 32 min", img: IMAGES.picks[5] },
-  { name: "Sweet Tooth", meta: "Desserts · ★ 4.9 · 20 min", img: IMAGES.picks[6] },
+  { name: "Beckley's Kitchen", meta: "Jollof · ★ 4.8 · 25 min", img: IMAGES.picks[0] },
+  { name: "Ibile Delicacies", meta: "Barbecue · ★ 4.9 · 30 min", img: IMAGES.picks[1] },
+  { name: "University of Amala", meta: "Shawarma · ★ 4.7 · 18 min", img: IMAGES.picks[2] },
+  { name: "Amala Nation", meta: "Soups · ★ 4.6 · 35 min", img: IMAGES.picks[3] },
+  { name: "Amala Sky", meta: "Pizza · ★ 4.8 · 28 min", img: IMAGES.picks[4] },
+  { name: "YKB Amala Spot", meta: "Ofada · ★ 4.7 · 32 min", img: IMAGES.picks[5] },
+  { name: "Remmy's Food Palace", meta: "Desserts · ★ 4.9 · 20 min", img: IMAGES.picks[6] },
+  { name: "EWA-AGONYI (dabina's)", meta: "Jollof · ★ 4.8 · 25 min", img: IMAGES.picks[0] },
+  { name: "Chef Chi Kitchen", meta: "Barbecue · ★ 4.9 · 30 min", img: IMAGES.picks[1] },
+  { name: "Chopstick Dynasty", meta: "Shawarma · ★ 4.7 · 18 min", img: IMAGES.picks[2] },
 ];
 
 function Pill({ p }: { p: Pick }) {
@@ -60,29 +63,11 @@ export default function TopPicks() {
           </p>
         </div>
 
-        {/* ---------- picks: 3 on top, 4 under ---------- */}
-        <div className="mt-12 flex flex-col items-center gap-10">
-          <div className="flex flex-wrap justify-center gap-6">
-            {PICKS.slice(0, 3).map((p) => (
-              <Pill key={p.name} p={p} />
-            ))}
-          </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            {PICKS.slice(3, 7).map((p) => (
-              <Pill key={p.name} p={p} />
-            ))}
-          </div>
-        </div>
-
-        {/* ---------- view all ---------- */}
-        <div className="mt-12 text-center">
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
-          >
-            View all restaurants
-            <span aria-hidden="true">→</span>
-          </a>
+        {/* ---------- picks ---------- */}
+        <div className="mt-12 flex flex-wrap justify-center gap-6">
+          {PICKS.map((p) => (
+            <Pill key={p.name} p={p} />
+          ))}
         </div>
       </div>
     </section>

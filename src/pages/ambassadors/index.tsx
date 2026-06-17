@@ -1,5 +1,5 @@
 /* ============================================================
-   WOLFOOD — Ambassadors page.
+   KONNECT — Ambassadors page.
    Clean, flat, on-brand (near-black + orange + cream). Structure
    inspired by usexara.ai/ambassadors: hero + stats, why join,
    who should join, how it works, gamified tiers, FAQ, apply form.
@@ -76,19 +76,21 @@ function Hero() {
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange ring-1 ring-white/15">
           <span className="h-1.5 w-1.5 rounded-full bg-wolf-orange" />
-          Become a Wolfood Ambassador
+          Become a Konnect Ambassador
         </span>
         <h1 className="mt-6 font-display text-[2.75rem] leading-[1.04] tracking-tight text-wolf-cream md:text-6xl">
           Grow the pack, get <span className="text-wolf-orange">rewarded</span>
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-wolf-cream/75">
-          Share Wolfood with your campus, your followers and your friends — and earn for
+          Share Konnect with your campus, your followers and your friends — and earn for
           every foodie, rider and restaurant you bring on board.
         </p>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href="#apply"
+            href="https://forms.gle/DjqKWtpTCXR1Zgc58"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
           >
             Apply now
@@ -139,7 +141,7 @@ const BENEFITS: { icon: ReactNode; title: string; text: string }[] = [
       </Icon>
     ),
     title: "Perks & growth",
-    text: "Unlock free meals, branded merch, internships and invites to exclusive Wolfood events.",
+    text: "Unlock free meals, branded merch, internships and invites to exclusive Konnect events.",
   },
   {
     icon: (
@@ -176,7 +178,7 @@ function Benefits() {
             What is the <span className="text-wolf-orange">Ambassador programme?</span>
           </h2>
           <p className="mt-4 text-base text-wolf-green/60">
-            It pays you to do what you already do — share things you love. Promote Wolfood,
+            It pays you to do what you already do — share things you love. Promote Konnect,
             earn rewards, and unlock real opportunities as you grow.
           </p>
         </div>
@@ -490,7 +492,7 @@ function Tiers() {
 
 /* ---------- FAQ ---------- */
 const FAQS: { q: string; a: string }[] = [
-  { q: "How and when do I get paid?", a: "Ambassadors are paid weekly, straight to your bank account or Wolfood wallet, for every verified referral." },
+  { q: "How and when do I get paid?", a: "Ambassadors are paid weekly, straight to your bank account or Konnect wallet, for every verified referral." },
   { q: "Do I have to be a student?", a: "Not at all. Students, creators, graduates, NYSC members — anyone with a network can apply." },
   { q: "Is there a fee to join?", a: "No. Joining the ambassador programme is completely free, and always will be." },
   { q: "How much can I earn?", a: "There's no cap. Your earnings grow with every referral and climb as you level up the tiers." },
@@ -571,11 +573,13 @@ function Apply() {
               Ready to join the pack?
             </h2>
             <p className="mx-auto mt-4 max-w-md text-base text-wolf-cream/75">
-              Apply in minutes and start earning as a Wolfood Ambassador. It&apos;s free to
+              Apply in minutes and start earning as a Konnect Ambassador. It&apos;s free to
               join — no fees, no commitment.
             </p>
             <a
-              href="#"
+              href="https://forms.gle/DjqKWtpTCXR1Zgc58"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-8 py-4 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
             >
               Apply now

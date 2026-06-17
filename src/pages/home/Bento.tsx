@@ -1,10 +1,11 @@
 /* ============================================================
-   WOLFOOD — Bento category section (under the hero)
+   KONNECT — Bento category section (under the hero)
    A featured "Food Delivery" card (2×2) with "Groceries" and
-   "Pharmacy" coming-soon tiles stacked beside it. Collapses to a
+   "Stores" coming-soon tiles stacked beside it. Collapses to a
    single column on mobile. Image slots come from the central config.
    ============================================================ */
 
+import { Link } from "react-router-dom";
 import { IMAGES } from "../../assets/images";
 
 export default function Bento() {
@@ -14,7 +15,7 @@ export default function Bento() {
         {/* ---------- heading ---------- */}
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
-            What&apos;s on Wolfood
+            What&apos;s on Konnect
           </span>
           <h2 className="mt-3 font-display text-4xl leading-[1.05] tracking-tight text-wolf-green md:text-5xl">
             Everything you crave,{" "}
@@ -41,13 +42,13 @@ export default function Bento() {
                 From your favourite local kitchens straight to your door in minutes. Browse,
                 order, track, and chop — it&apos;s that simple.
               </p>
-              <a
-                href="#"
+              <Link
+                to="/signup"
                 className="mt-6 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-6 py-3 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
               >
-                Order now
+                START HERE
                 <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
             {/* featured image */}
             <div className="relative mt-7 min-h-[170px] flex-1 overflow-hidden rounded-2xl bg-neutral-300 transition-transform duration-300 group-hover:scale-[1.01]">
@@ -73,29 +74,37 @@ export default function Bento() {
             <p className="mt-2 text-sm text-neutral-500">
               Fresh produce and daily essentials, delivered.
             </p>
-            <div
-              className="mt-5 min-h-[120px] flex-1 rounded-2xl bg-neutral-200 transition-transform duration-300 group-hover:scale-[1.01]"
-              aria-hidden="true"
-            />
+            <div className="relative mt-5 min-h-[120px] flex-1 overflow-hidden rounded-2xl bg-neutral-200 transition-transform duration-300 group-hover:scale-[1.01]">
+              <img
+                src={IMAGES.bentoGroceries}
+                alt="Fresh groceries in a basket"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
           </article>
 
           {/* Pharmacy (coming soon) */}
           <article className="group flex flex-col rounded-3xl bg-white p-6 ring-1 ring-black/5">
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-display text-2xl leading-none tracking-tight text-wolf-green">
-                Pharmacy
+                Stores
               </h3>
               <span className="shrink-0 rounded-full bg-wolf-cream px-3 py-1 text-xs font-semibold text-wolf-green/60">
                 Coming soon
               </span>
             </div>
             <p className="mt-2 text-sm text-neutral-500">
-              Meds and health essentials, fast and safe.
+              Everyday items from local shops, brought right to your door.
             </p>
-            <div
-              className="mt-5 min-h-[120px] flex-1 rounded-2xl bg-neutral-200 transition-transform duration-300 group-hover:scale-[1.01]"
-              aria-hidden="true"
-            />
+            <div className="relative mt-5 min-h-[120px] flex-1 overflow-hidden rounded-2xl bg-neutral-200 transition-transform duration-300 group-hover:scale-[1.01]">
+              <img
+                src={IMAGES.bentoStores}
+                alt="A local convenience store"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
           </article>
         </div>
       </div>

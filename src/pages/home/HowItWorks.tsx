@@ -1,5 +1,5 @@
 /* ============================================================
-   WOLFOOD — How it works (sticky scrollytelling)
+   KONNECT — How it works (sticky scrollytelling)
    Dark-green band. Left: steps stacked tall; the one crossing the
    viewport centre becomes active (others dim). Right: a sticky panel
    whose UI card crossfades to the active step. On mobile the sticky
@@ -195,7 +195,7 @@ export default function HowItWorks() {
       <div className="relative mx-auto max-w-7xl px-6">
         {/* ---------- heading ---------- */}
         <h2 className="text-center font-display text-4xl leading-[1.05] tracking-tight text-wolf-cream md:text-5xl">
-          How to order on <span className="text-wolf-orange">Wolfood</span>
+          How to order on <span className="text-wolf-orange">Konnect</span>
         </h2>
 
         <div className="mt-10 grid gap-10 md:mt-16 md:grid-cols-2 md:gap-24">

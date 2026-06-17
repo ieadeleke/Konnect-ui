@@ -1,5 +1,5 @@
 /* ============================================================
-   WOLFOOD — Hero section (rebuilt from hero.png / j.png)
+   KONNECT — Hero section (rebuilt from hero.png / j.png)
    Dark-green hero: rating · headline · CTAs · full-bleed cinematic
    fan of cards. Each wing folds on a HINGE at its inner edge
    (transform-origin right/left center) — left cards rotateY positive,
@@ -10,6 +10,7 @@
    Static layout. Image slots come from the central images config.
    ============================================================ */
 
+import { Link } from "react-router-dom";
 import { IMAGES } from "../../assets/images";
 
 // `scale`  = width factor (drives the gaps — leave these alone).
@@ -66,12 +67,12 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="mt-9 flex items-center justify-center gap-4">
-          <a
-            href="#"
+          <Link
+            to="/signup"
             className="rounded-full bg-wolf-orange px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark shadow-lg shadow-black/10 transition-transform hover:-translate-y-0.5"
           >
             Click here to start
-          </a>
+          </Link>
         </div>
       </div>
 

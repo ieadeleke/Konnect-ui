@@ -1,10 +1,11 @@
 /* ============================================================
-   WOLFOOD — Partner section (under "How to order on Wolfood")
+   KONNECT — Partner section (under "How to order on Konnect")
    Alternating rows (text ↔ image), one for restaurants and one
    for riders. Clean, flat layout inspired by v.png: airy light
    cards, simple dot bullets, small pill buttons, no heavy shadows.
    ============================================================ */
 
+import { Link } from "react-router-dom";
 import { IMAGES } from "../../assets/images";
 
 type Row = {
@@ -12,6 +13,7 @@ type Row = {
   desc: string;
   points: string[];
   cta: string;
+  href: string;
   variant: "green" | "orange";
   img: string;
   imgAlt: string;
@@ -27,6 +29,7 @@ const ROWS: Row[] = [
       "Fast, reliable settlements — paid on time, every time.",
     ],
     cta: "Become a partner",
+    href: "/business",
     variant: "green",
     img: IMAGES.partnerRestaurant,
     imgAlt: "A busy restaurant kitchen",
@@ -40,9 +43,24 @@ const ROWS: Row[] = [
       "Branded gear and in-app support on every trip.",
     ],
     cta: "Start riding",
+    href: "/ride",
     variant: "orange",
     img: IMAGES.partnerRider,
     imgAlt: "A delivery rider on a motorbike",
+  },
+  {
+    title: "Become an Ambassador",
+    desc: "Share Konnect with your campus and your followers, and earn for every foodie, rider and restaurant you bring on board.",
+    points: [
+      "Get paid for every verified signup through your link.",
+      "Unlock perks, merch and exclusive Konnect events.",
+      "Level up from Rookie to Legend for bigger rewards.",
+    ],
+    cta: "Join the programme",
+    href: "/ambassadors",
+    variant: "green",
+    img: IMAGES.partnerAmbassador,
+    imgAlt: "A Konnect ambassador",
   },
 ];
 
@@ -61,13 +79,13 @@ export default function Partners() {
         {/* ---------- heading ---------- */}
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
-            Partner with Wolfood
+            Partner with Konnect
           </span>
           <h2 className="mt-3 font-display text-4xl leading-[1.05] tracking-tight text-wolf-green md:text-5xl">
             Grow with us, <span className="text-wolf-orange">ride with us</span>
           </h2>
           <p className="mt-4 text-base text-wolf-green/70">
-            Whether you run a kitchen or ride the streets, there&apos;s a place for you on Wolfood.
+            Whether you run a kitchen or ride the streets, there&apos;s a place for you on Konnect.
           </p>
         </div>
 
@@ -104,8 +122,8 @@ export default function Partners() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href="#"
+                  <Link
+                    to={row.href}
                     className={`mt-7 inline-flex w-fit items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:-translate-y-0.5 ${
                       row.variant === "orange"
                         ? "bg-wolf-orange text-wolf-green-dark"
@@ -114,7 +132,7 @@ export default function Partners() {
                   >
                     {row.cta}
                     <Arrow />
-                  </a>
+                  </Link>
                 </div>
 
                 {/* image */}

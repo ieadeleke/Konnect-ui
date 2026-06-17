@@ -1,5 +1,5 @@
 /* ============================================================
-   WOLFOOD — Download app
+   KONNECT — Download app
    A green CTA card with copy + store badges on the left and a grey
    phone mockup on the right (clipped at the card's bottom edge).
    ============================================================ */
@@ -38,6 +38,28 @@ function GooglePlayBadge() {
       <span className="leading-tight">
         <span className="block text-[0.62rem] font-medium opacity-70">Get it on</span>
         <span className="block font-display text-base font-bold">Google Play</span>
+      </span>
+    </a>
+  );
+}
+
+function WebBadge() {
+  return (
+    <a
+      href="https://konnectbd.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:w-auto sm:justify-start"
+      aria-label="Open Konnect on the web"
+    >
+      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20" />
+        <path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z" />
+      </svg>
+      <span className="leading-tight">
+        <span className="block text-[0.62rem] font-medium opacity-70">Order on the</span>
+        <span className="block font-display text-base font-bold">Web</span>
       </span>
     </a>
   );
@@ -101,6 +123,7 @@ export default function DownloadApp() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <AppStoreBadge />
                 <GooglePlayBadge />
+                <WebBadge />
               </div>
             </div>
 

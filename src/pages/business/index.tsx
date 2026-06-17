@@ -1,12 +1,13 @@
 /* ============================================================
-   WOLFOOD for Business — merchant / restaurant partner page.
+   KONNECT for Business — merchant / restaurant partner page.
    Pattern inspired by heyfood.africa/merchant, styled to match the
-   Wolfood landing page: clean, flat, near-black + orange + cream.
+   Konnect landing page: clean, flat, near-black + orange + cream.
    Sections: hero (copy + signup form), stats, why-partner benefits,
    how-it-works steps, testimonial, final CTA. Footer is shared.
    ============================================================ */
 
-import { useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { IMAGES } from "../../assets/images";
 
 /* ---------- small inline icons (stroke style, currentColor) ---------- */
@@ -108,7 +109,7 @@ const STATS: { value: string; label: string }[] = [
 const STEPS: { title: string; text: string }[] = [
   { title: "Sign up", text: "Tell us about your restaurant and share a few documents — it takes minutes." },
   { title: "Get verified", text: "Our team reviews your details and helps you set up your menu, usually within 48 hours." },
-  { title: "Go live", text: "Your kitchen appears on Wolfood and starts receiving orders from nearby customers." },
+  { title: "Go live", text: "Your kitchen appears on Konnect and starts receiving orders from nearby customers." },
   { title: "Get paid", text: "Fulfil orders, track everything in your dashboard, and get paid reliably every week." },
 ];
 
@@ -130,10 +131,10 @@ function Hero() {
         {/* copy */}
         <div>
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
-            Wolfood for Business
+            Konnect for Business
           </span>
           <h1 className="mt-4 font-display text-[2.75rem] leading-[1.02] tracking-tight text-wolf-cream md:text-6xl">
-            Grow your restaurant with <span className="text-wolf-orange">Wolfood</span>
+            Grow your restaurant with <span className="text-wolf-orange">Konnect</span>
           </h1>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-wolf-cream/75">
             Reach thousands of hungry customers, manage every order from one simple
@@ -141,17 +142,19 @@ function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#get-started"
+            <Link
+              to="/signup"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
             >
               Get started
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
-            </a>
+            </Link>
             <a
-              href="#"
+              href="https://wa.me/2348073376943"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-white/10 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-cream ring-1 ring-white/20 transition-colors hover:bg-white/15"
             >
               Talk to sales
@@ -222,31 +225,6 @@ function Hero() {
   );
 }
 
-function Field({
-  label,
-  name,
-  type = "text",
-  placeholder,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  placeholder?: string;
-}) {
-  return (
-    <label className="block">
-      <span className="mb-1.5 block text-xs font-medium text-wolf-green/70">{label}</span>
-      <input
-        name={name}
-        type={type}
-        required
-        placeholder={placeholder}
-        className="w-full rounded-xl bg-wolf-cream px-4 py-3 text-sm text-wolf-green outline-none ring-1 ring-black/5 placeholder:text-wolf-green/35 focus:ring-2 focus:ring-wolf-orange"
-      />
-    </label>
-  );
-}
-
 /* ---------- stats strip ---------- */
 function Stats() {
   return (
@@ -278,7 +256,7 @@ function Benefits() {
             Everything you need to <span className="text-wolf-orange">sell more</span>
           </h2>
           <p className="mt-4 text-base text-wolf-green/60">
-            From your first order to your busiest weekend, Wolfood gives you the customers,
+            From your first order to your busiest weekend, Konnect gives you the customers,
             the tools and the support to grow.
           </p>
         </div>
@@ -347,7 +325,7 @@ function Testimonial() {
           <path d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z" />
         </svg>
         <blockquote className="mt-4 font-display text-2xl leading-snug tracking-tight text-wolf-green md:text-3xl">
-          Since joining Wolfood, our weekend orders have nearly doubled. The dashboard is
+          Since joining Konnect, our weekend orders have nearly doubled. The dashboard is
           dead simple and payouts always land on time — it just works.
         </blockquote>
         <div className="mt-6">
@@ -359,98 +337,46 @@ function Testimonial() {
   );
 }
 
-/* ---------- final CTA + signup form ---------- */
+/* ---------- final CTA ---------- */
 function Signup() {
-  const [submitted, setSubmitted] = useState(false);
-
   return (
     <section id="get-started" className="scroll-mt-24 bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-wolf-green px-8 py-14 md:px-16 md:py-16">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-wolf-green px-8 py-16 text-center md:px-16 md:py-20">
           <div
             className="pointer-events-none absolute inset-0 opacity-70"
             style={{
               background:
-                "radial-gradient(70% 70% at 15% 0%, rgba(245,60,8,0.18), transparent 60%)",
+                "radial-gradient(60% 70% at 50% 0%, rgba(245,60,8,0.2), transparent 60%)",
             }}
             aria-hidden="true"
           />
 
-          <div className="relative grid items-center gap-10 md:grid-cols-2 md:gap-16">
-            {/* heading */}
-            <div>
-              <h2 className="font-display text-4xl leading-[1.05] tracking-tight text-wolf-cream md:text-5xl">
-                Ready to grow your business?
-              </h2>
-              <p className="mt-4 max-w-md text-base text-wolf-cream/75">
-                Join hundreds of restaurants already selling more with Wolfood.
-                It&apos;s free to start — no setup fees, no lock-in.
-              </p>
-              <ul className="mt-7 space-y-3">
-                {["Live on Wolfood in 48 hours", "Weekly payouts, every time", "A real team behind you"].map(
-                  (p) => (
-                    <li key={p} className="flex items-center gap-3 text-wolf-cream/80">
-                      <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-wolf-orange/20 text-wolf-orange">
-                        <Icon>
-                          <path d="M20 6 9 17l-5-5" />
-                        </Icon>
-                      </span>
-                      {p}
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-
-            {/* form card */}
-            <div className="rounded-3xl bg-white p-6 shadow-xl ring-1 ring-black/5 md:p-8">
-              {submitted ? (
-                <div className="py-10 text-center">
-                  <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-wolf-orange/15 text-wolf-orange">
-                    <Icon>
-                      <path d="M20 6 9 17l-5-5" />
-                    </Icon>
-                  </div>
-                  <h3 className="mt-4 font-display text-2xl text-wolf-green">You&apos;re on the list!</h3>
-                  <p className="mt-2 text-sm text-wolf-green/60">
-                    Thanks — our partner team will reach out within 48 hours to get you set up.
-                  </p>
-                </div>
-              ) : (
-                <>
-                  <h3 className="font-display text-2xl tracking-tight text-wolf-green">
-                    Get started — it&apos;s free
-                  </h3>
-                  <p className="mt-1 text-sm text-wolf-green/60">
-                    Create your partner account in minutes.
-                  </p>
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      setSubmitted(true);
-                    }}
-                    className="mt-6 space-y-3"
-                  >
-                    <Field label="Restaurant name" name="business" placeholder="e.g. Mama's Kitchen" />
-                    <Field label="Work email" name="email" type="email" placeholder="you@restaurant.com" />
-                    <Field label="Phone number" name="phone" type="tel" placeholder="+234 800 000 0000" />
-                    <Field label="City" name="city" placeholder="e.g. Lagos" />
-                    <button
-                      type="submit"
-                      className="mt-2 w-full rounded-full bg-wolf-orange px-6 py-3.5 text-sm font-semibold text-wolf-green-dark transition-transform hover:-translate-y-0.5"
-                    >
-                      Create partner account
-                    </button>
-                  </form>
-                  <p className="mt-4 text-center text-xs text-wolf-green/50">
-                    Already a partner?{" "}
-                    <a href="#" className="font-semibold text-wolf-green underline-offset-2 hover:underline">
-                      Sign in
-                    </a>
-                  </p>
-                </>
-              )}
-            </div>
+          <div className="relative mx-auto max-w-xl">
+            <h2 className="font-display text-4xl leading-[1.05] tracking-tight text-wolf-cream md:text-5xl">
+              Ready to grow your business?
+            </h2>
+            <p className="mx-auto mt-4 max-w-md text-base text-wolf-cream/75">
+              Join hundreds of restaurants already selling more with Konnect. It&apos;s free
+              to start — no setup fees, no lock-in.
+            </p>
+            <Link
+              to="/signup"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-8 py-4 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+            >
+              Start here
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </Link>
+            <ul className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-wolf-cream/70">
+              {["Live in 48 hours", "Weekly payouts", "Real team behind you"].map((p) => (
+                <li key={p} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-wolf-orange" />
+                  {p}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
