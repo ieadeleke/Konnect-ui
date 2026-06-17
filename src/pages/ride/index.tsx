@@ -496,11 +496,11 @@ function Features() {
       {STACKS.map((s, i) => (
         <section
           key={s.tag}
-          className={`sticky top-0 flex min-h-screen items-center rounded-t-[2.5rem] bg-white ${
+          className={`sticky top-0 flex min-h -screen items-center rounded-t-[2.5rem] bg-white ${
             i > 0 ? "shadow-[0_-30px_60px_-30px_rgba(0,0,0,0.35)]" : ""
           }`}
         >
-          <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:gap-16">
+          <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-40 md:grid-cols-2 md:gap-16">
             {/* left: illustration card */}
             <div className="order-2 md:order-1">
               <div className="mx-auto w-full max-w-sm">{s.illo}</div>
@@ -901,7 +901,7 @@ const REVIEWS: Review[] = [
 
 function ReviewCard({ r }: { r: Review }) {
   return (
-    <figure className="w-[300px] shrink-0 rounded-2xl bg-white p-6 ring-1 ring-black/5">
+    <figure className="w-[300px] shrink-0 rounded-2xl bg-white p-6 ring-1 ring-black/5 border border-black/10">
       <div className="flex items-center gap-3">
         <span className="grid h-10 w-10 place-items-center rounded-full bg-wolf-orange/15 font-display text-base font-bold text-wolf-orange">
           {r.name.charAt(0)}
@@ -935,7 +935,7 @@ function MarqueeRow({ items, reverse = false }: { items: Review[]; reverse?: boo
 
 function Reviews() {
   return (
-    <section className="overflow-hidden bg-wolf-cream py-20 md:py-28">
+    <section className="overflow-hidden bg-wolf-cream py-20 md:py-0 md:pb-20">
       <div className="mx-auto max-w-2xl px-6 text-center">
         <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
           Riders love it

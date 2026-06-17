@@ -13,19 +13,17 @@
 import { IMAGES } from "../../assets/images";
 
 // `scale`  = width factor (drives the gaps — leave these alone).
-// `scaleY` = height factor, stepping down from card 1 → 4 (mirrored 5-7).
+// `scaleY` = height factor, stepping down toward the centre card.
 // `ml`     = per-card left-margin tweak (px) on top of the base 14px gap.
+// Five cards: outer-left · inner-left · centre · inner-right · outer-right.
 const CARDS = [
-  { rotY: 24, scale: 1, scaleY: 0.9, bright: 0.75, origin: "right center", ml: 0 },
-  { rotY: 16, scale: 0.92, scaleY: 0.8, bright: 0.85, origin: "right center", ml: 5 },
-  { rotY: 14, scale: 0.85, scaleY: 0.7, bright: 0.95, origin: "right center", ml: -26 },
-  // scaleY matches card 3's right edge / card 5's left edge.
-  { rotY: 0, scale: 0.78, scaleY: 0.7, bright: 1, origin: "center center", ml: -22 },
-  { rotY: -14, scale: 0.85, scaleY: 0.7, bright: 0.95, origin: "left center", ml: -22 },
-  { rotY: -16, scale: 0.92, scaleY: 0.8, bright: 0.85, origin: "left center", ml: -26 },
-  { rotY: -24, scale: 1, scaleY: 0.9, bright: 0.75, origin: "left center", ml: 5 },
+  { rotY: 22, scale: 1, scaleY: 0.88, bright: 0.78, origin: "right center", ml: 0 },
+  { rotY: 13, scale: 0.9, scaleY: 0.74, bright: 0.92, origin: "right center", ml: -24 },
+  { rotY: 0, scale: 0.82, scaleY: 0.7, bright: 1, origin: "center center", ml: -24 },
+  { rotY: -13, scale: 0.9, scaleY: 0.74, bright: 0.92, origin: "left center", ml: -24 },
+  { rotY: -22, scale: 1, scaleY: 0.88, bright: 0.78, origin: "left center", ml: -24 },
 ] as const;
-const SHADES = ["#c9c9c9", "#cdcdcd", "#d2d2d2", "#d7d7d7", "#d2d2d2", "#cdcdcd", "#c9c9c9"];
+const SHADES = ["#c9c9c9", "#d0d0d0", "#d7d7d7", "#d0d0d0", "#c9c9c9"];
 
 export default function Hero() {
   return (
@@ -43,21 +41,18 @@ export default function Hero() {
       {/* ---------- HERO COPY ---------- */}
       {/* pt clears the transparent overlay nav from DisplayLayout */}
       <div className="relative mx-auto max-w-6xl px-6 pt-48 text-center">
-        {/* rating pill — a deliberate, contained lead-in */}
+        {/* offer pill — a deliberate, contained lead-in */}
         <div className="flex justify-center">
           <div className="inline-flex items-center gap-2.5 rounded-full bg-white/5 py-1.5 pl-1.5 pr-4 ring-1 ring-white/10 backdrop-blur-sm">
-            <div className="flex -space-x-2" aria-hidden="true">
-              {["#d9d9d9", "#c9c9c9", "#bdbdbd"].map((c, i) => (
-                <span
-                  key={i}
-                  className="h-6 w-6 rounded-full border-2 border-[#111111]"
-                  style={{ background: c }}
-                />
-              ))}
-            </div>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-wolf-orange px-3 py-1 text-xs font-bold uppercase tracking-wide text-wolf-green-dark">
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+                <circle cx="7" cy="7" r="1.4" />
+              </svg>
+              Up to 70% off
+            </span>
             <span className="text-xs font-medium text-wolf-cream/85">
-              Loved By <span className="font-semibold text-wolf-cream">2.4m</span> Customers ·{" "}
-              <span className="text-wolf-orange">★ 4.6</span>
+              on your <span className="font-semibold text-wolf-cream">1st order</span> — every week
             </span>
           </div>
         </div>
@@ -75,13 +70,7 @@ export default function Hero() {
             href="#"
             className="rounded-full bg-wolf-orange px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark shadow-lg shadow-black/10 transition-transform hover:-translate-y-0.5"
           >
-            Shop Now
-          </a>
-          <a
-            href="#"
-            className="rounded-full bg-wolf-green-deep px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-cream ring-1 ring-white/10 transition-transform hover:-translate-y-0.5"
-          >
-            Explore Menu
+            Click here to start
           </a>
         </div>
       </div>
@@ -109,8 +98,8 @@ export default function Hero() {
               key={i}
               className="relative flex-none overflow-hidden rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.3)]"
               style={{
-                width: "max(108px, 15.8vw)",
-                aspectRatio: "180 / 340",
+                width: "max(140px, 21vw)",
+                aspectRatio: "180 / 230",
                 background: SHADES[i],
                 transformOrigin: card.origin,
                 transform: `rotateY(${card.rotY}deg) scaleX(${card.scale}) scaleY(${card.scaleY})`,

@@ -103,7 +103,7 @@ function Hero() {
         </div>
 
         {/* stats row */}
-        <div className="mx-auto mt-14 grid max-w-2xl grid-cols-3 gap-6 border-t border-white/10 pt-8">
+        {/* <div className="mx-auto mt-14 grid max-w-2xl grid-cols-3 gap-6 border-t border-white/10 pt-8">
           {HERO_STATS.map((s) => (
             <div key={s.label}>
               <div className="font-display text-3xl font-bold tracking-tight text-wolf-cream md:text-4xl">
@@ -112,7 +112,7 @@ function Hero() {
               <div className="mt-1 text-xs text-wolf-cream/55 md:text-sm">{s.label}</div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

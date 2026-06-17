@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const NAV_LINKS: { label: string; to: string }[] = [
+  { label: "Home", to: "/" },
   { label: "Businesses", to: "/business" },
   { label: "Ride", to: "/ride" },
   { label: "Ambassadors", to: "/ambassadors" },
@@ -60,13 +61,13 @@ export default function Navbar() {
         </Link>
 
         {/* desktop links */}
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-14 8 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `text-[0.8rem] font-medium uppercase tracking-wide transition-colors hover:text-wolf-orange ${
+                `text-sm font-medium capitalize tracking-wide transition-colors hover:text-wolf-orange ${
                   isActive ? "text-wolf-orange" : "text-wolf-cream/85"
                 }`
               }
@@ -77,13 +78,8 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <button className="hidden items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:flex">
-            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="9" cy="20" r="1.4" />
-              <circle cx="18" cy="20" r="1.4" />
-              <path d="M2 3h3l2.5 13h11L21 7H6" />
-            </svg>
-            CART
+          <button className="hidden items-center gap-2 rounded-full bg-white px-7 text-sm py-4 font-semibold text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:flex">
+            Create Account
           </button>
 
           {/* hamburger (mobile) */}
