@@ -1,5 +1,4 @@
 
-import DisplayLayout from "../../layout/DisplayLayout";
 import Hero from "./Hero";
 import Bento from "./Bento";
 import TopPicks from "./TopPicks";
@@ -10,7 +9,7 @@ import DownloadApp from "./DownloadApp";
 
 export default function HomePage() {
   return (
-    <DisplayLayout>
+    <>
       <Hero />
       <Bento />
       <TopPicks />
@@ -18,6 +17,6 @@ export default function HomePage() {
       <Partners />
       <FAQ />
       <DownloadApp />
-    </DisplayLayout>
+    </>
   );
 }

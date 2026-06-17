@@ -40,4 +40,15 @@ export const IMAGES = {
   // partner panels (portrait)
   partnerRestaurant: px("https://images.pexels.com/photos/18756779/pexels-photo-18756779.jpeg", 800, 900), // kitchen
   partnerRider: px("https://images.pexels.com/photos/31332062/pexels-photo-31332062.jpeg", 800, 900), // food courier
+
+  // /business hero (portrait) — busy restaurant kitchen
+  businessHero: px("https://images.pexels.com/photos/18756779/pexels-photo-18756779.jpeg", 1100, 1300),
+
+  // ambassador faces (square portraits) — swap for real ambassador photos later
+  ambassadorFaces: [
+    px("https://images.pexels.com/photos/34822059/pexels-photo-34822059.jpeg", 240, 240),
+    px("https://images.pexels.com/photos/31118299/pexels-photo-31118299.jpeg", 240, 240),
+    px("https://images.pexels.com/photos/34822063/pexels-photo-34822063.jpeg", 240, 240),
+    px("https://images.pexels.com/photos/35758948/pexels-photo-35758948.jpeg", 240, 240),
+  ],
 };

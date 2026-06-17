@@ -6,8 +6,13 @@
    ============================================================ */
 
 import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
-const NAV_LINKS = ["Home", "Key Features", "About Us", "Service", "Testimonial", "FAQ"];
+const NAV_LINKS: { label: string; to: string }[] = [
+  { label: "Businesses", to: "/business" },
+  { label: "Ride", to: "/ride" },
+  { label: "Ambassadors", to: "/ambassadors" },
+];
 
 function WolfMark() {
   return (
@@ -47,23 +52,27 @@ export default function Navbar() {
           scrolled ? "py-4" : "py-6"
         }`}
       >
-        <a href="#" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <WolfMark />
           <span className="font-display text-2xl font-extrabold tracking-wide text-wolf-cream">
             WOLFOOD
           </span>
-        </a>
+        </Link>
 
         {/* desktop links */}
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="text-[0.8rem] font-medium uppercase tracking-wide text-wolf-cream/85 transition-colors hover:text-wolf-orange"
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) =>
+                `text-[0.8rem] font-medium uppercase tracking-wide transition-colors hover:text-wolf-orange ${
+                  isActive ? "text-wolf-orange" : "text-wolf-cream/85"
+                }`
+              }
             >
-              {link}
-            </a>
+              {link.label}
+            </NavLink>
           ))}
         </nav>
 
@@ -96,14 +105,18 @@ export default function Navbar() {
         <div className="border-t border-white/10 bg-wolf-green px-6 pb-6 pt-2 lg:hidden">
           <nav className="flex flex-col" aria-label="Mobile">
             {NAV_LINKS.map((link) => (
-              <a
-                key={link}
-                href="#"
+              <NavLink
+                key={link.to}
+                to={link.to}
                 onClick={() => setOpen(false)}
-                className="border-b border-white/5 py-3 text-sm font-medium uppercase tracking-wide text-wolf-cream/85 transition-colors hover:text-wolf-orange"
+                className={({ isActive }) =>
+                  `border-b border-white/5 py-3 text-sm font-medium uppercase tracking-wide transition-colors hover:text-wolf-orange ${
+                    isActive ? "text-wolf-orange" : "text-wolf-cream/85"
+                  }`
+                }
               >
-                {link}
-              </a>
+                {link.label}
+              </NavLink>
             ))}
             <button className="mt-5 flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-wolf-green-dark">
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

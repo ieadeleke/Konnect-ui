@@ -51,3 +51,147 @@ h1, h2, h3, h4 {
     animation: none;
   }
 }
+
+/* Infinite horizontal marquee (rider reviews). Track holds two copies of
+   the list; sliding by -50% loops seamlessly. */
+@keyframes wolf-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.wolf-marquee {
+  animation: wolf-marquee 45s linear infinite;
+}
+.wolf-marquee-reverse {
+  animation: wolf-marquee 45s linear infinite reverse;
+}
+.wolf-marquee:hover,
+.wolf-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wolf-marquee,
+  .wolf-marquee-reverse {
+    animation: none;
+  }
+}
+
+/* Bike riding along the "how it works" road; fades at each end so the
+   loop reset is invisible. Horizontal on desktop, vertical on mobile. */
+@keyframes wolf-ride-x {
+  0% { left: 0; opacity: 0; }
+  10% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { left: calc(100% - 3.5rem); opacity: 0; }
+}
+@keyframes wolf-ride-y {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { top: calc(100% - 2.5rem); opacity: 0; }
+}
+.wolf-ride-x {
+  animation: wolf-ride-x 9s ease-in-out infinite;
+}
+.wolf-ride-y {
+  animation: wolf-ride-y 9s ease-in-out infinite;
+}
+
+/* Bike following the full winding road (top leg -> bend -> bottom leg).
+   Waypoints are % of the fixed-aspect stage so they track the SVG path. */
+@keyframes wolf-snake {
+  0% {
+    left: 4%;
+    top: 20%;
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  8% {
+    opacity: 1;
+    animation-timing-function: linear;
+  }
+  42% {
+    left: 92%;
+    top: 36.7%;
+  }
+  50% {
+    left: 98.9%;
+    top: 50%;
+  }
+  58% {
+    left: 92%;
+    top: 63.3%;
+  }
+  90% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  100% {
+    left: 4%;
+    top: 80%;
+    opacity: 0;
+  }
+}
+.wolf-snake {
+  animation: wolf-snake 9s linear infinite;
+}
+
+/* Orientation and flip applied only to the bike icon */
+@keyframes wolf-snake-orient {
+  0%, 42% {
+    transform: rotate(6.5deg) scaleY(1);
+  }
+  46% {
+    transform: rotate(33deg) scaleY(1);
+  }
+  50% {
+    transform: rotate(90deg) scaleY(1);
+  }
+  54% {
+    transform: rotate(147deg) scaleY(-1);
+  }
+  58%, 100% {
+    transform: rotate(186.5deg) scaleY(-1);
+  }
+}
+.wolf-snake-orient {
+  animation: wolf-snake-orient 9s linear infinite;
+}
+
+/* Confetti burst at the finish flag, synced to the bike's arrival
+   (same 9s period; pops in the last stretch of each lap). */
+@keyframes wolf-confetti {
+  0%,
+  82% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+  85% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 0), var(--ty, 0)) scale(0.9) rotate(200deg);
+  }
+}
+.wolf-confetti {
+  animation: wolf-confetti 9s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wolf-ride-x,
+  .wolf-ride-y,
+  .wolf-snake {
+    animation: none;
+    opacity: 1;
+  }
+  .wolf-confetti {
+    animation: none;
+    opacity: 0;
+  }
+}
