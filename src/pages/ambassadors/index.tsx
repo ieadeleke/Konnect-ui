@@ -69,7 +69,7 @@ function Hero() {
     <section className="relative overflow-hidden bg-wolf-green pt-32 pb-20 md:pt-40 md:pb-28">
       <div
         className="pointer-events-none absolute inset-0 opacity-80"
-        style={{ background: "radial-gradient(55% 55% at 50% 0%, rgba(245,60,8,0.18), transparent 60%)" }}
+        style={{ background: "radial-gradient(55% 55% at 50% 0%, rgba(16,185,129,0.18), transparent 60%)" }}
         aria-hidden="true"
       />
 
@@ -91,14 +91,14 @@ function Hero() {
             href="https://forms.gle/DjqKWtpTCXR1Zgc58"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
           >
             Apply now
             <Arrow />
           </a>
           <a
             href="#how"
-            className="inline-flex items-center justify-center rounded-full bg-white/10 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-cream ring-1 ring-white/20 transition-colors hover:bg-white/15"
+            className="inline-flex items-center justify-center rounded-full bg-white/10 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-cream ring-1 ring-white/20 transition-colors hover:bg-white/15"
           >
             How it works
           </a>
@@ -141,7 +141,7 @@ const BENEFITS: { icon: ReactNode; title: string; text: string }[] = [
       </Icon>
     ),
     title: "Perks & growth",
-    text: "Unlock free meals, branded merch, internships and invites to exclusive Konnect events.",
+    text: "Unlock free health insurance, quarterly performance incentives, meals, and invites to exclusive Konnect events.",
   },
   {
     icon: (
@@ -292,7 +292,7 @@ function WhoJoins() {
                 <span className="grid h-12 w-12 place-items-center rounded-2xl bg-wolf-orange/15 text-wolf-orange">
                   {a.icon}
                 </span>
-                <span className="inline-flex items-center gap-1 rounded-full bg-wolf-cream px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-wide text-wolf-green/45">
+                <span className="inline-flex items-center gap-1 rounded-full bg-wolf-cream px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-wide text-wolf-green/45">
                   <Check className="h-2.5 w-2.5" />
                   Eligible
                 </span>
@@ -330,7 +330,7 @@ const STEPS: { icon: ReactNode; title: string; text: string }[] = [
       </Icon>
     ),
     title: "Share",
-    text: "Post your unique link online and spread the word on campus.",
+    text: "Post your unique link online and spread the word everywhere.",
   },
   {
     icon: (
@@ -405,10 +405,10 @@ function Steps() {
 
 /* ---------- tiers ---------- */
 const TIERS: { name: string; rate: string; reach: string; perks: string[]; featured?: boolean }[] = [
-  { name: "Rookie", rate: "5%", reach: "Start here", perks: ["Starter kit", "Your referral link"] },
-  { name: "Rising", rate: "8%", reach: "50+ referrals", perks: ["Branded merch", "Recognition badges"] },
-  { name: "Pro", rate: "12%", reach: "150+ referrals", perks: ["Event access", "Performance bonuses"] },
-  { name: "Legend", rate: "15%", reach: "400+ referrals", perks: ["Cash bonuses", "Internships & roles"], featured: true },
+  { name: "Rookie", rate: "₦25K", reach: "Start here", perks: ["Starter kit", "Your referral link"] },
+  { name: "Rising", rate: "₦45K", reach: "50+ referrals", perks: ["Branded merch", "Recognition badges"] },
+  { name: "Pro", rate: "₦95K", reach: "150+ referrals", perks: ["Event access", "Performance bonuses"] },
+  { name: "Legend", rate: "₦150K", reach: "400+ referrals", perks: ["Cash bonuses", "Internships & roles"], featured: true },
 ];
 
 function Tiers() {
@@ -463,11 +463,16 @@ function Tiers() {
                 {t.reach}
               </div>
 
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="font-display text-4xl font-bold tracking-tight text-wolf-orange">{t.rate}</span>
-                <span className={`text-sm ${t.featured ? "text-wolf-cream/60" : "text-wolf-green/50"}`}>
-                  per referral
-                </span>
+              <div className="mt-4">
+                <div className={`text-[0.7rem] font-medium uppercase tracking-wide ${t.featured ? "text-wolf-cream/50" : "text-wolf-green/45"}`}>
+                  Up to
+                </div>
+                <div className="flex items-baseline gap-1">
+                  <span className="font-display text-4xl font-bold tracking-tight text-wolf-orange">{t.rate}</span>
+                  <span className={`text-sm ${t.featured ? "text-wolf-cream/60" : "text-wolf-green/50"}`}>
+                    / week
+                  </span>
+                </div>
               </div>
 
               <div className={`my-5 h-px ${t.featured ? "bg-white/10" : "bg-black/[0.06]"}`} />
@@ -565,7 +570,7 @@ function Apply() {
         <div className="relative overflow-hidden rounded-[2.5rem] bg-wolf-green px-8 py-16 text-center md:px-16 md:py-20">
           <div
             className="pointer-events-none absolute inset-0 opacity-70"
-            style={{ background: "radial-gradient(60% 70% at 50% 0%, rgba(245,60,8,0.2), transparent 60%)" }}
+            style={{ background: "radial-gradient(60% 70% at 50% 0%, rgba(16,185,129,0.2), transparent 60%)" }}
             aria-hidden="true"
           />
           <div className="relative mx-auto max-w-xl">
@@ -580,7 +585,7 @@ function Apply() {
               href="https://forms.gle/DjqKWtpTCXR1Zgc58"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-8 py-4 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-8 py-4 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
             >
               Apply now
               <Arrow />

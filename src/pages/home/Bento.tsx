@@ -44,7 +44,7 @@ export default function Bento() {
               </p>
               <Link
                 to="/signup"
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-6 py-3 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-6 py-3 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
               >
                 START HERE
                 <span aria-hidden="true">→</span>

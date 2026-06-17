@@ -81,7 +81,7 @@ function RouteMap({ className = "" }: { className?: string }) {
         aria-hidden="true"
       />
       <svg viewBox="0 0 100 120" preserveAspectRatio="none" className="absolute inset-0 h-full w-full" aria-hidden="true">
-        <path d="M20 22 C 62 36, 26 72, 78 100" fill="none" stroke="#f53c08" strokeWidth="1.6" strokeDasharray="4 4" strokeLinecap="round" />
+        <path d="M20 22 C 62 36, 26 72, 78 100" fill="none" stroke="#10b981" strokeWidth="1.6" strokeDasharray="4 4" strokeLinecap="round" />
       </svg>
       {/* restaurant pin */}
       <span className="absolute left-[12%] top-[12%] grid h-9 w-9 place-items-center rounded-full bg-wolf-orange text-wolf-green-dark shadow-lg">
@@ -117,7 +117,7 @@ function Hero() {
       <div
         className="pointer-events-none absolute inset-0 opacity-80"
         style={{
-          background: "radial-gradient(60% 60% at 80% 10%, rgba(245,60,8,0.16), transparent 60%)",
+          background: "radial-gradient(60% 60% at 80% 10%, rgba(16,185,129,0.16), transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -133,21 +133,21 @@ function Hero() {
             Earn on your own <span className="text-wolf-orange">terms</span>
           </h1>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-wolf-cream/75">
-            Deliver with Konnect and ride when it suits you. Flexible hours, weekly
+            Deliver with Konnect and ride when it suits you. Flexible hours, instant
             payouts, and bonuses when demand is high — you decide when you ride.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               to="/signup"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
             >
               Start riding
               <Arrow />
             </Link>
             <a
               href="#how"
-              className="inline-flex items-center justify-center rounded-full bg-white/10 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-cream ring-1 ring-white/20 transition-colors hover:bg-white/15"
+              className="inline-flex items-center justify-center rounded-full bg-white/10 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-cream ring-1 ring-white/20 transition-colors hover:bg-white/15"
             >
               See how it works
             </a>
@@ -159,7 +159,7 @@ function Hero() {
             <div>
               <Stars />
               <div className="mt-1 text-sm text-wolf-cream/70">
-                Join <span className="font-semibold text-wolf-cream">5,000+ riders</span> earning weekly
+                Join <span className="font-semibold text-wolf-cream">5,000+ riders</span> earning daily
               </div>
             </div>
           </div>
@@ -213,8 +213,8 @@ const STATS: { icon: ReactNode; value: string; label: string; badge: string }[] 
         <path d="M3 9h18M8 2v4M16 2v4" />
       </Icon>
     ),
-    value: "Weekly",
-    label: "payouts, on time",
+    value: "Instant",
+    label: "payouts, every time",
     badge: "Reliable",
   },
   {
@@ -257,7 +257,7 @@ function Stats() {
                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-wolf-orange/15 text-wolf-orange">
                   {s.icon}
                 </span>
-                <span className="rounded-full bg-wolf-cream px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-wolf-green/45">
+                <span className="rounded-full bg-wolf-cream px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-wolf-green/45">
                   {s.badge}
                 </span>
               </div>
@@ -533,7 +533,7 @@ function Features() {
 
               <Link
                 to="/signup"
-                className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-wolf-green px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-cream transition-transform hover:-translate-y-0.5"
+                className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-wolf-green px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-cream transition-transform hover:-translate-y-0.5"
               >
                 Start riding
                 <Arrow />
@@ -719,7 +719,7 @@ const STEPS: { icon: ReactNode; title: string; text: string }[] = [
       </Icon>
     ),
     title: "Start earning",
-    text: "Accept orders, deliver, and cash out reliably every week.",
+    text: "Accept orders, deliver, and cash out reliably every day.",
   },
 ];
 
@@ -744,13 +744,13 @@ function Flag({ className = "h-5 w-5" }: { className?: string }) {
 }
 
 const CONFETTI: { tx: string; ty: string; color: string }[] = [
-  { tx: "-26px", ty: "-30px", color: "#f53c08" },
+  { tx: "-26px", ty: "-30px", color: "#10b981" },
   { tx: "-8px", ty: "-42px", color: "#111111" },
-  { tx: "14px", ty: "-36px", color: "#f53c08" },
+  { tx: "14px", ty: "-36px", color: "#10b981" },
   { tx: "30px", ty: "-22px", color: "#1c1c1c" },
   { tx: "-32px", ty: "-6px", color: "#111111" },
-  { tx: "32px", ty: "-4px", color: "#f53c08" },
-  { tx: "-18px", ty: "14px", color: "#f53c08" },
+  { tx: "32px", ty: "-4px", color: "#10b981" },
+  { tx: "-18px", ty: "14px", color: "#10b981" },
   { tx: "22px", ty: "16px", color: "#111111" },
 ];
 
@@ -897,7 +897,7 @@ const REVIEWS: Review[] = [
   { name: "Emeka U.", location: "Enugu", quote: "Started on a bicycle, now I run a bike. Konnect paid for it." },
   { name: "Fatima S.", location: "Kano", quote: "Smart routes mean less fuel and more drop-offs every shift." },
   { name: "Chidi N.", location: "Port Harcourt", quote: "Sign-up was painless. Verified in two days and earning." },
-  { name: "Bisi A.", location: "Ibadan", quote: "Weekly payouts never miss. That trust keeps me riding." },
+  { name: "Bisi A.", location: "Ibadan", quote: "Instant payouts never miss. That trust keeps me riding." },
 ];
 
 function ReviewCard({ r }: { r: Review }) {
@@ -1013,7 +1013,7 @@ function Signup() {
       <div className="absolute inset-0 bg-gradient-to-t from-wolf-green via-wolf-green/90 to-wolf-green/75" aria-hidden="true" />
       <div
         className="pointer-events-none absolute inset-0 opacity-70"
-        style={{ background: "radial-gradient(60% 50% at 50% 0%, rgba(245,60,8,0.22), transparent 60%)" }}
+        style={{ background: "radial-gradient(60% 50% at 50% 0%, rgba(16,185,129,0.22), transparent 60%)" }}
         aria-hidden="true"
       />
 
@@ -1026,7 +1026,7 @@ function Signup() {
         </h2>
         <p className="mx-auto mt-5 max-w-md text-lg leading-relaxed text-wolf-cream/75">
           Download the Konnect Rider app, sign up in minutes and hit the road — it&apos;s
-          free to join, with weekly payouts from your very first week.
+          free to join, with instant payouts from your very first delivery.
         </p>
 
         {/* store badges */}

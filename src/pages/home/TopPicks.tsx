@@ -15,9 +15,9 @@ type Pick = { name: string; meta: string; img: string };
 const PICKS: Pick[] = [
   { name: "Beckley's Kitchen", meta: "Jollof · ★ 4.8 · 25 min", img: IMAGES.picks[0] },
   { name: "Ibile Delicacies", meta: "Barbecue · ★ 4.9 · 30 min", img: IMAGES.picks[1] },
-  { name: "University of Amala", meta: "Shawarma · ★ 4.7 · 18 min", img: IMAGES.picks[2] },
+  { name: "University of Amala", meta: "Amala · ★ 4.7 · 18 min", img: IMAGES.picks[2] },
   { name: "Amala Nation", meta: "Soups · ★ 4.6 · 35 min", img: IMAGES.picks[3] },
-  { name: "Amala Sky", meta: "Pizza · ★ 4.8 · 28 min", img: IMAGES.picks[4] },
+  { name: "Amala Sky", meta: "Amala · ★ 4.8 · 28 min", img: IMAGES.picks[4] },
   { name: "YKB Amala Spot", meta: "Ofada · ★ 4.7 · 32 min", img: IMAGES.picks[5] },
   { name: "Remmy's Food Palace", meta: "Desserts · ★ 4.9 · 20 min", img: IMAGES.picks[6] },
   { name: "EWA-AGONYI (dabina's)", meta: "Jollof · ★ 4.8 · 25 min", img: IMAGES.picks[0] },

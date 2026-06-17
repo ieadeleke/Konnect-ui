@@ -124,7 +124,7 @@ export default function Partners() {
                   </ul>
                   <Link
                     to={row.href}
-                    className={`mt-7 inline-flex w-fit items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:-translate-y-0.5 ${
+                    className={`mt-7 inline-flex w-fit items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold transition-transform hover:-translate-y-0.5 ${
                       row.variant === "orange"
                         ? "bg-wolf-orange text-wolf-green-dark"
                         : "bg-wolf-green text-wolf-cream"

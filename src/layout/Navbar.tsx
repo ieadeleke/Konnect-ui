@@ -72,7 +72,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             to="/signup"
-            className="hidden items-center gap-2 rounded-full bg-white px-7 text-sm py-4 font-semibold text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:flex cursor-pointer"
+            className="hidden items-center gap-2 rounded-full bg-white px-7 text-sm py-4 font-bold text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:flex cursor-pointer"
           >
             Create Account
           </Link>
@@ -124,7 +124,7 @@ export default function Navbar() {
             <Link
               to="/signup"
               onClick={() => setOpen(false)}
-              className="mt-5 flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-5 py-3 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark"
+              className="mt-5 flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-5 py-3 text-sm font-bold uppercase tracking-wide text-wolf-green-dark"
             >
               Start here
             </Link>

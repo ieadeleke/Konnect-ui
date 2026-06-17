@@ -102,7 +102,7 @@ export default function DownloadApp() {
             className="pointer-events-none absolute inset-0 opacity-70"
             style={{
               background:
-                "radial-gradient(80% 80% at 85% 0%, rgba(245,60,8,0.16), transparent 60%)",
+                "radial-gradient(80% 80% at 85% 0%, rgba(16,185,129,0.16), transparent 60%)",
             }}
             aria-hidden="true"
           />

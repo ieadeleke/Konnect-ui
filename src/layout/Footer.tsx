@@ -6,7 +6,14 @@
 
 import logo from "../assets/logo.svg";
 
-const LINKS = ["How it works", "For Restaurants", "For Riders", "FAQ", "Contact"];
+const LINKS: { label: string; href: string }[] = [
+  { label: "How it works", href: "#" },
+  { label: "For Restaurants", href: "/business" },
+  { label: "For Riders", href: "/ride" },
+  { label: "Contact", href: "/contact" },
+  { label: "Privacy", href: "https://konnect.ws/privacy" },
+  { label: "Terms", href: "https://konnect.ws/terms" },
+];
 
 const SOCIALS: { label: string; path: string }[] = [
   { label: "Instagram", path: "M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm5 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm5.5-.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" },
@@ -28,11 +35,19 @@ export default function Footer() {
           </a>
 
           <nav className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2" aria-label="Footer">
-            {LINKS.map((link) => (
-              <a key={link} href="#" className="text-sm transition-colors hover:text-wolf-orange">
-                {link}
-              </a>
-            ))}
+            {LINKS.map((link) => {
+              const external = link.href.startsWith("http");
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="text-sm transition-colors hover:text-wolf-orange"
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
         </div>
 

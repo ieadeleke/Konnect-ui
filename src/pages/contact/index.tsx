@@ -42,8 +42,8 @@ const CHANNELS: { icon: ReactNode; label: string; value: string; href: string }[
       </Icon>
     ),
     label: "Email",
-    value: "hello@konnectbd.com",
-    href: "mailto:hello@konnectbd.com",
+    value: "konnect@consukon.com",
+    href: "mailto:konnect@consukon.com",
   },
   {
     icon: (
@@ -101,7 +101,7 @@ export default function ContactPage() {
       <section className="relative overflow-hidden bg-wolf-green pt-32 pb-20 text-center md:pt-40 md:pb-24">
         <div
           className="pointer-events-none absolute inset-0 opacity-80"
-          style={{ background: "radial-gradient(55% 55% at 50% 0%, rgba(245,60,8,0.18), transparent 60%)" }}
+          style={{ background: "radial-gradient(55% 55% at 50% 0%, rgba(16,185,129,0.18), transparent 60%)" }}
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-2xl px-6">
@@ -203,7 +203,7 @@ export default function ContactPage() {
                   <Field label="Message" name="message" placeholder="Tell us a bit more…" textarea />
                   <button
                     type="submit"
-                    className="mt-2 w-full rounded-full bg-wolf-orange px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+                    className="mt-2 w-full rounded-full bg-wolf-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
                   >
                     Send message
                   </button>

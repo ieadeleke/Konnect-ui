@@ -68,7 +68,7 @@ export default function SignupPage() {
       {/* backdrop: glow + dot grid + blob */}
       <div
         className="pointer-events-none absolute inset-0 opacity-80"
-        style={{ background: "radial-gradient(55% 50% at 50% 0%, rgba(245,60,8,0.18), transparent 60%)" }}
+        style={{ background: "radial-gradient(55% 50% at 50% 0%, rgba(16,185,129,0.18), transparent 60%)" }}
         aria-hidden="true"
       />
       <div
@@ -196,7 +196,7 @@ export default function SignupPage() {
                 />
                 <button
                   type="submit"
-                  className="mt-6 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-wolf-orange px-6 py-4 text-sm font-semibold tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+                  className="mt-6 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-wolf-orange px-6 py-4 text-sm font-bold tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
                 >
                   Create Account
                   <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

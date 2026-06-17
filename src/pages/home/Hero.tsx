@@ -69,7 +69,7 @@ export default function Hero() {
         <div className="mt-9 flex items-center justify-center gap-4">
           <Link
             to="/signup"
-            className="rounded-full bg-wolf-orange px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark shadow-lg shadow-black/10 transition-transform hover:-translate-y-0.5"
+            className="rounded-full bg-wolf-orange px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-green-dark shadow-lg shadow-black/10 transition-transform hover:-translate-y-0.5"
           >
             Click here to start
           </Link>

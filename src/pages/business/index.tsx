@@ -73,8 +73,8 @@ const BENEFITS: { icon: ReactNode; title: string; text: string }[] = [
         <path d="M18 12a2 2 0 0 0 0 4h4v-4z" />
       </Icon>
     ),
-    title: "Fast weekly payouts",
-    text: "Get settled every week, straight to your bank account, with every transaction itemised clearly.",
+    title: "Fast instant payouts",
+    text: "Get settled instantly straight to your business wallet, with every transaction itemized clearly.",
   },
   {
     icon: (
@@ -110,7 +110,7 @@ const STEPS: { title: string; text: string }[] = [
   { title: "Sign up", text: "Tell us about your restaurant and share a few documents — it takes minutes." },
   { title: "Get verified", text: "Our team reviews your details and helps you set up your menu, usually within 48 hours." },
   { title: "Go live", text: "Your kitchen appears on Konnect and starts receiving orders from nearby customers." },
-  { title: "Get paid", text: "Fulfil orders, track everything in your dashboard, and get paid reliably every week." },
+  { title: "Get paid", text: "Fulfil orders, track everything in your dashboard, and get paid instantly." },
 ];
 
 /* ---------- hero: headline + CTAs + image ---------- */
@@ -122,7 +122,7 @@ function Hero() {
         className="pointer-events-none absolute inset-0 opacity-80"
         style={{
           background:
-            "radial-gradient(60% 60% at 80% 10%, rgba(245,60,8,0.16), transparent 60%)",
+            "radial-gradient(60% 60% at 80% 10%, rgba(16,185,129,0.16), transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -144,7 +144,7 @@ function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               to="/signup"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
             >
               Get started
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -155,14 +155,14 @@ function Hero() {
               href="https://wa.me/2348073376943"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-white/10 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-wolf-cream ring-1 ring-white/20 transition-colors hover:bg-white/15"
+              className="inline-flex items-center justify-center rounded-full bg-white/10 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-cream ring-1 ring-white/20 transition-colors hover:bg-white/15"
             >
               Talk to sales
             </a>
           </div>
 
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-wolf-cream/70">
-            {["No setup fees", "Live in 48 hours", "Cancel anytime"].map((p) => (
+            {["No setup fees", "Live in 48 hours", "Cancel anytime", "Instant payouts"].map((p) => (
               <li key={p} className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-wolf-orange" />
                 {p}
@@ -179,7 +179,7 @@ function Hero() {
             className="absolute -right-6 -top-6 h-28 w-28"
             style={{
               backgroundImage:
-                "radial-gradient(rgba(245,60,8,0.55) 1.5px, transparent 1.5px)",
+                "radial-gradient(rgba(16,185,129,0.55) 1.5px, transparent 1.5px)",
               backgroundSize: "12px 12px",
             }}
           />
@@ -347,7 +347,7 @@ function Signup() {
             className="pointer-events-none absolute inset-0 opacity-70"
             style={{
               background:
-                "radial-gradient(60% 70% at 50% 0%, rgba(245,60,8,0.2), transparent 60%)",
+                "radial-gradient(60% 70% at 50% 0%, rgba(16,185,129,0.2), transparent 60%)",
             }}
             aria-hidden="true"
           />
@@ -362,7 +362,7 @@ function Signup() {
             </p>
             <Link
               to="/signup"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-8 py-4 text-sm font-semibold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-8 py-4 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
             >
               Start here
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -370,7 +370,7 @@ function Signup() {
               </svg>
             </Link>
             <ul className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-wolf-cream/70">
-              {["Live in 48 hours", "Weekly payouts", "Real team behind you"].map((p) => (
+              {["Live in 48 hours", "Instant payouts", "Real team behind you"].map((p) => (
                 <li key={p} className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-wolf-orange" />
                   {p}
