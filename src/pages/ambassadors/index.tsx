@@ -58,11 +58,11 @@ function Avatars() {
 }
 
 /* ---------- hero ---------- */
-const HERO_STATS: { value: string; label: string }[] = [
-  { value: "2,500+", label: "active ambassadors" },
-  { value: "₦20M+", label: "paid in bonuses" },
-  { value: "40+", label: "campuses & cities" },
-];
+// const HERO_STATS: { value: string; label: string }[] = [
+//   { value: "2,500+", label: "active ambassadors" },
+//   { value: "₦20M+", label: "paid in bonuses" },
+//   { value: "40+", label: "campuses & cities" },
+// ];
 
 function Hero() {
   return (
