@@ -13,7 +13,7 @@ import {
   FiGlobe,
 } from "react-icons/fi";
 import Field from "./Field";
-import { signUpUser } from "../../lib/api";
+import { checkEmail, signUpUser } from "../../lib/api";
 import { APP_STORE_URL, GOOGLE_PLAY_URL, WEB_URL } from "../../lib/links";
 
 function normalizePhone(input: string): { phone_code: string; phone_number: string } {
@@ -54,6 +54,13 @@ export default function SignupCard() {
     setSubmitting(true);
     setError("");
     try {
+      const emailCheck = await checkEmail(email.trim());
+      if (!emailCheck.ok) {
+        setError(emailCheck.message || "That email looks undeliverable — please double-check it.");
+        setSubmitting(false);
+        return;
+      }
+
       const { phone_code, phone_number } = normalizePhone(phone);
       await signUpUser({
         first_name: firstName.trim(),

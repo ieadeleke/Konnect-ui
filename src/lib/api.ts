@@ -39,6 +39,41 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return body as T;
 }
 
+// TEMPORARY: exposed in the client bundle. Move this to the backend and rotate the key.
+const LISTCLEAN_API_KEY = "Mzk4NmI2ZWI1NC0xNzgxODEyOTMw";
+
+const BAD_EMAIL_STATUSES = new Set([
+  "dirty",
+  "invalid",
+  "undeliverable",
+  "bounce",
+  "spamtrap",
+  "do_not_mail",
+]);
+
+export type EmailCheck = { ok: boolean; status?: string; message?: string };
+
+export async function checkEmail(email: string): Promise<EmailCheck> {
+  if (!LISTCLEAN_API_KEY) return { ok: true };
+  try {
+    const res = await fetch(
+      `https://api.listclean.xyz/v1/verify/email/${encodeURIComponent(email)}`,
+      { headers: { "X-Auth-Token": LISTCLEAN_API_KEY } }
+    );
+    if (!res.ok) return { ok: true };
+    const body = (await res.json()) as { data?: { status?: string; remarks?: string } };
+    const status = (body?.data?.status ?? "").toString().toLowerCase();
+    const ok = !BAD_EMAIL_STATUSES.has(status);
+    return {
+      ok,
+      status,
+      message: ok ? undefined : body?.data?.remarks || "That email looks undeliverable.",
+    };
+  } catch {
+    return { ok: true };
+  }
+}
+
 export type SignUpInput = {
   first_name: string;
   last_name: string;
