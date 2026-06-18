@@ -12,19 +12,17 @@ import {
   FiAlertCircle,
 } from "react-icons/fi";
 import Field from "./Field";
-import { signUpUser, validateReferralCode } from "../../lib/api";
+import { signUpUser } from "../../lib/api";
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from "../../lib/links";
-
-type ReferralState = "idle" | "checking" | "valid" | "invalid";
 
 function normalizePhone(input: string): { phone_code: string; phone_number: string } {
   let digits = input.replace(/\D/g, "");
-  if (digits.startsWith("0")) {
-    digits = "234" + digits.slice(1);
-  } else if (digits.length > 0 && !digits.startsWith("234")) {
-    digits = "234" + digits;
+  if (digits.startsWith("234")) {
+    digits = "0" + digits.slice(3);
+  } else if (digits.length > 0 && !digits.startsWith("0")) {
+    digits = "0" + digits;
   }
-  return { phone_code: "234", phone_number: digits };
+  return { phone_code: "+234", phone_number: digits };
 }
 
 export default function SignupCard() {
@@ -34,10 +32,6 @@ export default function SignupCard() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [referral, setReferral] = useState("");
-
-  const [referralState, setReferralState] = useState<ReferralState>("idle");
-  const [referralName, setReferralName] = useState("");
-  const [referralError, setReferralError] = useState("");
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -54,40 +48,8 @@ export default function SignupCard() {
     if (referral) localStorage.setItem("referralCode", referral);
   }, [referral]);
 
-  useEffect(() => {
-    const code = referral.trim();
-    if (code.length !== 8) {
-      setReferralState("idle");
-      setReferralName("");
-      setReferralError("");
-      return;
-    }
-    let cancelled = false;
-    setReferralState("checking");
-    setReferralError("");
-    validateReferralCode(code)
-      .then((details) => {
-        if (cancelled) return;
-        setReferralState("valid");
-        setReferralName(details?.is_sl && details?.name ? details.name : "");
-      })
-      .catch((err: unknown) => {
-        if (cancelled) return;
-        setReferralState("invalid");
-        setReferralName("");
-        setReferralError(err instanceof Error ? err.message : "Invalid referral code");
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [referral]);
-
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (referral.trim() && referralState === "invalid") {
-      setError("Please fix or clear the referral code before continuing.");
-      return;
-    }
     setSubmitting(true);
     setError("");
     try {
@@ -109,19 +71,6 @@ export default function SignupCard() {
       setSubmitting(false);
     }
   }
-
-  const referralStatus =
-    referralState === "checking" ? (
-      <span className="inline-flex items-center gap-1.5 text-xs text-wolf-green/50">
-        <FiLoader className="h-3.5 w-3.5 animate-spin" />
-        Checking…
-      </span>
-    ) : referralState === "valid" ? (
-      <span className="inline-flex items-center gap-1.5 text-xs font-medium text-wolf-green">
-        <FiCheck className="h-3.5 w-3.5" />
-        {referralName ? `Referred by ${referralName}` : "Code applied"}
-      </span>
-    ) : null;
 
   return (
     <div className="mt-7 rounded-3xl bg-white p-6 shadow-2xl ring-1 ring-black/5 md:p-8">
@@ -232,11 +181,7 @@ export default function SignupCard() {
             value={referral}
             onChange={(v) => setReferral(v.trim())}
             icon={<FiTag className="h-4 w-4" />}
-            status={referralStatus}
-            error={referralState === "invalid" ? referralError : undefined}
-            hint={
-              referralState === "idle" ? "If a friend referred you, enter their code." : undefined
-            }
+            hint="If a friend referred you, enter their code."
           />
           <button
             type="submit"

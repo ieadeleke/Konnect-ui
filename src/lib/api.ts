@@ -1,6 +1,7 @@
-const BASE_URL =
+const RAW_BASE =
   (import.meta.env as Record<string, string | undefined>).VITE_API_BASE_URL ??
-  "https://prod-api.konnectbd.com/api/v1";
+  "https://new-backend-production.apps.konnectbd.com/api/v1";
+const BASE_URL = RAW_BASE.replace(/\/+$/, "");
 
 export class ApiError extends Error {
   status: number;
@@ -9,6 +10,13 @@ export class ApiError extends Error {
     this.name = "ApiError";
     this.status = status;
   }
+}
+
+function messageFrom(body: unknown, status: number): string {
+  const message = (body as { message?: unknown })?.message;
+  if (Array.isArray(message)) return message.join(", ");
+  if (typeof message === "string" && message) return message;
+  return `Request failed (${status})`;
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
@@ -27,24 +35,10 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     body = null;
   }
 
-  const data = body as { status?: string; message?: string } | null;
-  if (!res.ok || data?.status === "error") {
-    throw new ApiError(data?.message || `Request failed (${res.status})`, res.status);
+  if (!res.ok) {
+    throw new ApiError(messageFrom(body, res.status), res.status);
   }
   return body as T;
-}
-
-export type ReferralDetails = {
-  is_sl?: boolean;
-  name?: string;
-  [key: string]: unknown;
-};
-
-export async function validateReferralCode(code: string): Promise<ReferralDetails> {
-  const res = await request<{ data: ReferralDetails }>(
-    `/auth/validate_referal_code/${encodeURIComponent(code)}`
-  );
-  return res.data;
 }
 
 export type SignUpInput = {
@@ -58,25 +52,20 @@ export type SignUpInput = {
 };
 
 export async function signUpUser(input: SignUpInput) {
-  return request(`/auth/sign-up/user`, {
+  const payload: Record<string, unknown> = {
+    firstName: input.first_name,
+    lastName: input.last_name,
+    email: input.email,
+    password: input.password,
+    app: "web",
+    phoneNumber: input.phone_number,
+    phoneCode: input.phone_code,
+  };
+  if (input.referral_code) {
+    payload.referralCode = input.referral_code;
+  }
+  return request(`/auth/register`, {
     method: "POST",
-    body: JSON.stringify({
-      lga: "",
-      state: "",
-      first_name: input.first_name,
-      last_name: input.last_name,
-      email: input.email,
-      password: input.password,
-      confirm_password: input.password,
-      referral_code: input.referral_code,
-      image: "",
-      home_address: "",
-      phone_code: input.phone_code,
-      phone_number: input.phone_number,
-      role_id: 1,
-      is_ra: false,
-      app: "web",
-      is_so: false,
-    }),
+    body: JSON.stringify(payload),
   });
 }
