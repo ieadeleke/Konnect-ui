@@ -47,14 +47,19 @@ export default function StoreBadges({
   const width = fullWidthOnMobile ? "w-full sm:w-auto sm:justify-start" : "";
   return (
     <div className={`${container} ${className}`}>
-      {BADGES.map((b) => (
+      {BADGES.map((b, i) => {
+        const lastOdd =
+          mobileGrid && i === BADGES.length - 1 && BADGES.length % 2 === 1
+            ? "col-span-2 justify-self-center sm:col-span-1"
+            : "";
+        return (
         <a
           key={b.name}
           href={b.href}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={b.aria}
-          className={`inline-flex items-center justify-center gap-3 rounded-xl bg-white ${pill} text-wolf-green-dark transition-transform hover:-translate-y-0.5 ${width}`}
+          className={`inline-flex items-center justify-center gap-3 rounded-xl bg-white ${pill} text-wolf-green-dark transition-transform hover:-translate-y-0.5 ${width} ${lastOdd}`}
         >
           <b.Icon className={iconSize} />
           <span className="text-left leading-tight">
@@ -62,7 +67,8 @@ export default function StoreBadges({
             <span className={`block font-display ${nameSize} font-bold`}>{b.name}</span>
           </span>
         </a>
-      ))}
+        );
+      })}
     </div>
   );
 }
