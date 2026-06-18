@@ -6,6 +6,7 @@ import RidePage from "./pages/ride";
 import AmbassadorsPage from "./pages/ambassadors";
 import ContactPage from "./pages/contact";
 import SignupPage from "./pages/signup";
+import { PrivacyPage, TermsPage } from "./pages/legal";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/ambassadors" element={<AmbassadorsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
       </Route>
     </Routes>
   );

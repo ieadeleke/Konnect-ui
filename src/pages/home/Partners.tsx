@@ -6,6 +6,7 @@
    ============================================================ */
 
 import { Link } from "react-router-dom";
+import { FiArrowRight } from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
 
 type Row = {
@@ -65,11 +66,7 @@ const ROWS: Row[] = [
 ];
 
 function Arrow() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
+  return <FiArrowRight className="h-4 w-4" />;
 }
 
 export default function Partners() {
@@ -126,7 +123,7 @@ export default function Partners() {
                     to={row.href}
                     className={`mt-7 inline-flex w-fit items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold transition-transform hover:-translate-y-0.5 ${
                       row.variant === "orange"
-                        ? "bg-wolf-orange text-wolf-green-dark"
+                        ? "bg-wolf-orange text-white"
                         : "bg-wolf-green text-wolf-cream"
                     }`}
                   >

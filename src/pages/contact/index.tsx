@@ -4,65 +4,36 @@
    a message form on the right. Clean, flat, on-brand.
    ============================================================ */
 
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
+import type { IconType } from "react-icons";
+import { FaWhatsapp, FaInstagram, FaXTwitter, FaTiktok } from "react-icons/fa6";
+import { FiMail, FiGlobe, FiCheck } from "react-icons/fi";
 
-function Icon({ children, className = "h-6 w-6" }: { children: ReactNode; className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {children}
-    </svg>
-  );
-}
-
-const CHANNELS: { icon: ReactNode; label: string; value: string; href: string }[] = [
+const CHANNELS: { Icon: IconType; label: string; value: string; href: string }[] = [
   {
-    icon: (
-      <Icon>
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-      </Icon>
-    ),
+    Icon: FaWhatsapp,
     label: "WhatsApp",
     value: "+234 807 337 6943",
     href: "https://wa.me/2348073376943",
   },
   {
-    icon: (
-      <Icon>
-        <rect x="3" y="5" width="18" height="14" rx="2" />
-        <path d="m3 7 9 6 9-6" />
-      </Icon>
-    ),
+    Icon: FiMail,
     label: "Email",
     value: "konnect@consukon.com",
     href: "mailto:konnect@consukon.com",
   },
   {
-    icon: (
-      <Icon>
-        <circle cx="12" cy="12" r="10" />
-        <path d="M2 12h20" />
-        <path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z" />
-      </Icon>
-    ),
+    Icon: FiGlobe,
     label: "Website",
     value: "konnectbd.com",
     href: "https://konnectbd.com",
   },
 ];
 
-const SOCIALS: { label: string; href: string; path: string }[] = [
-  { label: "Instagram", href: "#", path: "M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm5 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm5.5-.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" },
-  { label: "X", href: "#", path: "M18 2h3l-7 8 8 12h-6l-5-7-5 7H3l8-9L3 2h6l4 6 5-6Z" },
-  { label: "TikTok", href: "#", path: "M16 3c.5 2.5 2 4 4.5 4.3v3.2c-1.7 0-3.3-.5-4.5-1.4v6.4A6.5 6.5 0 1 1 9 9v3.3a3.2 3.2 0 1 0 3.2 3.2V3H16Z" },
+const SOCIALS: { label: string; href: string; Icon: IconType }[] = [
+  { label: "Instagram", href: "#", Icon: FaInstagram },
+  { label: "X", href: "#", Icon: FaXTwitter },
+  { label: "TikTok", href: "#", Icon: FaTiktok },
 ];
 
 function Field({
@@ -101,7 +72,7 @@ export default function ContactPage() {
       <section className="relative overflow-hidden bg-wolf-green pt-32 pb-20 text-center md:pt-40 md:pb-24">
         <div
           className="pointer-events-none absolute inset-0 opacity-80"
-          style={{ background: "radial-gradient(55% 55% at 50% 0%, rgba(16,185,129,0.18), transparent 60%)" }}
+          style={{ background: "radial-gradient(55% 55% at 50% 0%, rgba(11,122,82,0.18), transparent 60%)" }}
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-2xl px-6">
@@ -141,7 +112,7 @@ export default function ContactPage() {
                   className="flex items-center gap-4 rounded-2xl bg-wolf-cream p-4 ring-1 ring-black/5 transition-transform hover:-translate-y-0.5"
                 >
                   <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-wolf-orange/15 text-wolf-orange">
-                    {c.icon}
+                    <c.Icon className="h-6 w-6" />
                   </span>
                   <span>
                     <span className="block text-xs font-medium uppercase tracking-wide text-wolf-green/45">
@@ -161,11 +132,9 @@ export default function ContactPage() {
                     key={s.label}
                     href={s.href}
                     aria-label={s.label}
-                    className="grid h-10 w-10 place-items-center rounded-full bg-wolf-cream text-wolf-green ring-1 ring-black/5 transition-colors hover:bg-wolf-orange hover:text-wolf-green-dark"
+                    className="grid h-10 w-10 place-items-center rounded-full bg-wolf-cream text-wolf-green ring-1 ring-black/5 transition-colors hover:bg-wolf-orange hover:text-white"
                   >
-                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
-                      <path d={s.path} />
-                    </svg>
+                    <s.Icon className="h-4 w-4" />
                   </a>
                 ))}
               </div>
@@ -177,9 +146,7 @@ export default function ContactPage() {
             {sent ? (
               <div className="py-12 text-center">
                 <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-wolf-orange/15 text-wolf-orange">
-                  <Icon>
-                    <path d="M20 6 9 17l-5-5" />
-                  </Icon>
+                  <FiCheck className="h-6 w-6" />
                 </div>
                 <h3 className="mt-4 font-display text-2xl text-wolf-green">Message sent!</h3>
                 <p className="mt-2 text-sm text-wolf-green/60">
@@ -203,7 +170,7 @@ export default function ContactPage() {
                   <Field label="Message" name="message" placeholder="Tell us a bit more…" textarea />
                   <button
                     type="submit"
-                    className="mt-2 w-full rounded-full bg-wolf-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+                    className="mt-2 w-full rounded-full bg-wolf-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:-translate-y-0.5"
                   >
                     Send message
                   </button>

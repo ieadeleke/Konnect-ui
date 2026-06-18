@@ -6,94 +6,48 @@
    how-it-works steps, testimonial, final CTA. Footer is shared.
    ============================================================ */
 
-import { type ReactNode } from "react";
 import { Link } from "react-router-dom";
+import type { IconType } from "react-icons";
+import { FaBullhorn, FaQuoteLeft } from "react-icons/fa6";
+import {
+  FiUsers,
+  FiGrid,
+  FiTruck,
+  FiCreditCard,
+  FiLifeBuoy,
+  FiArrowRight,
+  FiShoppingCart,
+} from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
 
-/* ---------- small inline icons (stroke style, currentColor) ---------- */
-function Icon({ children }: { children: ReactNode }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-6 w-6"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {children}
-    </svg>
-  );
-}
-
-const BENEFITS: { icon: ReactNode; title: string; text: string }[] = [
+const BENEFITS: { Icon: IconType; title: string; text: string }[] = [
   {
-    icon: (
-      <Icon>
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </Icon>
-    ),
+    Icon: FiUsers,
     title: "More customers",
     text: "Get discovered by thousands of hungry diners searching for their next meal across your city.",
   },
   {
-    icon: (
-      <Icon>
-        <rect x="3" y="3" width="7" height="7" rx="1" />
-        <rect x="14" y="3" width="7" height="7" rx="1" />
-        <rect x="14" y="14" width="7" height="7" rx="1" />
-        <rect x="3" y="14" width="7" height="7" rx="1" />
-      </Icon>
-    ),
+    Icon: FiGrid,
     title: "One simple dashboard",
     text: "Manage menus, orders and opening hours from a single, clean dashboard built for busy kitchens.",
   },
   {
-    icon: (
-      <Icon>
-        <path d="M1 3h15v13H1z" />
-        <path d="M16 8h4l3 3v5h-7z" />
-        <circle cx="5.5" cy="18.5" r="2.5" />
-        <circle cx="18.5" cy="18.5" r="2.5" />
-      </Icon>
-    ),
+    Icon: FiTruck,
     title: "Reliable delivery fleet",
     text: "Our riders handle pickup and delivery, so your food arrives hot and your team stays in the kitchen.",
   },
   {
-    icon: (
-      <Icon>
-        <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
-        <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" />
-        <path d="M18 12a2 2 0 0 0 0 4h4v-4z" />
-      </Icon>
-    ),
+    Icon: FiCreditCard,
     title: "Fast instant payouts",
     text: "Get settled instantly straight to your business wallet, with every transaction itemized clearly.",
   },
   {
-    icon: (
-      <Icon>
-        <path d="m3 11 18-5v12L3 14v-3z" />
-        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
-      </Icon>
-    ),
+    Icon: FaBullhorn,
     title: "Marketing that works",
     text: "Feature in promotions, push offers and in-app placements that bring repeat orders to your door.",
   },
   {
-    icon: (
-      <Icon>
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="4" />
-        <path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M4.93 19.07l4.24-4.24" />
-      </Icon>
-    ),
+    Icon: FiLifeBuoy,
     title: "Dedicated support",
     text: "A real partner-success team is one tap away whenever you need a hand — every day of the week.",
   },
@@ -122,7 +76,7 @@ function Hero() {
         className="pointer-events-none absolute inset-0 opacity-80"
         style={{
           background:
-            "radial-gradient(60% 60% at 80% 10%, rgba(16,185,129,0.16), transparent 60%)",
+            "radial-gradient(60% 60% at 80% 10%, rgba(11,122,82,0.16), transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -144,12 +98,10 @@ function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               to="/signup"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:-translate-y-0.5"
             >
               Get started
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
+              <FiArrowRight className="h-4 w-4" />
             </Link>
             <a
               href="https://wa.me/2348073376943"
@@ -179,7 +131,7 @@ function Hero() {
             className="absolute -right-6 -top-6 h-28 w-28"
             style={{
               backgroundImage:
-                "radial-gradient(rgba(16,185,129,0.55) 1.5px, transparent 1.5px)",
+                "radial-gradient(rgba(11,122,82,0.55) 1.5px, transparent 1.5px)",
               backgroundSize: "12px 12px",
             }}
           />
@@ -199,12 +151,8 @@ function Hero() {
           </div>
 
           {/* cart badge (top-left) */}
-          <div className="absolute -left-5 top-10 grid h-14 w-14 place-items-center rounded-2xl bg-wolf-orange text-wolf-green-dark shadow-lg ring-1 ring-black/5">
-            <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="9" cy="20" r="1.4" />
-              <circle cx="18" cy="20" r="1.4" />
-              <path d="M2 3h3l2.5 13h11L21 7H6" />
-            </svg>
+          <div className="absolute -left-5 top-10 grid h-14 w-14 place-items-center rounded-2xl bg-wolf-orange text-white shadow-lg ring-1 ring-black/5">
+            <FiShoppingCart className="h-6 w-6" />
           </div>
 
           {/* "new order" notification card (bottom-right) */}
@@ -265,7 +213,7 @@ function Benefits() {
           {BENEFITS.map((b) => (
             <div key={b.title} className="rounded-2xl bg-white p-7 ring-1 ring-black/5">
               <div className="grid h-12 w-12 place-items-center rounded-2xl bg-wolf-orange/15 text-wolf-orange">
-                {b.icon}
+                <b.Icon className="h-6 w-6" />
               </div>
               <h3 className="mt-5 font-display text-xl tracking-tight text-wolf-green">
                 {b.title}
@@ -316,14 +264,7 @@ function Testimonial() {
   return (
     <section className="bg-wolf-cream py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-6 text-center">
-        <svg
-          viewBox="0 0 24 24"
-          className="mx-auto h-14 w-14 text-wolf-orange md:h-16 md:w-16"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z" />
-        </svg>
+        <FaQuoteLeft className="mx-auto h-12 w-12 text-wolf-orange md:h-14 md:w-14" aria-hidden="true" />
         <blockquote className="mt-4 font-display text-2xl leading-snug tracking-tight text-wolf-green md:text-3xl">
           Since joining Konnect, our weekend orders have nearly doubled. The dashboard is
           dead simple and payouts always land on time — it just works.
@@ -347,7 +288,7 @@ function Signup() {
             className="pointer-events-none absolute inset-0 opacity-70"
             style={{
               background:
-                "radial-gradient(60% 70% at 50% 0%, rgba(16,185,129,0.2), transparent 60%)",
+                "radial-gradient(60% 70% at 50% 0%, rgba(11,122,82,0.2), transparent 60%)",
             }}
             aria-hidden="true"
           />
@@ -362,12 +303,10 @@ function Signup() {
             </p>
             <Link
               to="/signup"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-8 py-4 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-8 py-4 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:-translate-y-0.5"
             >
               Start here
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
+              <FiArrowRight className="h-4 w-4" />
             </Link>
             <ul className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-wolf-cream/70">
               {["Live in 48 hours", "Instant payouts", "Real team behind you"].map((p) => (

@@ -11,6 +11,7 @@
    ============================================================ */
 
 import { Link } from "react-router-dom";
+import { FiTag } from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
 
 // `scale`  = width factor (drives the gaps — leave these alone).
@@ -45,11 +46,8 @@ export default function Hero() {
         {/* offer pill — a deliberate, contained lead-in */}
         <div className="flex justify-center">
           <div className="inline-flex items-center gap-2.5 rounded-full bg-white/5 py-1.5 pl-1.5 pr-4 ring-1 ring-white/10 backdrop-blur-sm">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-wolf-orange px-3 py-1 text-xs font-bold uppercase tracking-wide text-wolf-green-dark">
-              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
-                <circle cx="7" cy="7" r="1.4" />
-              </svg>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-wolf-orange px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+              <FiTag className="h-3.5 w-3.5" />
               Up to 70% off
             </span>
             <span className="text-xs font-medium text-wolf-cream/85">
@@ -69,7 +67,7 @@ export default function Hero() {
         <div className="mt-9 flex items-center justify-center gap-4">
           <Link
             to="/signup"
-            className="rounded-full bg-wolf-orange px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-green-dark shadow-lg shadow-black/10 transition-transform hover:-translate-y-0.5"
+            className="rounded-full bg-wolf-orange px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-black/10 transition-transform hover:-translate-y-0.5"
           >
             Click here to start
           </Link>

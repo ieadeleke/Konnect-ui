@@ -6,6 +6,7 @@
    ============================================================ */
 
 import { Link } from "react-router-dom";
+import { FiArrowRight } from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
 
 export default function Bento() {
@@ -32,7 +33,7 @@ export default function Bento() {
           {/* Featured: Food Delivery (2×2) */}
           <article className="group relative flex flex-col overflow-hidden rounded-3xl bg-wolf-green p-7 text-wolf-cream md:col-span-2 md:row-span-2">
             <div className="relative z-10 max-w-md">
-              <span className="inline-block rounded-full bg-wolf-orange px-3 py-1 text-xs font-semibold text-wolf-green-dark">
+              <span className="inline-block rounded-full bg-wolf-orange px-3 py-1 text-xs font-semibold text-white">
                 Available now
               </span>
               <h3 className="mt-4 font-display text-3xl leading-none tracking-tight md:text-4xl">
@@ -44,10 +45,10 @@ export default function Bento() {
               </p>
               <Link
                 to="/signup"
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-6 py-3 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:-translate-y-0.5"
               >
                 START HERE
-                <span aria-hidden="true">→</span>
+                <FiArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
             {/* featured image */}

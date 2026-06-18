@@ -9,41 +9,48 @@
 
 import { type CSSProperties, type ReactNode } from "react";
 import { Link } from "react-router-dom";
+import {
+  FaStar,
+  FaApple,
+  FaGooglePlay,
+  FaMotorcycle,
+  FaFlagCheckered,
+  FaUtensils,
+  FaIdCard,
+  FaBuildingColumns,
+} from "react-icons/fa6";
+import {
+  FiArrowRight,
+  FiUser,
+  FiHome,
+  FiDollarSign,
+  FiZap,
+  FiUsers,
+  FiHeadphones,
+  FiSmartphone,
+  FiMapPin,
+  FiClock,
+  FiCalendar,
+  FiPause,
+  FiCheck,
+  FiNavigation,
+  FiPackage,
+  FiShield,
+  FiUserPlus,
+  FiCreditCard,
+} from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
 
 /* ---------- shared bits ---------- */
-function Icon({ children, className = "h-6 w-6" }: { children: ReactNode; className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {children}
-    </svg>
-  );
-}
-
 function Arrow() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
+  return <FiArrowRight className="h-4 w-4" />;
 }
 
 function Stars({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <span className="flex gap-0.5 text-wolf-orange">
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
-          <path d="m12 2 3 6.5 7 .9-5 4.8 1.3 7-6.3-3.4L5.7 21l1.3-7-5-4.8 7-.9z" />
-        </svg>
+        <FaStar key={i} className={className} aria-hidden="true" />
       ))}
     </span>
   );
@@ -57,10 +64,7 @@ function Avatars() {
           key={i}
           className="grid h-9 w-9 place-items-center rounded-full bg-wolf-cream text-wolf-green ring-2 ring-wolf-green"
         >
-          <Icon className="h-4 w-4">
-            <circle cx="12" cy="8" r="4" />
-            <path d="M4 21a8 8 0 0 1 16 0" />
-          </Icon>
+          <FiUser className="h-4 w-4" />
         </span>
       ))}
     </div>
@@ -81,24 +85,15 @@ function RouteMap({ className = "" }: { className?: string }) {
         aria-hidden="true"
       />
       <svg viewBox="0 0 100 120" preserveAspectRatio="none" className="absolute inset-0 h-full w-full" aria-hidden="true">
-        <path d="M20 22 C 62 36, 26 72, 78 100" fill="none" stroke="#10b981" strokeWidth="1.6" strokeDasharray="4 4" strokeLinecap="round" />
+        <path d="M20 22 C 62 36, 26 72, 78 100" fill="none" stroke="#0b7a52" strokeWidth="1.6" strokeDasharray="4 4" strokeLinecap="round" />
       </svg>
       {/* restaurant pin */}
-      <span className="absolute left-[12%] top-[12%] grid h-9 w-9 place-items-center rounded-full bg-wolf-orange text-wolf-green-dark shadow-lg">
-        <Icon className="h-4 w-4">
-          <path d="M6 3v6a2 2 0 0 0 4 0V3" />
-          <path d="M8 9v12" />
-          <path d="M16 3v18" />
-          <path d="M16 3c2 1 3 3 3 6s-1 4-3 4" />
-        </Icon>
+      <span className="absolute left-[12%] top-[12%] grid h-9 w-9 place-items-center rounded-full bg-wolf-orange text-white shadow-lg">
+        <FaUtensils className="h-4 w-4" />
       </span>
       {/* home pin */}
       <span className="absolute bottom-[12%] right-[12%] grid h-9 w-9 place-items-center rounded-full bg-white text-wolf-green shadow-lg">
-        <Icon className="h-4 w-4">
-          <path d="m3 11 9-8 9 8" />
-          <path d="M5 10v10h14V10" />
-          <path d="M10 20v-6h4v6" />
-        </Icon>
+        <FiHome className="h-4 w-4" />
       </span>
       {/* rider avatar mid-route */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -117,7 +112,7 @@ function Hero() {
       <div
         className="pointer-events-none absolute inset-0 opacity-80"
         style={{
-          background: "radial-gradient(60% 60% at 80% 10%, rgba(16,185,129,0.16), transparent 60%)",
+          background: "radial-gradient(60% 60% at 80% 10%, rgba(11,122,82,0.16), transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -140,7 +135,7 @@ function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               to="/signup"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:-translate-y-0.5"
             >
               Start riding
               <Arrow />
@@ -195,48 +190,25 @@ function Hero() {
 /* ---------- stats band ---------- */
 const STATS: { icon: ReactNode; value: string; label: string; badge: string }[] = [
   {
-    icon: (
-      <Icon>
-        <rect x="2" y="6" width="20" height="12" rx="2" />
-        <circle cx="12" cy="12" r="2" />
-        <path d="M6 12h.01M18 12h.01" />
-      </Icon>
-    ),
+    icon: <FiDollarSign className="h-6 w-6" />,
     value: "₦40k+",
     label: "avg weekly earnings",
     badge: "+18% MoM",
   },
   {
-    icon: (
-      <Icon>
-        <rect x="3" y="4" width="18" height="18" rx="2" />
-        <path d="M3 9h18M8 2v4M16 2v4" />
-      </Icon>
-    ),
+    icon: <FiZap className="h-6 w-6" />,
     value: "Instant",
     label: "payouts, every time",
     badge: "Reliable",
   },
   {
-    icon: (
-      <Icon>
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-      </Icon>
-    ),
+    icon: <FiUsers className="h-6 w-6" />,
     value: "5k+",
     label: "active riders",
     badge: "And growing",
   },
   {
-    icon: (
-      <Icon>
-        <circle cx="12" cy="12" r="9" />
-        <circle cx="12" cy="12" r="3.5" />
-        <path d="m5 5 4 4M15 15l4 4M15 9l4-4M5 19l4-4" />
-      </Icon>
-    ),
+    icon: <FiHeadphones className="h-6 w-6" />,
     value: "24/7",
     label: "rider support",
     badge: "In-app",
@@ -277,60 +249,27 @@ function Stats() {
 /* requirements list — used as the chips on the "Getting started" panel */
 const REQUIREMENTS: { icon: ReactNode; label: string }[] = [
   {
-    icon: (
-      <Icon className="h-5 w-5">
-        <circle cx="12" cy="8" r="4" />
-        <path d="M4 21a8 8 0 0 1 16 0" />
-      </Icon>
-    ),
+    icon: <FiUser className="h-5 w-5" />,
     label: "18 years or older",
   },
   {
-    icon: (
-      <Icon className="h-5 w-5">
-        <rect x="7" y="2" width="10" height="20" rx="2" />
-        <path d="M11 18h2" />
-      </Icon>
-    ),
+    icon: <FiSmartphone className="h-5 w-5" />,
     label: "A smartphone",
   },
   {
-    icon: (
-      <Icon className="h-5 w-5">
-        <circle cx="5.5" cy="17.5" r="3.5" />
-        <circle cx="18.5" cy="17.5" r="3.5" />
-        <circle cx="15" cy="5" r="1" />
-        <path d="M12 17.5V14l-3-3 4-3 2 3h2" />
-      </Icon>
-    ),
+    icon: <FaMotorcycle className="h-5 w-5" />,
     label: "Bike, motorbike or car",
   },
   {
-    icon: (
-      <Icon className="h-5 w-5">
-        <rect x="2" y="5" width="20" height="14" rx="2" />
-        <circle cx="8" cy="12" r="2" />
-        <path d="M13 10h5M13 14h5" />
-      </Icon>
-    ),
+    icon: <FaIdCard className="h-5 w-5" />,
     label: "A valid government ID",
   },
   {
-    icon: (
-      <Icon className="h-5 w-5">
-        <path d="M12 21s-6-5.7-6-10a6 6 0 1 1 12 0c0 4.3-6 10-6 10z" />
-        <circle cx="12" cy="11" r="2" />
-      </Icon>
-    ),
+    icon: <FiMapPin className="h-5 w-5" />,
     label: "Right to work locally",
   },
   {
-    icon: (
-      <Icon className="h-5 w-5">
-        <path d="M3 10 12 4l9 6" />
-        <path d="M5 10v8M19 10v8M9 10v8M15 10v8M3 20h18" />
-      </Icon>
-    ),
+    icon: <FaBuildingColumns className="h-5 w-5" />,
     label: "A bank account",
   },
 ];
@@ -368,56 +307,27 @@ const STACKS: {
     text: "No shifts, no quotas, no minimum hours. Go online when you want and stop when you're done — you're always in control of your time.",
     bullets: [
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <circle cx="12" cy="12" r="9" />
-            <path d="M12 7v5l3 2" />
-          </Icon>
-        ),
+        icon: <FiClock className="h-5 w-5" />,
         label: "Full-time or part-time",
       },
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <rect x="3" y="4" width="18" height="18" rx="2" />
-            <path d="M3 9h18M8 2v4M16 2v4" />
-          </Icon>
-        ),
+        icon: <FiCalendar className="h-5 w-5" />,
         label: "No shifts or quotas",
       },
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <rect x="6" y="5" width="4" height="14" rx="1" />
-            <rect x="14" y="5" width="4" height="14" rx="1" />
-          </Icon>
-        ),
+        icon: <FiPause className="h-5 w-5" />,
         label: "Pause anytime",
       },
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <path d="M12 21s-6-5.7-6-10a6 6 0 1 1 12 0c0 4.3-6 10-6 10z" />
-            <circle cx="12" cy="11" r="2" />
-          </Icon>
-        ),
+        icon: <FiMapPin className="h-5 w-5" />,
         label: "Choose your zones",
       },
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <rect x="7" y="2" width="10" height="20" rx="2" />
-            <path d="M11 18h2" />
-          </Icon>
-        ),
+        icon: <FiSmartphone className="h-5 w-5" />,
         label: "Go online in a tap",
       },
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <path d="M20 6 9 17l-5-5" />
-          </Icon>
-        ),
+        icon: <FiCheck className="h-5 w-5" />,
         label: "Fits around life",
       },
     ],
@@ -433,57 +343,27 @@ const STACKS: {
     text: "In-app navigation points you to the fastest pickups and drop-offs, with a branded bag and a support team on every single trip.",
     bullets: [
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <path d="M3 11l19-9-9 19-2-8-8-2z" />
-          </Icon>
-        ),
+        icon: <FiNavigation className="h-5 w-5" />,
         label: "Fastest routes",
       },
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <path d="M12 21s-6-5.7-6-10a6 6 0 1 1 12 0c0 4.3-6 10-6 10z" />
-            <circle cx="12" cy="11" r="2" />
-          </Icon>
-        ),
+        icon: <FiMapPin className="h-5 w-5" />,
         label: "Live navigation",
       },
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <path d="M12 2 3 7v10l9 5 9-5V7z" />
-            <path d="M3 7l9 5 9-5" />
-            <path d="M12 12v10" />
-          </Icon>
-        ),
+        icon: <FiPackage className="h-5 w-5" />,
         label: "Branded delivery bag",
       },
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <circle cx="12" cy="12" r="9" />
-            <circle cx="12" cy="12" r="3.5" />
-            <path d="m5 5 4 4M15 15l4 4M15 9l4-4M5 19l4-4" />
-          </Icon>
-        ),
+        icon: <FiHeadphones className="h-5 w-5" />,
         label: "24/7 rider support",
       },
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z" />
-          </Icon>
-        ),
+        icon: <FiShield className="h-5 w-5" />,
         label: "Trip safety tools",
       },
       {
-        icon: (
-          <Icon className="h-5 w-5">
-            <rect x="7" y="2" width="10" height="20" rx="2" />
-            <path d="M11 18h2" />
-          </Icon>
-        ),
+        icon: <FiSmartphone className="h-5 w-5" />,
         label: "In-app order help",
       },
     ],
@@ -646,7 +526,7 @@ function ScheduleCard() {
           <div
             key={i}
             className={`grid aspect-square place-items-center rounded-xl text-sm font-semibold ${
-              active.includes(i) ? "bg-wolf-orange text-wolf-green-dark" : "bg-wolf-cream text-wolf-green/35"
+              active.includes(i) ? "bg-wolf-orange text-white" : "bg-wolf-cream text-wolf-green/35"
             }`}
           >
             {d}
@@ -679,78 +559,43 @@ function TripCard() {
 /* ---------- how it works (icon timeline) ---------- */
 const STEPS: { icon: ReactNode; title: string; text: string }[] = [
   {
-    icon: (
-      <Icon className="h-5 w-5">
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M19 8v6M22 11h-6" />
-      </Icon>
-    ),
+    icon: <FiUserPlus className="h-5 w-5" />,
     title: "Sign up",
     text: "Share your details and documents — it only takes a few minutes.",
   },
   {
-    icon: (
-      <Icon className="h-5 w-5">
-        <path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z" />
-        <path d="m9 12 2 2 4-4" />
-      </Icon>
-    ),
+    icon: <FiShield className="h-5 w-5" />,
     title: "Get verified",
     text: "We review and approve your account, usually within 48 hours.",
   },
   {
-    icon: (
-      <Icon className="h-5 w-5">
-        <path d="M12 2 3 7v10l9 5 9-5V7z" />
-        <path d="M3 7l9 5 9-5" />
-        <path d="M12 12v10" />
-      </Icon>
-    ),
+    icon: <FiPackage className="h-5 w-5" />,
     title: "Grab your gear",
     text: "Pick up your Konnect bag, go online and set yourself available.",
   },
   {
-    icon: (
-      <Icon className="h-5 w-5">
-        <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
-        <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" />
-        <path d="M18 12a2 2 0 0 0 0 4h4v-4z" />
-      </Icon>
-    ),
+    icon: <FiCreditCard className="h-5 w-5" />,
     title: "Start earning",
     text: "Accept orders, deliver, and cash out reliably every day.",
   },
 ];
 
 function Bike({ className = "h-5 w-5" }: { className?: string }) {
-  return (
-    <Icon className={className}>
-      <circle cx="5.5" cy="17.5" r="3.5" />
-      <circle cx="18.5" cy="17.5" r="3.5" />
-      <circle cx="15" cy="5" r="1" />
-      <path d="M12 17.5V14l-3-3 4-3 2 3h2" />
-    </Icon>
-  );
+  return <FaMotorcycle className={className} />;
 }
 
 function Flag({ className = "h-5 w-5" }: { className?: string }) {
-  return (
-    <Icon className={className}>
-      <path d="M5 21V4" />
-      <path d="M5 4h11l-2 3.5L16 11H5" />
-    </Icon>
-  );
+  return <FaFlagCheckered className={className} />;
 }
 
 const CONFETTI: { tx: string; ty: string; color: string }[] = [
-  { tx: "-26px", ty: "-30px", color: "#10b981" },
+  { tx: "-26px", ty: "-30px", color: "#0b7a52" },
   { tx: "-8px", ty: "-42px", color: "#111111" },
-  { tx: "14px", ty: "-36px", color: "#10b981" },
+  { tx: "14px", ty: "-36px", color: "#0b7a52" },
   { tx: "30px", ty: "-22px", color: "#1c1c1c" },
   { tx: "-32px", ty: "-6px", color: "#111111" },
-  { tx: "32px", ty: "-4px", color: "#10b981" },
-  { tx: "-18px", ty: "14px", color: "#10b981" },
+  { tx: "32px", ty: "-4px", color: "#0b7a52" },
+  { tx: "-18px", ty: "14px", color: "#0b7a52" },
   { tx: "22px", ty: "16px", color: "#111111" },
 ];
 
@@ -789,7 +634,7 @@ function Steps() {
           <ol className="relative grid gap-y-10">
             {STEPS.map((s, i) => (
               <li key={s.title} className="relative flex gap-5">
-                <div className="relative z-10 grid h-12 w-12 shrink-0 place-items-center rounded-full bg-wolf-orange text-wolf-green-dark ring-4 ring-wolf-cream">
+                <div className="relative z-10 grid h-12 w-12 shrink-0 place-items-center rounded-full bg-wolf-orange text-white ring-4 ring-wolf-cream">
                   {s.icon}
                 </div>
                 <div>
@@ -867,7 +712,7 @@ function Steps() {
                 }`}
                 style={{ left: x, top: y }}
               >
-                <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-wolf-orange text-wolf-green-dark ring-4 ring-wolf-cream">
+                <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-wolf-orange text-white ring-4 ring-wolf-cream">
                   {s.icon}
                 </div>
                 <div className={above ? "mb-1" : "mt-1"}>
@@ -967,9 +812,7 @@ function AppStoreBadge() {
       className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5"
       aria-label="Download on the App Store"
     >
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
-        <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.088-4.61 1.088zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z" />
-      </svg>
+      <FaApple className="h-6 w-6" />
       <span className="leading-tight">
         <span className="block text-[0.62rem] font-medium opacity-70">Download on the</span>
         <span className="block font-display text-base font-bold">App Store</span>
@@ -985,12 +828,7 @@ function GooglePlayBadge() {
       className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5"
       aria-label="Get it on Google Play"
     >
-      <svg viewBox="0 0 256 283" className="h-6 w-6" aria-hidden="true">
-        <path fill="#4285F4" d="M1.06 23.487A31 31 0 0 0 0 31.61v219.327a31 31 0 0 0 1.06 8.124l122.555-121.058z" />
-        <path fill="#34A853" d="M120.436 141.485 181.716 80.79 48.564 4.503A32.85 32.85 0 0 0 32.051 0C17.14 0 4.92 9.149 1.06 23.487z" />
-        <path fill="#EA4335" d="M119.553 134.916 1.06 259.061a32.14 32.14 0 0 0 47.062 19.071l133.327-75.934z" />
-        <path fill="#FBBC04" d="M239.37 113.814 181.715 80.79l-64.898 56.95 65.162 64.28 57.216-32.585c19.7-10.474 19.7-38.692.176-49.622z" />
-      </svg>
+      <FaGooglePlay className="h-6 w-6" />
       <span className="leading-tight">
         <span className="block text-[0.62rem] font-medium opacity-70">Get it on</span>
         <span className="block font-display text-base font-bold">Google Play</span>
@@ -1013,7 +851,7 @@ function Signup() {
       <div className="absolute inset-0 bg-gradient-to-t from-wolf-green via-wolf-green/90 to-wolf-green/75" aria-hidden="true" />
       <div
         className="pointer-events-none absolute inset-0 opacity-70"
-        style={{ background: "radial-gradient(60% 50% at 50% 0%, rgba(16,185,129,0.22), transparent 60%)" }}
+        style={{ background: "radial-gradient(60% 50% at 50% 0%, rgba(11,122,82,0.22), transparent 60%)" }}
         aria-hidden="true"
       />
 

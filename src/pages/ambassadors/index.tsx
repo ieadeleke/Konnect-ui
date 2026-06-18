@@ -5,41 +5,31 @@
    who should join, how it works, gamified tiers, FAQ, apply form.
    ============================================================ */
 
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
+import type { IconType } from "react-icons";
+import { FaBullhorn, FaGraduationCap } from "react-icons/fa6";
+import {
+  FiArrowRight,
+  FiCheck,
+  FiPlus,
+  FiSmartphone,
+  FiHeart,
+  FiUsers,
+  FiCamera,
+  FiShare2,
+  FiClipboard,
+  FiCreditCard,
+  FiAward,
+} from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
 
 /* ---------- shared ---------- */
-function Icon({ children, className = "h-6 w-6" }: { children: ReactNode; className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {children}
-    </svg>
-  );
-}
-
 function Arrow() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
+  return <FiArrowRight className="h-4 w-4" />;
 }
 
 function Check({ className = "h-3 w-3" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M20 6 9 17l-5-5" />
-    </svg>
-  );
+  return <FiCheck className={className} />;
 }
 
 function Avatars() {
@@ -69,7 +59,7 @@ function Hero() {
     <section className="relative overflow-hidden bg-wolf-green pt-32 pb-20 md:pt-40 md:pb-28">
       <div
         className="pointer-events-none absolute inset-0 opacity-80"
-        style={{ background: "radial-gradient(55% 55% at 50% 0%, rgba(16,185,129,0.18), transparent 60%)" }}
+        style={{ background: "radial-gradient(55% 55% at 50% 0%, rgba(11,122,82,0.18), transparent 60%)" }}
         aria-hidden="true"
       />
 
@@ -91,7 +81,7 @@ function Hero() {
             href="https://forms.gle/DjqKWtpTCXR1Zgc58"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:-translate-y-0.5"
           >
             Apply now
             <Arrow />
@@ -121,46 +111,24 @@ function Hero() {
 }
 
 /* ---------- what is the programme ---------- */
-const BENEFITS: { icon: ReactNode; title: string; text: string }[] = [
+const BENEFITS: { Icon: IconType; title: string; text: string }[] = [
   {
-    icon: (
-      <Icon>
-        <rect x="2" y="6" width="20" height="12" rx="2" />
-        <circle cx="12" cy="12" r="2.5" />
-        <path d="M6 12h.01M18 12h.01" />
-      </Icon>
-    ),
+    Icon: FiSmartphone,
     title: "Earn by sharing",
     text: "Get paid for every foodie, rider or restaurant who joins through your unique link.",
   },
   {
-    icon: (
-      <Icon>
-        <rect x="3" y="8" width="18" height="13" rx="1" />
-        <path d="M12 8v13M3 12h18M7.5 8a2.5 2.5 0 1 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 1 1 0 5" />
-      </Icon>
-    ),
+    Icon: FiHeart,
     title: "Perks & growth",
     text: "Unlock free health insurance, quarterly performance incentives, meals, and invites to exclusive Konnect events.",
   },
   {
-    icon: (
-      <Icon>
-        <path d="m3 11 18-5v12L3 14v-3z" />
-        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
-      </Icon>
-    ),
+    Icon: FaBullhorn,
     title: "Build your brand",
     text: "Grow your audience with content, campaigns and co-marketing support from our team.",
   },
   {
-    icon: (
-      <Icon>
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-      </Icon>
-    ),
+    Icon: FiUsers,
     title: "Real community",
     text: "Join a nationwide crew of ambassadors, swap tips and level up together.",
   },
@@ -187,7 +155,7 @@ function Benefits() {
           {BENEFITS.map((b) => (
             <div key={b.title} className="rounded-2xl bg-wolf-cream p-7 ring-1 ring-black/5">
               <div className="grid h-12 w-12 place-items-center rounded-2xl bg-wolf-orange/15 text-wolf-orange">
-                {b.icon}
+                <b.Icon className="h-6 w-6" />
               </div>
               <h3 className="mt-5 font-display text-xl tracking-tight text-wolf-green">{b.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-wolf-green/60">{b.text}</p>
@@ -200,67 +168,34 @@ function Benefits() {
 }
 
 /* ---------- who should join ---------- */
-const AUDIENCE: { icon: ReactNode; title: string; desc: string }[] = [
+const AUDIENCE: { Icon: IconType; title: string; desc: string }[] = [
   {
-    icon: (
-      <Icon>
-        <path d="M22 10 12 5 2 10l10 5 10-5z" />
-        <path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5" />
-      </Icon>
-    ),
+    Icon: FaGraduationCap,
     title: "Students",
     desc: "University & poly students who know everyone on campus.",
   },
   {
-    icon: (
-      <Icon>
-        <rect x="3" y="7" width="18" height="13" rx="2" />
-        <circle cx="12" cy="13.5" r="3.5" />
-        <path d="M8 7l1.5-2h5L16 7" />
-      </Icon>
-    ),
+    Icon: FiCamera,
     title: "Creators",
     desc: "Influencers & content creators with an engaged following.",
   },
   {
-    icon: (
-      <Icon>
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-      </Icon>
-    ),
+    Icon: FiUsers,
     title: "Community leaders",
     desc: "Organisers who run clubs, groups and societies.",
   },
   {
-    icon: (
-      <Icon>
-        <path d="M12 21s-7-4.35-9.5-8.5C1 9.5 2.5 6 6 6c2 0 3 1.2 4 2.5C11 7.2 12 6 14 6c3.5 0 5 3.5 3.5 6.5C19 16.65 12 21 12 21z" />
-      </Icon>
-    ),
+    Icon: FiHeart,
     title: "Foodies",
     desc: "People who already can't stop sharing where to eat.",
   },
   {
-    icon: (
-      <Icon>
-        <path d="M22 10 12 5 2 10l10 5 10-5z" />
-        <path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5" />
-      </Icon>
-    ),
+    Icon: FaGraduationCap,
     title: "Grads & NYSC",
     desc: "Recent graduates and corps members with time to earn.",
   },
   {
-    icon: (
-      <Icon>
-        <circle cx="18" cy="5" r="3" />
-        <circle cx="6" cy="12" r="3" />
-        <circle cx="18" cy="19" r="3" />
-        <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" />
-      </Icon>
-    ),
+    Icon: FiShare2,
     title: "Connectors",
     desc: "Anyone with a network they love putting onto good things.",
   },
@@ -290,7 +225,7 @@ function WhoJoins() {
             >
               <div className="flex items-start justify-between">
                 <span className="grid h-12 w-12 place-items-center rounded-2xl bg-wolf-orange/15 text-wolf-orange">
-                  {a.icon}
+                  <a.Icon className="h-6 w-6" />
                 </span>
                 <span className="inline-flex items-center gap-1 rounded-full bg-wolf-cream px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-wide text-wolf-green/45">
                   <Check className="h-2.5 w-2.5" />
@@ -308,48 +243,24 @@ function WhoJoins() {
 }
 
 /* ---------- how it works ---------- */
-const STEPS: { icon: ReactNode; title: string; text: string }[] = [
+const STEPS: { Icon: IconType; title: string; text: string }[] = [
   {
-    icon: (
-      <Icon>
-        <rect x="6" y="4" width="12" height="17" rx="2" />
-        <path d="M9 4V3h6v1" />
-        <path d="M9 10h6M9 14h4" />
-      </Icon>
-    ),
+    Icon: FiClipboard,
     title: "Apply",
     text: "Fill a short form and get approved — usually within 48 hours.",
   },
   {
-    icon: (
-      <Icon>
-        <circle cx="18" cy="5" r="3" />
-        <circle cx="6" cy="12" r="3" />
-        <circle cx="18" cy="19" r="3" />
-        <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" />
-      </Icon>
-    ),
+    Icon: FiShare2,
     title: "Share",
     text: "Post your unique link online and spread the word everywhere.",
   },
   {
-    icon: (
-      <Icon>
-        <rect x="2" y="6" width="20" height="12" rx="2" />
-        <circle cx="12" cy="12" r="2.5" />
-        <path d="M6 12h.01M18 12h.01" />
-      </Icon>
-    ),
+    Icon: FiCreditCard,
     title: "Earn",
     text: "Get paid for every verified signup, order or partner you bring in.",
   },
   {
-    icon: (
-      <Icon>
-        <path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z" />
-        <path d="M7 6H4v2a3 3 0 0 0 3 3M17 6h3v2a3 3 0 0 1-3 3" />
-      </Icon>
-    ),
+    Icon: FiAward,
     title: "Level up",
     text: "Climb the tiers to unlock bigger rewards and real opportunities.",
   },
@@ -379,8 +290,8 @@ function Steps() {
                 className="relative pl-20 md:grid md:grid-cols-2 md:items-center md:gap-16 md:pl-0"
               >
                 {/* node */}
-                <span className="absolute left-0 top-1 z-10 grid h-14 w-14 place-items-center rounded-2xl bg-wolf-orange text-wolf-green-dark ring-8 ring-white md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
-                  {s.icon}
+                <span className="absolute left-0 top-1 z-10 grid h-14 w-14 place-items-center rounded-2xl bg-wolf-orange text-white ring-8 ring-white md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+                  <s.Icon className="h-6 w-6" />
                 </span>
                 {/* content */}
                 <div
@@ -450,7 +361,7 @@ function Tiers() {
                   ))}
                 </div>
                 {t.featured && (
-                  <span className="rounded-full bg-wolf-orange px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-wide text-wolf-green-dark">
+                  <span className="rounded-full bg-wolf-orange px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-wide text-white">
                     Top tier
                   </span>
                 )}
@@ -536,12 +447,10 @@ function Faq() {
                   <span className="font-semibold text-wolf-green">{f.q}</span>
                   <span
                     className={`grid h-8 w-8 shrink-0 place-items-center rounded-full bg-wolf-cream text-wolf-green transition-transform duration-300 ${
-                      isOpen ? "rotate-45 bg-wolf-orange text-wolf-green-dark" : ""
+                      isOpen ? "rotate-45 bg-wolf-orange text-white" : ""
                     }`}
                   >
-                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true">
-                      <path d="M12 5v14M5 12h14" />
-                    </svg>
+                    <FiPlus className="h-4 w-4" aria-hidden="true" />
                   </span>
                 </button>
                 <div
@@ -570,7 +479,7 @@ function Apply() {
         <div className="relative overflow-hidden rounded-[2.5rem] bg-wolf-green px-8 py-16 text-center md:px-16 md:py-20">
           <div
             className="pointer-events-none absolute inset-0 opacity-70"
-            style={{ background: "radial-gradient(60% 70% at 50% 0%, rgba(16,185,129,0.2), transparent 60%)" }}
+            style={{ background: "radial-gradient(60% 70% at 50% 0%, rgba(11,122,82,0.2), transparent 60%)" }}
             aria-hidden="true"
           />
           <div className="relative mx-auto max-w-xl">
@@ -585,7 +494,7 @@ function Apply() {
               href="https://forms.gle/DjqKWtpTCXR1Zgc58"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-8 py-4 text-sm font-bold uppercase tracking-wide text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-wolf-orange px-8 py-4 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:-translate-y-0.5"
             >
               Apply now
               <Arrow />

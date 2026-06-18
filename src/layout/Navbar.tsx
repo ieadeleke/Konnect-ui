@@ -7,6 +7,7 @@
 
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
 import logo from "../assets/logo.svg";
 
 const NAV_LINKS: { label: string; to: string }[] = [
@@ -84,21 +85,7 @@ export default function Navbar() {
             aria-expanded={open}
             className="grid h-10 w-10 place-items-center rounded-full text-wolf-cream ring-1 ring-white/20 lg:hidden"
           >
-            <svg
-              viewBox="0 0 24 24"
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
-              {open ? (
-                <path d="M6 6l12 12M18 6 6 18" />
-              ) : (
-                <path d="M4 7h16M4 12h16M4 17h16" />
-              )}
-            </svg>
+            {open ? <FiX className="h-5 w-5" /> : <FiMenu className="h-5 w-5" />}
           </button>
         </div>
       </div>
@@ -124,7 +111,7 @@ export default function Navbar() {
             <Link
               to="/signup"
               onClick={() => setOpen(false)}
-              className="mt-5 flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-5 py-3 text-sm font-bold uppercase tracking-wide text-wolf-green-dark"
+              className="mt-5 flex items-center justify-center gap-2 rounded-full bg-wolf-orange px-5 py-3 text-sm font-bold uppercase tracking-wide text-white"
             >
               Start here
             </Link>

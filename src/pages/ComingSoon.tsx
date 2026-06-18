@@ -16,7 +16,7 @@ export default function ComingSoon({ eyebrow, title, blurb }: Props) {
         className="pointer-events-none absolute inset-0 opacity-80"
         style={{
           background:
-            "radial-gradient(70% 60% at 50% 0%, rgba(16,185,129,0.16), transparent 60%)",
+            "radial-gradient(70% 60% at 50% 0%, rgba(11,122,82,0.16), transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -42,7 +42,7 @@ export default function ComingSoon({ eyebrow, title, blurb }: Props) {
           />
           <button
             type="submit"
-            className="shrink-0 rounded-full bg-wolf-orange px-6 py-3 text-sm font-bold text-wolf-green-dark transition-transform hover:-translate-y-0.5"
+            className="shrink-0 rounded-full bg-wolf-orange px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
           >
             Notify me
           </button>

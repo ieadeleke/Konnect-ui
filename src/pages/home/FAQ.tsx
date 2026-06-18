@@ -7,6 +7,7 @@
    ============================================================ */
 
 import { useState } from "react";
+import { FiPlus } from "react-icons/fi";
 
 type Category = "Ordering" | "Delivery" | "Payments" | "Partners";
 
@@ -149,12 +150,10 @@ export default function FAQ() {
                   </span>
                   <span
                     className={`grid h-8 w-8 shrink-0 place-items-center rounded-full bg-wolf-cream text-wolf-green transition-transform duration-300 ${
-                      isOpen ? "rotate-45 bg-wolf-orange text-wolf-green-dark" : ""
+                      isOpen ? "rotate-45 bg-wolf-orange text-white" : ""
                     }`}
                   >
-                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true">
-                      <path d="M12 5v14M5 12h14" />
-                    </svg>
+                    <FiPlus className="h-4 w-4" aria-hidden="true" />
                   </span>
                 </button>
                 <div

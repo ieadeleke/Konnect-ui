@@ -85,7 +85,7 @@ function StepCard({ variant }: { variant: Variant }) {
           <span>Total</span>
           <span>₦4,250</span>
         </div>
-        <div className="mt-3 grid h-10 place-items-center rounded-xl bg-wolf-orange text-sm font-semibold text-wolf-green-dark">
+        <div className="mt-3 grid h-10 place-items-center rounded-xl bg-wolf-orange text-sm font-semibold text-white">
           Checkout
         </div>
       </div>
@@ -100,13 +100,13 @@ function StepCard({ variant }: { variant: Variant }) {
         <svg className="absolute inset-0 h-full w-full" viewBox="0 0 240 180" fill="none" aria-hidden="true">
           <path
             d="M30 150 C 80 120, 70 60, 130 60 S 200 90, 210 40"
-            stroke="#10B981"
+            stroke="#0B7A52"
             strokeWidth="3"
             strokeDasharray="3 7"
             strokeLinecap="round"
           />
           <circle cx="30" cy="150" r="6" fill="#111111" />
-          <circle cx="210" cy="40" r="7" fill="#10B981" />
+          <circle cx="210" cy="40" r="7" fill="#0B7A52" />
           <circle cx="210" cy="40" r="3" fill="#fff" />
         </svg>
       </div>
@@ -187,7 +187,7 @@ export default function HowItWorks() {
         className="pointer-events-none absolute inset-0 opacity-70"
         style={{
           background:
-            "radial-gradient(90% 60% at 50% 0%, rgba(16,185,129,0.10), transparent 60%)",
+            "radial-gradient(90% 60% at 50% 0%, rgba(11,122,82,0.10), transparent 60%)",
         }}
         aria-hidden="true"
       />
@@ -212,7 +212,7 @@ export default function HowItWorks() {
                 className="absolute left-0 top-0 w-full rounded-full bg-wolf-orange"
                 style={{ height: "0%" }}
               >
-                <span className="absolute bottom-0 left-1/2 h-3 w-3 -translate-x-1/2 translate-y-1/2 rounded-full bg-wolf-orange shadow-[0_0_14px_4px_rgba(16,185,129,0.6)]" />
+                <span className="absolute bottom-0 left-1/2 h-3 w-3 -translate-x-1/2 translate-y-1/2 rounded-full bg-wolf-orange shadow-[0_0_14px_4px_rgba(11,122,82,0.6)]" />
               </div>
             </div>
 
@@ -228,7 +228,7 @@ export default function HowItWorks() {
                 <div
                   className={`grid h-12 w-12 place-items-center rounded-2xl font-display text-xl font-bold ring-1 transition-all duration-500 ${
                     active === i
-                      ? "bg-wolf-orange text-wolf-green-dark ring-transparent shadow-[0_0_28px_rgba(16,185,129,0.45)]"
+                      ? "bg-wolf-orange text-white ring-transparent shadow-[0_0_28px_rgba(11,122,82,0.45)]"
                       : "bg-[#262626] text-wolf-cream/70 ring-white/15"
                   }`}
                 >
