@@ -13,6 +13,7 @@ import {
 } from "react-icons/fi";
 import Field from "./Field";
 import { signUpUser, validateReferralCode } from "../../lib/api";
+import { APP_STORE_URL, GOOGLE_PLAY_URL } from "../../lib/links";
 
 type ReferralState = "idle" | "checking" | "valid" | "invalid";
 
@@ -137,7 +138,7 @@ export default function SignupCard() {
           </p>
           <div className="mt-7 flex flex-col items-center gap-3">
             <a
-              href="https://apps.apple.com/app/konnect-ws/id6504823567"
+              href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full max-w-[220px] items-center justify-center gap-3 rounded-xl bg-wolf-green px-5 py-2.5 text-wolf-cream transition-transform hover:-translate-y-0.5"
@@ -149,7 +150,7 @@ export default function SignupCard() {
               </span>
             </a>
             <a
-              href="https://play.google.com/store/apps/details?id=com.wnapp.id1695026422582"
+              href={GOOGLE_PLAY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full max-w-[220px] items-center justify-center gap-3 rounded-xl bg-wolf-green px-5 py-2.5 text-wolf-cream transition-transform hover:-translate-y-0.5"

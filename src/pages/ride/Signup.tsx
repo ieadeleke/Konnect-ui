@@ -1,11 +1,12 @@
 import { FaApple, FaGooglePlay } from "react-icons/fa6";
 import { IMAGES } from "../../assets/images";
+import { APP_STORE_URL, GOOGLE_PLAY_URL } from "../../lib/links";
 import { Avatars } from "./shared";
 
 function AppStoreBadge() {
   return (
     <a
-      href="https://apps.apple.com/app/konnect-ws/id6504823567"
+      href={APP_STORE_URL}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5"
@@ -23,7 +24,7 @@ function AppStoreBadge() {
 function GooglePlayBadge() {
   return (
     <a
-      href="https://play.google.com/store/apps/details?id=com.wnapp.id1695026422582"
+      href={GOOGLE_PLAY_URL}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5"

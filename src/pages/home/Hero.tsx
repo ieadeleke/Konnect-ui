@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FiTag } from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
+import StoreBadges from "../../components/StoreBadges";
 
 const CARDS = [
   { rotY: 22, scale: 1, scaleY: 0.88, bright: 0.78, origin: "right center", ml: 0 },
@@ -52,6 +53,8 @@ export default function Hero() {
             Click here to start
           </Link>
         </div>
+
+        <StoreBadges className="mt-7 items-center sm:justify-center" size="sm" />
       </div>
 
       <div

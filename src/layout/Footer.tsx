@@ -1,6 +1,7 @@
 import type { IconType } from "react-icons";
 import { FaInstagram, FaXTwitter, FaTiktok } from "react-icons/fa6";
 import logo from "../assets/logo.svg";
+import StoreBadges from "../components/StoreBadges";
 
 const LINKS: { label: string; href: string }[] = [
   { label: "For Ambassador", href: "/ambassadors" },
@@ -45,6 +46,11 @@ export default function Footer() {
               );
             })}
           </nav>
+        </div>
+
+        <div className="mt-8 flex flex-col items-center gap-3 md:flex-row md:justify-between">
+          <span className="text-sm font-medium text-wolf-cream/60">Get the Konnect app</span>
+          <StoreBadges size="sm" className="items-center sm:justify-center" />
         </div>
 
         <div className="my-8 h-px bg-white/10" />

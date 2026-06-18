@@ -1,59 +1,4 @@
-import { FaApple, FaGooglePlay } from "react-icons/fa6";
-import { FiGlobe } from "react-icons/fi";
-
-function AppStoreBadge() {
-  return (
-    <a
-      href="https://apps.apple.com/app/konnect-ws/id6504823567"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:w-auto sm:justify-start"
-      aria-label="Download on the App Store"
-    >
-      <FaApple className="h-6 w-6" />
-      <span className="leading-tight">
-        <span className="block text-[0.62rem] font-medium opacity-70">Download on the</span>
-        <span className="block font-display text-base font-bold">App Store</span>
-      </span>
-    </a>
-  );
-}
-
-function GooglePlayBadge() {
-  return (
-    <a
-      href="https://play.google.com/store/apps/details?id=com.wnapp.id1695026422582"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:w-auto sm:justify-start"
-      aria-label="Get it on Google Play"
-    >
-      <FaGooglePlay className="h-6 w-6" />
-      <span className="leading-tight">
-        <span className="block text-[0.62rem] font-medium opacity-70">Get it on</span>
-        <span className="block font-display text-base font-bold">Google Play</span>
-      </span>
-    </a>
-  );
-}
-
-function WebBadge() {
-  return (
-    <a
-      href="https://konnectbd.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:w-auto sm:justify-start"
-      aria-label="Open Konnect on the web"
-    >
-      <FiGlobe className="h-6 w-6" />
-      <span className="leading-tight">
-        <span className="block text-[0.62rem] font-medium opacity-70">Order on the</span>
-        <span className="block font-display text-base font-bold">Web</span>
-      </span>
-    </a>
-  );
-}
+import StoreBadges from "../../components/StoreBadges";
 
 function Phone({ variant = "a" }: { variant?: "a" | "b" }) {
   return (
@@ -109,11 +54,7 @@ export default function DownloadApp() {
                 Order faster, track live, save your favourites and unlock app-only deals.
                 Free on iOS and Android.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <AppStoreBadge />
-                <GooglePlayBadge />
-                <WebBadge />
-              </div>
+              <StoreBadges className="mt-8" fullWidthOnMobile />
             </div>
 
             <div className="flex justify-center md:justify-end" aria-hidden="true">
