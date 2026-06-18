@@ -30,18 +30,23 @@ const BADGES: { href: string; Icon: IconType; sub: string; name: string; aria: s
 export default function StoreBadges({
   className = "",
   fullWidthOnMobile = false,
+  mobileGrid = false,
   size = "md",
 }: {
   className?: string;
   fullWidthOnMobile?: boolean;
+  mobileGrid?: boolean;
   size?: "sm" | "md";
 }) {
   const pill = size === "sm" ? "px-4 py-2" : "px-5 py-2.5";
   const iconSize = size === "sm" ? "h-5 w-5" : "h-6 w-6";
   const nameSize = size === "sm" ? "text-sm" : "text-base";
+  const container = mobileGrid
+    ? "grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:flex-wrap"
+    : "flex flex-col gap-3 sm:flex-row sm:flex-wrap";
   const width = fullWidthOnMobile ? "w-full sm:w-auto sm:justify-start" : "";
   return (
-    <div className={`flex flex-col gap-3 sm:flex-row sm:flex-wrap ${className}`}>
+    <div className={`${container} ${className}`}>
       {BADGES.map((b) => (
         <a
           key={b.name}

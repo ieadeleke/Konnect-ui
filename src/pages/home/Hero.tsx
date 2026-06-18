@@ -44,7 +44,7 @@ export default function Hero() {
           delivered to your door!
         </h1>
 
-        <StoreBadges className="mt-9 items-center sm:justify-center" size="sm" />
+        <StoreBadges className="mx-auto mt-9 max-w-md sm:max-w-none sm:justify-center" size="sm" mobileGrid />
       </div>
 
       <div
