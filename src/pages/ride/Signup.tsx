@@ -5,7 +5,9 @@ import { Avatars } from "./shared";
 function AppStoreBadge() {
   return (
     <a
-      href="#"
+      href="https://apps.apple.com/app/konnect-ws/id6504823567"
+      target="_blank"
+      rel="noopener noreferrer"
       className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5"
       aria-label="Download on the App Store"
     >
@@ -21,7 +23,9 @@ function AppStoreBadge() {
 function GooglePlayBadge() {
   return (
     <a
-      href="#"
+      href="https://play.google.com/store/apps/details?id=com.wnapp.id1695026422582"
+      target="_blank"
+      rel="noopener noreferrer"
       className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5"
       aria-label="Get it on Google Play"
     >

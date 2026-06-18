@@ -4,7 +4,9 @@ import { FiGlobe } from "react-icons/fi";
 function AppStoreBadge() {
   return (
     <a
-      href="#"
+      href="https://apps.apple.com/app/konnect-ws/id6504823567"
+      target="_blank"
+      rel="noopener noreferrer"
       className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:w-auto sm:justify-start"
       aria-label="Download on the App Store"
     >
@@ -20,7 +22,9 @@ function AppStoreBadge() {
 function GooglePlayBadge() {
   return (
     <a
-      href="#"
+      href="https://play.google.com/store/apps/details?id=com.wnapp.id1695026422582"
+      target="_blank"
+      rel="noopener noreferrer"
       className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-white px-5 py-2.5 text-wolf-green-dark transition-transform hover:-translate-y-0.5 sm:w-auto sm:justify-start"
       aria-label="Get it on Google Play"
     >

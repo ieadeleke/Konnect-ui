@@ -137,7 +137,9 @@ export default function SignupCard() {
           </p>
           <div className="mt-7 flex flex-col items-center gap-3">
             <a
-              href="#"
+              href="https://apps.apple.com/app/konnect-ws/id6504823567"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex w-full max-w-[220px] items-center justify-center gap-3 rounded-xl bg-wolf-green px-5 py-2.5 text-wolf-cream transition-transform hover:-translate-y-0.5"
             >
               <FaApple className="h-6 w-6" />
@@ -147,7 +149,9 @@ export default function SignupCard() {
               </span>
             </a>
             <a
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.wnapp.id1695026422582"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex w-full max-w-[220px] items-center justify-center gap-3 rounded-xl bg-wolf-green px-5 py-2.5 text-wolf-cream transition-transform hover:-translate-y-0.5"
             >
               <FaGooglePlay className="h-6 w-6" />
