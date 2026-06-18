@@ -1,9 +1,3 @@
-/* ============================================================
-   KONNECT — generic "coming soon" page
-   Used for routes that aren't built yet (/ride, /ambassadors).
-   Dark hero so the transparent navbar's cream text stays readable.
-   ============================================================ */
-
 import { Link } from "react-router-dom";
 
 type Props = { eyebrow: string; title: string; blurb: string };
@@ -11,7 +5,7 @@ type Props = { eyebrow: string; title: string; blurb: string };
 export default function ComingSoon({ eyebrow, title, blurb }: Props) {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-wolf-green px-6 text-center">
-      {/* soft glow */}
+
       <div
         className="pointer-events-none absolute inset-0 opacity-80"
         style={{

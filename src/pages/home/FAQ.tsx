@@ -1,11 +1,3 @@
-/* ============================================================
-   KONNECT — FAQ accordion
-   Cream band. Category pill tabs filter the questions; the answers
-   live in a single divided white panel (one row per question), with
-   the open row gently tinted. Answers animate open with a grid-rows
-   trick (no height measuring).
-   ============================================================ */
-
 import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 
@@ -92,7 +84,7 @@ export default function FAQ() {
   return (
     <section className="bg-wolf-cream py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-6">
-        {/* heading */}
+
         <div className="text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
             FAQ
@@ -102,7 +94,6 @@ export default function FAQ() {
           </h2>
         </div>
 
-        {/* category tabs */}
         <div className="mt-10 flex flex-wrap justify-center gap-2">
           {TABS.map((t) => {
             const active = tab === t;
@@ -124,7 +115,6 @@ export default function FAQ() {
           })}
         </div>
 
-        {/* accordion — spaced cards, each with an index number */}
         <div className="mt-8 space-y-3">
           {visible.map((f, i) => {
             const isOpen = open === f.q;

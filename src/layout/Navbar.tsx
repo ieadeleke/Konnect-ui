@@ -1,10 +1,3 @@
-/* ============================================================
-   KONNECT — top navigation
-   Shared chrome rendered by DisplayLayout. Fixed to the top:
-   transparent over the dark hero, fades to a solid bar on scroll.
-   Below lg it collapses to a hamburger + dropdown menu.
-   ============================================================ */
-
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -50,7 +43,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* desktop links */}
         <nav
           className="hidden items-center gap-14 8 lg:flex"
           aria-label="Primary"
@@ -78,7 +70,6 @@ export default function Navbar() {
             Create Account
           </Link>
 
-          {/* hamburger (mobile) */}
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
@@ -90,7 +81,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* mobile dropdown */}
       {open && (
         <div className="border-t border-white/10 bg-wolf-green px-6 pb-6 pt-2 lg:hidden">
           <nav className="flex flex-col" aria-label="Mobile">

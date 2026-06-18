@@ -1,23 +1,7 @@
-/* ============================================================
-   KONNECT — Hero section (rebuilt from hero.png / j.png)
-   Dark-green hero: rating · headline · CTAs · full-bleed cinematic
-   fan of cards. Each wing folds on a HINGE at its inner edge
-   (transform-origin right/left center) — left cards rotateY positive,
-   right cards negative — so the row folds inward like standing inside
-   a cylinder. Cards step down in height toward the centre and dim at
-   the edges (brightness) for depth. The viewport's clip-path ellipse
-   curves the bottom edge. (Nav lives in the DisplayLayout.)
-   Static layout. Image slots come from the central images config.
-   ============================================================ */
-
 import { Link } from "react-router-dom";
 import { FiTag } from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
 
-// `scale`  = width factor (drives the gaps — leave these alone).
-// `scaleY` = height factor, stepping down toward the centre card.
-// `ml`     = per-card left-margin tweak (px) on top of the base 14px gap.
-// Five cards: outer-left · inner-left · centre · inner-right · outer-right.
 const CARDS = [
   { rotY: 22, scale: 1, scaleY: 0.88, bright: 0.78, origin: "right center", ml: 0 },
   { rotY: 13, scale: 0.9, scaleY: 0.74, bright: 0.92, origin: "right center", ml: -24 },
@@ -30,7 +14,7 @@ const SHADES = ["#c9c9c9", "#d0d0d0", "#d7d7d7", "#d0d0d0", "#c9c9c9"];
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#111111] text-wolf-cream font-sans">
-      {/* soft background glow */}
+
       <div
         className="pointer-events-none absolute inset-0 opacity-60"
         style={{
@@ -40,10 +24,8 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      {/* ---------- HERO COPY ---------- */}
-      {/* pt clears the transparent overlay nav from DisplayLayout */}
       <div className="relative mx-auto max-w-6xl px-6 pt-48 text-center">
-        {/* offer pill — a deliberate, contained lead-in */}
+
         <div className="flex justify-center">
           <div className="inline-flex items-center gap-2.5 rounded-full bg-white/5 py-1.5 pl-1.5 pr-4 ring-1 ring-white/10 backdrop-blur-sm">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-wolf-orange px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
@@ -56,14 +38,12 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* headline — big, tightly stacked, poster-weight */}
         <h1 className="mt-7 font-display font-extrabold leading-[1.05] tracking-[-0.02em] text-wolf-cream text-[clamp(2.7rem,8vw,5.5rem)]">
           Fresh, delicious &amp;
           <br />
           delivered to your door!
         </h1>
 
-        {/* CTAs */}
         <div className="mt-9 flex items-center justify-center gap-4">
           <Link
             to="/signup"
@@ -74,11 +54,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ---------- CINEMATIC FOLDING CARD FAN ----------
-          Viewport: perspective + clip-path ellipse (curved bottom).
-          Track: flex row, cards fold inward on inner-edge hinges.
-          The row is wider than the viewport so the first & last cards
-          clip to ~half at the edges. */}
       <div
         className="relative w-full overflow-hidden"
         style={{

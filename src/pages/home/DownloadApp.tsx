@@ -1,9 +1,3 @@
-/* ============================================================
-   KONNECT — Download app
-   A green CTA card with copy + store badges on the left and a grey
-   phone mockup on the right (clipped at the card's bottom edge).
-   ============================================================ */
-
 import { FaApple, FaGooglePlay } from "react-icons/fa6";
 import { FiGlobe } from "react-icons/fi";
 
@@ -57,7 +51,6 @@ function WebBadge() {
   );
 }
 
-/* gray placeholder phone; two skeleton variants so the pair doesn't look identical */
 function Phone({ variant = "a" }: { variant?: "a" | "b" }) {
   return (
     <div className="rounded-[2.4rem] bg-neutral-900 p-2.5 shadow-2xl">
@@ -89,7 +82,7 @@ export default function DownloadApp() {
     <section className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="relative overflow-hidden rounded-[2.5rem] bg-[#111111] px-8 py-12 md:px-16 md:py-16">
-          {/* pattern + glow */}
+
           <div
             className="pointer-events-none absolute inset-0 opacity-70"
             style={{
@@ -100,7 +93,7 @@ export default function DownloadApp() {
           />
 
           <div className="relative grid items-center gap-10 md:grid-cols-2">
-            {/* copy */}
+
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
                 Get the app
@@ -119,14 +112,12 @@ export default function DownloadApp() {
               </div>
             </div>
 
-            {/* phone preview — single on mobile, staggered overlapping pair on desktop */}
             <div className="flex justify-center md:justify-end" aria-hidden="true">
-              {/* mobile: one phone */}
+
               <div className="w-[250px] md:hidden">
                 <Phone variant="a" />
               </div>
 
-              {/* desktop: two phones, back one offset behind the front */}
               <div className="relative hidden h-[500px] w-[400px] md:block">
                 <div className="absolute left-0 top-12 w-[230px] opacity-95">
                   <Phone variant="b" />

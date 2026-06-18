@@ -1,9 +1,3 @@
-/* ============================================================
-   KONNECT — Footer (shared chrome, rendered by DisplayLayout)
-   Simple & clean: brand + a few essential links + socials, with a
-   slim copyright bar. Suited to a small link set.
-   ============================================================ */
-
 import type { IconType } from "react-icons";
 import { FaInstagram, FaXTwitter, FaTiktok } from "react-icons/fa6";
 import logo from "../assets/logo.svg";
@@ -27,7 +21,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0a0a0a] text-wolf-cream/70">
       <div className="mx-auto max-w-7xl px-6 py-12">
-        {/* top: brand + links */}
+
         <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
           <a href="/" className="flex items-center gap-2">
             <img src={logo} alt="Konnect" className="h-8 w-8 rounded-lg" />
@@ -53,10 +47,8 @@ export default function Footer() {
           </nav>
         </div>
 
-        {/* divider */}
         <div className="my-8 h-px bg-white/10" />
 
-        {/* bottom: copyright + socials */}
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
           <p className="text-sm text-wolf-cream/50">© {2026} Konnect. All rights reserved.</p>
           <div className="flex gap-3">

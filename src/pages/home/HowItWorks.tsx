@@ -1,12 +1,3 @@
-/* ============================================================
-   KONNECT — How it works (sticky scrollytelling)
-   Dark-green band. Left: steps stacked tall; the one crossing the
-   viewport centre becomes active (others dim). Right: a sticky panel
-   whose UI card crossfades to the active step. On mobile the sticky
-   panel is dropped and each step shows its card inline.
-   Cards are lightweight UI mockups (Browse → Cart → Track).
-   ============================================================ */
-
 import { useEffect, useRef, useState } from "react";
 
 type Variant = "browse" | "cart" | "track";
@@ -36,7 +27,6 @@ const STEPS: Step[] = [
   },
 ];
 
-/* ---------- lightweight UI cards (per step) ---------- */
 function StepCard({ variant }: { variant: Variant }) {
   const base =
     "flex h-full flex-col rounded-2xl bg-white p-4 text-wolf-green shadow-xl shadow-black/25";
@@ -92,7 +82,6 @@ function StepCard({ variant }: { variant: Variant }) {
     );
   }
 
-  // track
   return (
     <div className={base}>
       <div className="text-sm font-semibold">On the way</div>
@@ -118,7 +107,6 @@ function StepCard({ variant }: { variant: Variant }) {
   );
 }
 
-/* the lighter-green "stage" that frames the card */
 function Stage({ children }: { children: React.ReactNode }) {
   return (
     <div className="rounded-3xl bg-white/[0.04] p-8 ring-1 ring-white/10">
@@ -133,7 +121,6 @@ export default function HowItWorks() {
   const listRef = useRef<HTMLDivElement>(null);
   const fillRef = useRef<HTMLDivElement>(null);
 
-  // discrete: which step is active (drives text / badge / card highlight)
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
@@ -149,21 +136,20 @@ export default function HowItWorks() {
     return () => io.disconnect();
   }, []);
 
-  // continuous: scroll-linked rail fill + ball (imperative → no re-render)
   useEffect(() => {
     const list = listRef.current;
     const fill = fillRef.current;
     if (!list || !fill) return;
     let raf = 0;
     const n = STEPS.length;
-    const firstFrac = 0.5 / n; // list-fraction of the 1st step's centre
-    const lastFrac = (n - 0.5) / n; // …and the last step's centre
+    const firstFrac = 0.5 / n;
+    const lastFrac = (n - 0.5) / n;
     const update = () => {
       raf = 0;
       const rect = list.getBoundingClientRect();
       const center = window.innerHeight / 2;
-      const raw = (center - rect.top) / rect.height; // 0 at list top … 1 at bottom
-      // remap so the ball is empty at the 1st step and full at the last step
+      const raw = (center - rect.top) / rect.height;
+
       const p = (raw - firstFrac) / (lastFrac - firstFrac);
       fill.style.height = `${Math.min(1, Math.max(0, p)) * 100}%`;
     };
@@ -182,7 +168,7 @@ export default function HowItWorks() {
 
   return (
     <section className="relative bg-[#111111] pt-24 pb-8 text-wolf-cream md:pt-28 md:pb-10">
-      {/* soft glow */}
+
       <div
         className="pointer-events-none absolute inset-0 opacity-70"
         style={{
@@ -193,15 +179,15 @@ export default function HowItWorks() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6">
-        {/* ---------- heading ---------- */}
+
         <h2 className="text-center font-display text-4xl leading-[1.05] tracking-tight text-wolf-cream md:text-5xl">
           How to order on <span className="text-wolf-orange">Konnect</span>
         </h2>
 
         <div className="mt-10 grid gap-10 md:mt-16 md:grid-cols-2 md:gap-24">
-          {/* ----- left: steps + scroll-progress rail ----- */}
+
           <div ref={listRef} className="relative md:pl-12">
-            {/* faint track + scroll-linked orange fill with a glowing ball (desktop) */}
+
             <div
               aria-hidden="true"
               className="absolute bottom-16 left-0 top-16 hidden w-0.5 md:block"
@@ -249,7 +235,6 @@ export default function HowItWorks() {
                   {step.text}
                 </p>
 
-                {/* supporting chips */}
                 <div
                   className={`mt-5 flex flex-wrap gap-2 transition-opacity duration-500 ${
                     active === i ? "opacity-100" : "opacity-40"
@@ -266,7 +251,6 @@ export default function HowItWorks() {
                   ))}
                 </div>
 
-                {/* mobile inline card */}
                 <div className="mt-7 md:hidden">
                   <Stage>
                     <StepCard variant={step.screen} />
@@ -276,7 +260,6 @@ export default function HowItWorks() {
             ))}
           </div>
 
-          {/* ----- right: sticky card stage (desktop) ----- */}
           <div className="hidden md:block">
             <div className="sticky top-24">
               <Stage>
@@ -295,8 +278,6 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        {/* trailing space so the last step can glide up to the middle (desktop),
-            letting the progress ball roll to the end instead of snapping */}
         <div aria-hidden="true" className="hidden h-[10vh] md:block" />
       </div>
     </section>

@@ -1,10 +1,3 @@
-/* ============================================================
-   KONNECT — Partner section (under "How to order on Konnect")
-   Alternating rows (text ↔ image), one for restaurants and one
-   for riders. Clean, flat layout inspired by v.png: airy light
-   cards, simple dot bullets, small pill buttons, no heavy shadows.
-   ============================================================ */
-
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
@@ -73,7 +66,7 @@ export default function Partners() {
   return (
     <section className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        {/* ---------- heading ---------- */}
+
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
             Partner with Konnect
@@ -86,10 +79,9 @@ export default function Partners() {
           </p>
         </div>
 
-        {/* ---------- alternating rows ---------- */}
         <div className="mt-14 space-y-6 md:mt-16 md:space-y-8">
           {ROWS.map((row, i) => {
-            const flipped = i % 2 === 1; // odd rows put the image on the left
+            const flipped = i % 2 === 1;
             return (
               <div
                 key={row.title}
@@ -99,7 +91,7 @@ export default function Partners() {
                     : "md:grid-cols-[1.5fr_1fr]"
                 }`}
               >
-                {/* text — background lives here only */}
+
                 <div
                   className={`rounded-[1.75rem] bg-wolf-cream/50 px-7 py-8 md:px-12 md:py-12 ${
                     flipped ? "md:order-2" : ""
@@ -132,7 +124,6 @@ export default function Partners() {
                   </Link>
                 </div>
 
-                {/* image */}
                 <div
                   className={`relative min-h-[220px] overflow-hidden rounded-[1.75rem] bg-neutral-200 md:min-h-[320px] ${
                     flipped ? "md:order-1" : ""

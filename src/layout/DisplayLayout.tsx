@@ -1,9 +1,3 @@
-/* ============================================================
-   DisplayLayout — the public-facing page shell (layout route).
-   Renders the shared chrome (Navbar + Footer) around the active
-   route's <Outlet/>, and scrolls to top on navigation.
-   ============================================================ */
-
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";

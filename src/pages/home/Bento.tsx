@@ -1,10 +1,3 @@
-/* ============================================================
-   KONNECT — Bento category section (under the hero)
-   A featured "Food Delivery" card (2×2) with "Groceries" and
-   "Stores" coming-soon tiles stacked beside it. Collapses to a
-   single column on mobile. Image slots come from the central config.
-   ============================================================ */
-
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
@@ -13,7 +6,7 @@ export default function Bento() {
   return (
     <section className="pt-20 md:pt-28">
       <div className="mx-auto max-w-7xl px-6">
-        {/* ---------- heading ---------- */}
+
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
             What&apos;s on Konnect
@@ -28,9 +21,8 @@ export default function Bento() {
           </p>
         </div>
 
-        {/* ---------- bento grid ---------- */}
         <div className="mt-12 grid gap-5 md:grid-cols-3 md:grid-rows-2">
-          {/* Featured: Food Delivery (2×2) */}
+
           <article className="group relative flex flex-col overflow-hidden rounded-3xl bg-wolf-green p-7 text-wolf-cream md:col-span-2 md:row-span-2">
             <div className="relative z-10 max-w-md">
               <span className="inline-block rounded-full bg-wolf-orange px-3 py-1 text-xs font-semibold text-white">
@@ -51,7 +43,7 @@ export default function Bento() {
                 <FiArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
-            {/* featured image */}
+
             <div className="relative mt-7 min-h-[170px] flex-1 overflow-hidden rounded-2xl bg-neutral-300 transition-transform duration-300 group-hover:scale-[1.01]">
               <img
                 src={IMAGES.bentoFood}
@@ -62,7 +54,6 @@ export default function Bento() {
             </div>
           </article>
 
-          {/* Groceries (coming soon) */}
           <article className="group flex flex-col rounded-3xl bg-white p-6 ring-1 ring-black/5">
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-display text-2xl leading-none tracking-tight text-wolf-green">
@@ -85,7 +76,6 @@ export default function Bento() {
             </div>
           </article>
 
-          {/* Pharmacy (coming soon) */}
           <article className="group flex flex-col rounded-3xl bg-white p-6 ring-1 ring-black/5">
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-display text-2xl leading-none tracking-tight text-wolf-green">

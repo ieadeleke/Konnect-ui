@@ -1,13 +1,3 @@
-/* ============================================================
-   KONNECT — Top picks for you
-   Matches g.png: a compact grid of small "pick" items — a round
-   thumbnail beside a short label — under a centred heading, with an
-   orange button below. Grey circles stand in for the thumbnails.
-   NOTE: "Top picks for you" heading is verbatim from g.png; the
-   eyebrow / subcopy / item text are placeholders (source not
-   legible) — swap when the real copy lands.
-   ============================================================ */
-
 import { IMAGES } from "../../assets/images";
 
 type Pick = { name: string; meta: string; img: string };
@@ -31,7 +21,7 @@ function Pill({ p }: { p: Pick }) {
       href="#"
       className="group flex w-full items-center gap-4 rounded-full bg-white p-2 pr-5 shadow-sm ring-1 ring-black/5 transition duration-300 hover:-translate-y-0.5 hover:shadow-md sm:w-[280px]"
     >
-      {/* round thumbnail */}
+
       <img
         src={p.img}
         alt={p.name}
@@ -50,7 +40,7 @@ export default function TopPicks() {
   return (
     <section className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        {/* ---------- heading ---------- */}
+
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-wolf-orange">
             Featured kitchens
@@ -63,7 +53,6 @@ export default function TopPicks() {
           </p>
         </div>
 
-        {/* ---------- picks ---------- */}
         <div className="mt-12 flex flex-wrap justify-center gap-6">
           {PICKS.map((p) => (
             <Pill key={p.name} p={p} />
