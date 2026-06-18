@@ -56,7 +56,7 @@ export default function SignupCard() {
     try {
       const emailCheck = await checkEmail(email.trim());
       if (!emailCheck.ok) {
-        setError(emailCheck.message || "That email looks undeliverable — please double-check it.");
+        setError(emailCheck.message || "Please enter a valid email address.");
         setSubmitting(false);
         return;
       }

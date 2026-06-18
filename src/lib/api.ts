@@ -67,7 +67,7 @@ export async function checkEmail(email: string): Promise<EmailCheck> {
     return {
       ok,
       status,
-      message: ok ? undefined : body?.data?.remarks || "That email looks undeliverable.",
+      message: ok ? undefined : "Please enter a valid email address.",
     };
   } catch {
     return { ok: true };
