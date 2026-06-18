@@ -17,15 +17,14 @@ import { APP_STORE_URL, GOOGLE_PLAY_URL } from "../../lib/links";
 
 type ReferralState = "idle" | "checking" | "valid" | "invalid";
 
-function splitPhone(input: string): { phone_code: string; phone_number: string } {
+function normalizePhone(input: string): { phone_code: string; phone_number: string } {
   let digits = input.replace(/\D/g, "");
-  let phone_code = "234";
-  if (digits.startsWith("234")) {
-    digits = digits.slice(3);
-  } else if (digits.startsWith("0")) {
-    digits = digits.replace(/^0+/, "");
+  if (digits.startsWith("0")) {
+    digits = "234" + digits.slice(1);
+  } else if (digits.length > 0 && !digits.startsWith("234")) {
+    digits = "234" + digits;
   }
-  return { phone_code, phone_number: digits };
+  return { phone_code: "234", phone_number: digits };
 }
 
 export default function SignupCard() {
@@ -92,7 +91,7 @@ export default function SignupCard() {
     setSubmitting(true);
     setError("");
     try {
-      const { phone_code, phone_number } = splitPhone(phone);
+      const { phone_code, phone_number } = normalizePhone(phone);
       await signUpUser({
         first_name: firstName.trim(),
         last_name: lastName.trim(),
