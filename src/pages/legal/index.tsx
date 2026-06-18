@@ -5,6 +5,7 @@
 
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { useSeo } from "../../lib/seo";
 
 type Section = { heading: string; body: ReactNode };
 
@@ -65,8 +66,8 @@ function LegalPage({
           <div className="mt-12 rounded-2xl bg-wolf-cream p-6 ring-1 ring-black/5">
             <p className="text-sm text-wolf-green/70">
               Questions about this {title.toLowerCase()}? Reach us at{" "}
-              <a href="mailto:hello@konnectbd.com" className="font-semibold text-wolf-green underline-offset-2 hover:underline">
-                hello@konnectbd.com
+              <a href="mailto:konnect@consukon.com" className="font-semibold text-wolf-green underline-offset-2 hover:underline">
+                konnect@consukon.com
               </a>
               .
             </p>
@@ -106,6 +107,12 @@ const COOKIES: { type: string; usage: string }[] = [
 ];
 
 export function PrivacyPage() {
+  useSeo({
+    title: "Privacy Policy",
+    description:
+      "How Konnect (Consukon Limited) collects, uses and protects your personal information, including your privacy rights and our use of cookies.",
+    path: "/privacy",
+  });
   return (
     <LegalPage
       eyebrow="Privacy"
@@ -214,6 +221,12 @@ export function PrivacyPage() {
 }
 
 export function TermsPage() {
+  useSeo({
+    title: "Terms of Service",
+    description:
+      "The terms governing your use of Konnect's services, operated by Consukon Limited — including electronic communications, acceptable use, governing law and dispute resolution.",
+    path: "/terms",
+  });
   return (
     <LegalPage
       eyebrow="Terms"

@@ -22,6 +22,7 @@ import {
   FiAward,
 } from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
+import { useSeo } from "../../lib/seo";
 
 /* ---------- shared ---------- */
 function Arrow() {
@@ -513,6 +514,12 @@ function Apply() {
 }
 
 export default function AmbassadorsPage() {
+  useSeo({
+    title: "Become a Konnect Ambassador — grow the pack, get rewarded",
+    description:
+      "Share Konnect with your campus, followers and friends and earn for every foodie, rider and restaurant you bring on board. Free to join, with weekly payouts and real perks.",
+    path: "/ambassadors",
+  });
   return (
     <>
       <Hero />

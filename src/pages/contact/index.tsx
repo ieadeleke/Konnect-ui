@@ -8,6 +8,7 @@ import { useState } from "react";
 import type { IconType } from "react-icons";
 import { FaWhatsapp, FaInstagram, FaXTwitter, FaTiktok } from "react-icons/fa6";
 import { FiMail, FiGlobe, FiCheck } from "react-icons/fi";
+import { useSeo } from "../../lib/seo";
 
 const CHANNELS: { Icon: IconType; label: string; value: string; href: string }[] = [
   {
@@ -65,6 +66,12 @@ function Field({
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
+  useSeo({
+    title: "Contact us",
+    description:
+      "Questions, partnerships or support? Reach the Konnect team on WhatsApp at +234 807 337 6943, email konnect@consukon.com, or send us a message — we usually reply within a few hours.",
+    path: "/contact",
+  });
 
   return (
     <>

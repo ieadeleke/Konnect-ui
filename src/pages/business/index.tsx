@@ -19,6 +19,7 @@ import {
   FiShoppingCart,
 } from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
+import { useSeo } from "../../lib/seo";
 
 const BENEFITS: { Icon: IconType; title: string; text: string }[] = [
   {
@@ -324,6 +325,12 @@ function Signup() {
 }
 
 export default function BusinessPage() {
+  useSeo({
+    title: "Konnect for Business — grow your restaurant",
+    description:
+      "Partner with Konnect to reach thousands of hungry customers, manage orders from one simple dashboard and get instant payouts. No setup fees — live in 48 hours.",
+    path: "/business",
+  });
   return (
     <>
       <Hero />

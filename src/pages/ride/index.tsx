@@ -40,6 +40,7 @@ import {
   FiCreditCard,
 } from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
+import { useSeo } from "../../lib/seo";
 
 /* ---------- shared bits ---------- */
 function Arrow() {
@@ -589,14 +590,14 @@ function Flag({ className = "h-5 w-5" }: { className?: string }) {
 }
 
 const CONFETTI: { tx: string; ty: string; color: string }[] = [
-  { tx: "-26px", ty: "-30px", color: "#0b7a52" },
-  { tx: "-8px", ty: "-42px", color: "#111111" },
-  { tx: "14px", ty: "-36px", color: "#0b7a52" },
-  { tx: "30px", ty: "-22px", color: "#1c1c1c" },
-  { tx: "-32px", ty: "-6px", color: "#111111" },
-  { tx: "32px", ty: "-4px", color: "#0b7a52" },
-  { tx: "-18px", ty: "14px", color: "#0b7a52" },
-  { tx: "22px", ty: "16px", color: "#111111" },
+  { tx: "-26px", ty: "-30px", color: "#ffffff" },
+  { tx: "-8px", ty: "-42px", color: "#ffffff" },
+  { tx: "14px", ty: "-36px", color: "#ffffff" },
+  { tx: "30px", ty: "-22px", color: "#ffffff" },
+  { tx: "-32px", ty: "-6px", color: "#ffffff" },
+  { tx: "32px", ty: "-4px", color: "#ffffff" },
+  { tx: "-18px", ty: "14px", color: "#ffffff" },
+  { tx: "22px", ty: "16px", color: "#ffffff" },
 ];
 
 function Steps() {
@@ -615,10 +616,10 @@ function Steps() {
           <div className="pointer-events-none absolute bottom-0 left-[19px] top-0 w-2.5" aria-hidden="true">
             <div className="absolute inset-0 rounded-full bg-wolf-green" />
             <div className="absolute inset-y-4 left-1/2 -translate-x-1/2 border-l-2 border-dashed border-wolf-cream/40" />
-            <div className="wolf-ride-y absolute left-1/2 top-0 grid h-10 w-10 -translate-x-1/2 place-items-center rounded-full bg-wolf-green text-wolf-orange ring-4 ring-wolf-cream">
+            <div className="wolf-ride-y absolute left-1/2 top-0 grid h-10 w-10 -translate-x-1/2 place-items-center rounded-full bg-wolf-green text-white ring-4 ring-wolf-cream">
               <Bike className="h-4 w-4" />
             </div>
-            <div className="absolute bottom-0 left-1/2 grid h-10 w-10 -translate-x-1/2 place-items-center rounded-full bg-wolf-green text-wolf-orange ring-4 ring-wolf-cream">
+            <div className="absolute bottom-0 left-1/2 grid h-10 w-10 -translate-x-1/2 place-items-center rounded-full bg-wolf-green text-white ring-4 ring-wolf-cream">
               <Flag className="h-4 w-4" />
             </div>
             <div className="absolute bottom-[20px] left-1/2" aria-hidden="true">
@@ -678,14 +679,14 @@ function Steps() {
             </svg>
 
             {/* riding bike — follows the whole road */}
-            <div className="wolf-snake absolute left-[4%] top-[20%] z-10 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-wolf-green text-wolf-orange ring-4 ring-wolf-cream">
+            <div className="wolf-snake absolute left-[4%] top-[20%] z-10 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-wolf-green text-white ring-4 ring-wolf-cream">
               <div className="wolf-snake-orient flex items-center justify-center">
                 <Bike className="h-6 w-6" />
               </div>
             </div>
 
             {/* finish flag + confetti */}
-            <div className="absolute left-[4%] top-[80%] z-10 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-wolf-green text-wolf-orange ring-4 ring-wolf-cream">
+            <div className="absolute left-[4%] top-[80%] z-10 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-wolf-green text-white ring-4 ring-wolf-cream">
               <Flag className="h-6 w-6" />
             </div>
             <div className="absolute left-[4%] top-[80%] z-10" aria-hidden="true">
@@ -886,6 +887,12 @@ function Signup() {
 }
 
 export default function RidePage() {
+  useSeo({
+    title: "Ride with Konnect — earn on your own terms",
+    description:
+      "Deliver with Konnect and ride when it suits you. Flexible hours, instant payouts and bonuses when demand is high. Join 5,000+ riders earning daily across Nigeria.",
+    path: "/ride",
+  });
   return (
     <>
       <Hero />

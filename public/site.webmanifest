@@ -1,0 +1,16 @@
+{
+  "name": "Konnect",
+  "short_name": "Konnect",
+  "description": "Fresh, delicious food delivered to your door.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#0b7a52",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

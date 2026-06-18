@@ -8,6 +8,7 @@
 import { useState, type ReactNode } from "react";
 import { FaApple, FaGooglePlay } from "react-icons/fa6";
 import { FiUser, FiMail, FiPhone, FiLock, FiTag, FiCheck, FiArrowRight } from "react-icons/fi";
+import { useSeo } from "../../lib/seo";
 
 function Field({
   label,
@@ -56,6 +57,13 @@ function Field({
 
 export default function SignupPage() {
   const [done, setDone] = useState(false);
+  useSeo({
+    title: "Create your account",
+    description:
+      "Sign up for Konnect and start ordering, tracking and earning. It only takes a minute — create your free account today.",
+    path: "/signup",
+    noindex: true,
+  });
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-wolf-green px-6 pb-16 pt-28 md:pt-32">
