@@ -10,10 +10,11 @@ import {
   FiArrowRight,
   FiLoader,
   FiAlertCircle,
+  FiGlobe,
 } from "react-icons/fi";
 import Field from "./Field";
 import { signUpUser } from "../../lib/api";
-import { APP_STORE_URL, GOOGLE_PLAY_URL } from "../../lib/links";
+import { APP_STORE_URL, GOOGLE_PLAY_URL, WEB_URL } from "../../lib/links";
 
 function normalizePhone(input: string): { phone_code: string; phone_number: string } {
   let digits = input.replace(/\D/g, "");
@@ -107,6 +108,18 @@ export default function SignupCard() {
               <span className="text-left leading-tight">
                 <span className="block text-[0.6rem] opacity-70">Get it on</span>
                 <span className="block font-display text-sm font-bold">Google Play</span>
+              </span>
+            </a>
+            <a
+              href={WEB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full max-w-[220px] items-center justify-center gap-3 rounded-xl bg-wolf-green px-5 py-2.5 text-wolf-cream transition-transform hover:-translate-y-0.5"
+            >
+              <FiGlobe className="h-6 w-6" />
+              <span className="text-left leading-tight">
+                <span className="block text-[0.6rem] opacity-70">Order on the</span>
+                <span className="block font-display text-sm font-bold">Web</span>
               </span>
             </a>
           </div>
