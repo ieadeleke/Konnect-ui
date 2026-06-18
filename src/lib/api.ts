@@ -1,7 +1,5 @@
-const RAW_BASE =
-  (import.meta.env as Record<string, string | undefined>).VITE_API_BASE_URL ??
-  "https://new-backend-production.apps.konnectbd.com/api/v1";
-const BASE_URL = RAW_BASE.replace(/\/+$/, "");
+// Hardcoded for testing — ignore env so the live build always hits the new backend.
+const BASE_URL = "https://new-backend-production.apps.konnectbd.com/api/v1";
 
 export class ApiError extends Error {
   status: number;
