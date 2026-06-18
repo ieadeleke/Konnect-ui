@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { FiTag } from "react-icons/fi";
 import { IMAGES } from "../../assets/images";
 import StoreBadges from "../../components/StoreBadges";
@@ -45,16 +44,7 @@ export default function Hero() {
           delivered to your door!
         </h1>
 
-        <div className="mt-9 flex items-center justify-center gap-4">
-          <Link
-            to="/signup"
-            className="rounded-full bg-wolf-orange px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-black/10 transition-transform hover:-translate-y-0.5"
-          >
-            Click here to start
-          </Link>
-        </div>
-
-        <StoreBadges className="mt-7 items-center sm:justify-center" size="sm" />
+        <StoreBadges className="mt-9 items-center sm:justify-center" size="sm" />
       </div>
 
       <div
