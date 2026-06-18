@@ -39,23 +39,6 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return body as T;
 }
 
-export type EmailCheck = { ok: boolean; status?: string; message?: string };
-
-export async function checkEmail(email: string): Promise<EmailCheck> {
-  try {
-    const res = await fetch("/api/check-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
-    if (!res.ok) return { ok: true };
-    const data = (await res.json()) as EmailCheck;
-    return { ok: data?.ok !== false, status: data?.status, message: data?.message };
-  } catch {
-    return { ok: true };
-  }
-}
-
 export type SignUpInput = {
   first_name: string;
   last_name: string;
