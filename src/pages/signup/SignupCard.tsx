@@ -48,7 +48,7 @@ export default function SignupCard() {
     const fromUrl = new URLSearchParams(window.location.search).get("konnectrfc");
     const stored = localStorage.getItem("referralCode");
     const code = fromUrl || stored || "";
-    if (code) setReferral(code.slice(0, 6));
+    if (code) setReferral(code.slice(0, 8));
   }, []);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function SignupCard() {
 
   useEffect(() => {
     const code = referral.trim();
-    if (code.length !== 6) {
+    if (code.length !== 8) {
       setReferralState("idle");
       setReferralName("");
       setReferralError("");
@@ -227,9 +227,9 @@ export default function SignupCard() {
           <Field
             label="Referral code"
             name="referral"
-            placeholder="6-character code — optional"
+            placeholder="8-character code — optional"
             optional
-            maxLength={6}
+            maxLength={8}
             value={referral}
             onChange={(v) => setReferral(v.trim())}
             icon={<FiTag className="h-4 w-4" />}
