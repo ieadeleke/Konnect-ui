@@ -11,7 +11,6 @@ export default function Hero() {
         }}
         aria-hidden="true"
       />
-
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 md:grid-cols-2 md:gap-16">
 
         <div>
