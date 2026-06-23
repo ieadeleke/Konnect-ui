@@ -18,9 +18,9 @@ export default function AmbassadorsPage() {
     <>
       <Hero />
       <Benefits />
-      <WhoJoins />
-      <Steps />
       <Tiers />
+      <Steps />
+      <WhoJoins />
       <Faq />
       <Apply />
     </>

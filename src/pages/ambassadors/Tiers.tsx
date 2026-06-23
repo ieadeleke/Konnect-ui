@@ -1,10 +1,10 @@
 import { Check } from "./shared";
 
 const TIERS: { name: string; rate: string; reach: string; perks: string[]; featured?: boolean }[] = [
-  { name: "Rookie", rate: "₦25K", reach: "Start here", perks: ["Starter kit", "Your referral link"] },
-  { name: "Rising", rate: "₦45K", reach: "50+ referrals", perks: ["Branded merch", "Recognition badges"] },
-  { name: "Pro", rate: "₦95K", reach: "150+ referrals", perks: ["Event access", "Performance bonuses"] },
-  { name: "Legend", rate: "₦150K", reach: "400+ referrals", perks: ["Cash bonuses", "Internships & roles"], featured: true },
+  { name: "Rookie", rate: "₦45K", reach: "Start here", perks: ["Starter kit", "Your referral link"] },
+  { name: "Rising", rate: "₦95K", reach: "50+ referrals", perks: ["Branded merch", "Recognition badges"] },
+  { name: "Pro", rate: "₦155K", reach: "150+ referrals", perks: ["Event access", "Performance bonuses"] },
+  { name: "Legend", rate: "₦245K", reach: "400+ referrals", perks: ["Cash bonuses", "Internships & roles"], featured: true },
 ];
 
 export default function Tiers() {
